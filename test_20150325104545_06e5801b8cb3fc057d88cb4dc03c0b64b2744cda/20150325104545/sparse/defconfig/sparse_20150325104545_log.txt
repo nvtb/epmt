@@ -1,0 +1,11 @@
+test_sparse: Wed Mar 25 10:48:12 PDT 2015: started on defconfig test_20150325104545_06e5801b8cb3fc057d88cb4dc03c0b64b2744cda (06e5801b8cb3fc057d88cb4dc03c0b64b2744cda)
+test_sparse: Wed Mar 25 10:48:12 PDT 2015: serial is 20150325104545
+test_sparse: sparse version unknown (checksum d41d8cd98f00b204e9800998ecf8427e)
+/bin/sh: 1: sparse: not found
+make[2]: *** [scripts/mod/empty.o] Error 127
+make[1]: *** [scripts/mod] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [scripts] Error 2
+make: *** Waiting for unfinished jobs....
+test_sparse: Wed Mar 25 10:48:16 PDT 2015: FAILED on defconfig test_20150325104545_06e5801b8cb3fc057d88cb4dc03c0b64b2744cda
+test_sparse: Wed Mar 25 10:48:16 PDT 2015: ended on defconfig test_20150325104545_06e5801b8cb3fc057d88cb4dc03c0b64b2744cda

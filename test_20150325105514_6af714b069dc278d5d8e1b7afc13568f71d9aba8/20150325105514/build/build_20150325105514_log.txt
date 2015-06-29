@@ -1,0 +1,18 @@
+test_build: Wed Mar 25 10:59:52 PDT 2015: started on defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8 (6af714b069dc278d5d8e1b7afc13568f71d9aba8)
+test_build: Wed Mar 25 10:59:52 PDT 2015: serial is 20150325105514
+drivers/pci/host/pci-xgene.c: In function ‘xgene_pcie_map_bus’:
+drivers/pci/host/pci-xgene.c:137:3: warning: return makes integer from pointer without a cast
+   return NULL;
+   ^
+drivers/pci/host/pci-xgene.c:140:2: warning: return makes integer from pointer without a cast
+  return xgene_pcie_get_cfg_base(bus);
+  ^
+drivers/pci/host/pci-xgene.c: At top level:
+drivers/pci/host/pci-xgene.c:144:13: warning: initialization from incompatible pointer type
+  .map_bus = xgene_pcie_map_bus,
+             ^
+drivers/pci/host/pci-xgene.c:144:13: warning: (near initialization for ‘xgene_pcie_ops.map_bus’)
+   text	   data	    bss	    dec	    hex	filename
+7261650	 424936	 203344	7889930	 78640a	vmlinux
+test_build: Wed Mar 25 11:02:05 PDT 2015: succeeded on defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8
+test_build: Wed Mar 25 11:02:05 PDT 2015: ended on defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8

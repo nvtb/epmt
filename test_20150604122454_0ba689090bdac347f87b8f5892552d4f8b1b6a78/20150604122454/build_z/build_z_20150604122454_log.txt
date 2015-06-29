@@ -1,0 +1,35 @@
+test_build: Thu Jun 4 12:26:22 PDT 2015: started on multi_v7_defconfig test_20150604122454_0ba689090bdac347f87b8f5892552d4f8b1b6a78 (0ba689090bdac347f87b8f5892552d4f8b1b6a78)
+test_build: Thu Jun 4 12:26:22 PDT 2015: serial is 20150604122454
+.config:603:warning: override: reassigning to symbol COMMON_CLK_QCOM
+warning: (ARCH_MXC) selects CLKSRC_IMX_GPT which has unmet direct dependencies (OF && BROKEN)
+warning: (ARCH_MXC) selects CLKSRC_IMX_GPT which has unmet direct dependencies (OF && BROKEN)
+warning: (ARCH_MXC) selects CLKSRC_IMX_GPT which has unmet direct dependencies (OF && BROKEN)
+<stdin>:1253:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
+drivers/clk/sunxi/clk-mod0.c:131:1: warning: data definition has no type or storage class [enabled by default]
+drivers/clk/sunxi/clk-mod0.c:131:1: error: type defaults to ‘int’ in declaration of ‘module_init’ [-Werror=implicit-int]
+drivers/clk/sunxi/clk-mod0.c:131:1: warning: parameter names (without types) in function declaration [enabled by default]
+drivers/clk/sunxi/clk-mod0.c:131:1: warning: data definition has no type or storage class [enabled by default]
+drivers/clk/sunxi/clk-mod0.c:131:1: error: type defaults to ‘int’ in declaration of ‘module_exit’ [-Werror=implicit-int]
+drivers/clk/sunxi/clk-mod0.c:131:1: warning: parameter names (without types) in function declaration [enabled by default]
+drivers/clk/sunxi/clk-mod0.c:131:1: warning: ‘sun4i_a10_mod0_clk_driver_init’ defined but not used [-Wunused-function]
+cc1: some warnings being treated as errors
+make[3]: *** [drivers/clk/sunxi/clk-mod0.o] Error 1
+make[3]: *** Waiting for unfinished jobs....
+make[2]: *** [drivers/clk/sunxi] Error 2
+make[1]: *** [drivers/clk] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [drivers] Error 2
+test_build: Thu Jun 4 12:27:50 PDT 2015: FAILED on multi_v7_defconfig test_20150604122454_0ba689090bdac347f87b8f5892552d4f8b1b6a78
+test_build: Thu Jun 4 12:27:50 PDT 2015: ended on multi_v7_defconfig test_20150604122454_0ba689090bdac347f87b8f5892552d4f8b1b6a78
+test_build: Thu Jun 4 12:26:21 PDT 2015: started on tegra_defconfig test_20150604122454_0ba689090bdac347f87b8f5892552d4f8b1b6a78 (0ba689090bdac347f87b8f5892552d4f8b1b6a78)
+test_build: Thu Jun 4 12:26:21 PDT 2015: serial is 20150604122454
+<stdin>:1253:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
+net/bluetooth/mgmt.c: In function ‘read_local_oob_ext_data_complete’:
+net/bluetooth/mgmt.c:6463:8: warning: ‘r192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6474:13: note: ‘r192’ was declared here
+net/bluetooth/mgmt.c:6463:8: warning: ‘h192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6474:6: note: ‘h192’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9758473	 431268	 368724	10558465	 a11c01	vmlinux
+test_build: Thu Jun 4 12:28:51 PDT 2015: succeeded on tegra_defconfig test_20150604122454_0ba689090bdac347f87b8f5892552d4f8b1b6a78
+test_build: Thu Jun 4 12:28:51 PDT 2015: ended on tegra_defconfig test_20150604122454_0ba689090bdac347f87b8f5892552d4f8b1b6a78

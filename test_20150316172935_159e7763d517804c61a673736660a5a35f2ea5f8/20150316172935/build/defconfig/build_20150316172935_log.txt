@@ -1,0 +1,10 @@
+test_build: Mon Mar 16 17:32:30 PDT 2015: started on defconfig test_20150316172935_159e7763d517804c61a673736660a5a35f2ea5f8 (159e7763d517804c61a673736660a5a35f2ea5f8)
+test_build: Mon Mar 16 17:32:30 PDT 2015: serial is 20150316172935
+net/9p/trans_virtio.c: In function ‘p9_virtio_remove’:
+net/9p/trans_virtio.c:662:7: warning: unused variable ‘inuse’ [-Wunused-variable]
+  bool inuse;
+       ^
+   text	   data	    bss	    dec	    hex	filename
+7303410	 421624	 204176	7929210	 78fd7a	vmlinux
+test_build: Mon Mar 16 17:34:28 PDT 2015: succeeded on defconfig test_20150316172935_159e7763d517804c61a673736660a5a35f2ea5f8
+test_build: Mon Mar 16 17:34:28 PDT 2015: ended on defconfig test_20150316172935_159e7763d517804c61a673736660a5a35f2ea5f8

@@ -1,0 +1,17 @@
+test_build: Fri May 1 01:15:47 PDT 2015: started on multi_v7_defconfig test_20150501011536_408b36cd2a12a4cd311e72bfd7210a5912dfa7d6 (408b36cd2a12a4cd311e72bfd7210a5912dfa7d6)
+test_build: Fri May 1 01:15:47 PDT 2015: serial is 20150501011536
+   text	   data	    bss	    dec	    hex	filename
+12398912	1362444	 325288	14086644	 d6f1f4	vmlinux
+test_build: Fri May 1 01:17:40 PDT 2015: succeeded on multi_v7_defconfig test_20150501011536_408b36cd2a12a4cd311e72bfd7210a5912dfa7d6
+test_build: Fri May 1 01:17:40 PDT 2015: ended on multi_v7_defconfig test_20150501011536_408b36cd2a12a4cd311e72bfd7210a5912dfa7d6
+test_build: Fri May 1 01:15:46 PDT 2015: started on tegra_defconfig test_20150501011536_408b36cd2a12a4cd311e72bfd7210a5912dfa7d6 (408b36cd2a12a4cd311e72bfd7210a5912dfa7d6)
+test_build: Fri May 1 01:15:46 PDT 2015: serial is 20150501011536
+net/bluetooth/mgmt.c: In function ‘read_local_oob_ext_data_complete’:
+net/bluetooth/mgmt.c:6463:8: warning: ‘r192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6474:13: note: ‘r192’ was declared here
+net/bluetooth/mgmt.c:6463:8: warning: ‘h192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6474:6: note: ‘h192’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9444563	 412316	 360084	10216963	 9be603	vmlinux
+test_build: Fri May 1 01:18:21 PDT 2015: succeeded on tegra_defconfig test_20150501011536_408b36cd2a12a4cd311e72bfd7210a5912dfa7d6
+test_build: Fri May 1 01:18:21 PDT 2015: ended on tegra_defconfig test_20150501011536_408b36cd2a12a4cd311e72bfd7210a5912dfa7d6

@@ -1,0 +1,19 @@
+test_build: Wed Mar 18 19:48:56 PDT 2015: started on multi_v7_defconfig test_20150318194741_159e7763d517804c61a673736660a5a35f2ea5f8 (159e7763d517804c61a673736660a5a35f2ea5f8)
+test_build: Wed Mar 18 19:48:56 PDT 2015: serial is 20150318194741
+In file included from drivers/pinctrl/mediatek/pinctrl-mt8135.c:24:0:
+drivers/pinctrl/mediatek/pinctrl-mtk-mt8135.h:19:32: fatal error: pinctrl-mtk-common.h: No such file or directory
+compilation terminated.
+make[3]: *** [drivers/pinctrl/mediatek/pinctrl-mt8135.o] Error 1
+make[2]: *** [drivers/pinctrl/mediatek] Error 2
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [drivers/pinctrl] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [drivers] Error 2
+test_build: Wed Mar 18 19:51:32 PDT 2015: FAILED on multi_v7_defconfig test_20150318194741_159e7763d517804c61a673736660a5a35f2ea5f8
+test_build: Wed Mar 18 19:51:32 PDT 2015: ended on multi_v7_defconfig test_20150318194741_159e7763d517804c61a673736660a5a35f2ea5f8
+test_build: Wed Mar 18 19:48:14 PDT 2015: started on tegra_defconfig test_20150318194741_159e7763d517804c61a673736660a5a35f2ea5f8 (159e7763d517804c61a673736660a5a35f2ea5f8)
+test_build: Wed Mar 18 19:48:14 PDT 2015: serial is 20150318194741
+   text	   data	    bss	    dec	    hex	filename
+9302268	 405804	 359404	10067476	 999e14	vmlinux
+test_build: Wed Mar 18 19:50:55 PDT 2015: succeeded on tegra_defconfig test_20150318194741_159e7763d517804c61a673736660a5a35f2ea5f8
+test_build: Wed Mar 18 19:50:55 PDT 2015: ended on tegra_defconfig test_20150318194741_159e7763d517804c61a673736660a5a35f2ea5f8

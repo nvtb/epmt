@@ -1,0 +1,12 @@
+test_build: Wed May 27 05:55:03 PDT 2015: started on tegra_defconfig test_20150527055028_b031599c28a38c92b745822d702e9b073d49dbaa (b031599c28a38c92b745822d702e9b073d49dbaa)
+test_build: Wed May 27 05:55:03 PDT 2015: serial is 20150527055028
+<stdin>:1253:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
+net/bluetooth/mgmt.c: In function ‘read_local_oob_ext_data_complete’:
+net/bluetooth/mgmt.c:6463:8: warning: ‘r192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6474:13: note: ‘r192’ was declared here
+net/bluetooth/mgmt.c:6463:8: warning: ‘h192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6474:6: note: ‘h192’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9742805	 430212	 368660	10541677	 a0da6d	vmlinux
+test_build: Wed May 27 05:57:34 PDT 2015: succeeded on tegra_defconfig test_20150527055028_b031599c28a38c92b745822d702e9b073d49dbaa
+test_build: Wed May 27 05:57:34 PDT 2015: ended on tegra_defconfig test_20150527055028_b031599c28a38c92b745822d702e9b073d49dbaa

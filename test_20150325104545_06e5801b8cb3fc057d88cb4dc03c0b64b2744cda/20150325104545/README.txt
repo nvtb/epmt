@@ -1,0 +1,38 @@
+Tegra baseline test results for 20150325104545_06e5801b8cb3fc057d88cb4dc03c0b64b2744cda
+
+
+Here are some basic Tegra test results for Linux 20150325104545_06e5801b8cb3fc057d88cb4dc03c0b64b2744cda.
+Logs and other details at:
+
+    http://nvt.pwsan.com/pub/pwalmsley-tester/testlogs/test_20150325104545_06e5801b8cb3fc057d88cb4dc03c0b64b2744cda/20150325104545/
+
+
+Test summary
+------------
+
+Build: zImage:
+    Pass: ( 2/ 2): multi_v7_defconfig, tegra_defconfig
+
+Build: Image:
+    Pass: ( 1/ 1): defconfig
+
+Boot to userspace: defconfig:
+    Pass: ( 1/ 1): qemu-vexpress64
+
+Boot to userspace: multi_v7_defconfig:
+    FAIL: ( 1/ 4): tegra20-trimslice
+    Pass: ( 3/ 4): tegra114-dalmore-a04, tegra124-jetson-tk1,
+		   tegra30-beaver
+
+Boot to userspace: tegra_defconfig:
+    Pass: ( 4/ 4): tegra114-dalmore-a04, tegra124-jetson-tk1,
+		   tegra20-trimslice, tegra30-beaver
+
+
+
+-------------------------------------------------------------
+Branch: test_20150325104545_06e5801b8cb3fc057d88cb4dc03c0b64b2744cda
+Test-Serial: 20150325104545
+Commit-ID: 06e5801b8cb3fc057d88cb4dc03c0b64b2744cda
+Test-Target-Board-Count: 5
+Test-Boot-Count: 9

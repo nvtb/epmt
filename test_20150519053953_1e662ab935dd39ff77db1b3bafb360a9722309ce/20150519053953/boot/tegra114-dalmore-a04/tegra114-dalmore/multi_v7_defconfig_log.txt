@@ -1,0 +1,702 @@
+
+U-Boot SPL 2014.01-00219-gc4d376f (Feb 18 2014 - 19:57:32)
+
+
+U-Boot 2014.01-00219-gc4d376f (Feb 18 2014 - 19:57:32)
+
+TEGRA114
+Board: NVIDIA Dalmore
+I2C:   ready
+DRAM:  2 GiB
+MMC:   Tegra SD/MMC: 0, Tegra SD/MMC: 1
+In:    serial
+Out:   serial
+Err:   serial
+Net:   Net Initialization Skipped
+No ethernet found.
+Hit any key to stop autoboot:  2  0 
+Tegra114 (Dalmore) # 
+Tegra114 (Dalmore) # usb reset
+(Re)start USB...
+USB0:   USB EHCI 1.10
+scanning bus 0 for devices... 2 USB Device(s) found
+       scanning usb for storage devices... 0 Storage Device(s) found
+       scanning usb for ethernet devices... 
+Warning: asx0 using MAC address from net device
+1 Ethernet Device(s) found
+Tegra114 (Dalmore) # setenv bootargs 'ignore_loglevel console=ttyS0,115200n8 rw root=/dev/mmcblk0p1 rootwait gpt debug init=/bin/bash'
+Tegra114 (Dalmore) # setenv ipaddr 192.168.100.100; setenv serverip 192.168.100.1; setenv tftpserverip 192.168.100.1
+Tegra114 (Dalmore) # tftpboot 0x81000000 zImage.multi_v7_defconfig
+Using asx0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.100
+Filename 'zImage.multi_v7_defconfig'.
+Load address: 0x81000000
+Loading: *#################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 ########################################
+	 3.4 MiB/s
+done
+Bytes transferred = 6304912 (603490 hex)
+Tegra114 (Dalmore) # tftpboot 0x82000000 tegra114-dalmore.dtb
+Using asx0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.100
+Filename 'tegra114-dalmore.dtb'.
+Load address: 0x82000000
+Loading: *###
+	 2.8 MiB/s
+done
+Bytes transferred = 34894 (884e hex)
+Tegra114 (Dalmore) # bootz 0x81000000 - 0x82000000
+Kernel image @ 0x81000000 [ 0x000000 - 0x603490 ]
+## Flattened Device Tree blob at 82000000
+   Booting using the fdt blob at 0x82000000
+   Loading Device Tree to 8fff4000, end 8ffff84d ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.0-rc4-next-20150519-18250-g1e662ab (pwalmsley@sellafield) (gcc version 4.7.3 20130328 (prerelease) (crosstool-NG linaro-1.13.1-4.7-2013.04-20130415 - Linaro GCC 2013.04) ) #1 SMP Tue May 19 05:43:23 PDT 2015
+[    0.000000] CPU: ARMv7 Processor [412fc0f2] revision 2 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: NVIDIA Tegra114 Dalmore evaluation board
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] cma: Reserved 64 MiB at 0xfb800000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] On node 0 totalpages: 524032
+[    0.000000] free_area_init_node: node 0, pgdat c0f55640, node_mem_map ee7f8000
+[    0.000000]   DMA zone: 1520 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 194560 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 329472 pages, LIFO batch:31
+[    0.000000] PERCPU: Embedded 12 pages/cpu @ee7a3000 s16896 r8192 d24064 u49152
+[    0.000000] pcpu-alloc: s16896 r8192 d24064 u49152 alloc=12*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 522512
+[    0.000000] Kernel command line: ignore_loglevel console=ttyS0,115200n8 rw root=/dev/mmcblk0p1 rootwait gpt debug init=/bin/bash
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 1999052K/2096128K available (8041K kernel code, 1029K rwdata, 3652K rodata, 900K init, 319K bss, 31540K reserved, 65536K cma-reserved, 1252352K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0000000 - 0xff000000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xef800000   ( 760 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0208000 - 0xc0d7455c   (11698 kB)
+[    0.000000]       .init : 0xc0d75000 - 0xc0e56000   ( 900 kB)
+[    0.000000]       .data : 0xc0e56000 - 0xc0f57620   (1030 kB)
+[    0.000000]        .bss : 0xc0f5a000 - 0xc0fa9ca8   ( 320 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	Additional per-CPU info printed with stalls.
+[    0.000000] 	Build-time adjustment of leaf fanout to 32.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=4.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=4
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] /interrupt-controller@60004000: 160 interrupts forwarded to /interrupt-controller@50041000
+[    0.000000] L2C: failed to init: -19
+[    0.000010] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 2147483647500ns
+[    0.000028] clocksource timer_us: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275 ns
+[    0.000043] Switching to timer-based delay loop, resolution 1000ns
+[    0.002718] Architected cp15 timer(s) running at 12.00MHz (virt).
+[    0.002736] clocksource arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2c47f4ee7, max_idle_ns: 440795202497 ns
+[    0.002755] sched_clock: 56 bits at 12MHz, resolution 83ns, wraps every 4398046511096ns
+[    0.002768] Switching to timer-based delay loop, resolution 83ns
+[    0.003113] Console: colour dummy device 80x30
+[    0.003138] Calibrating delay loop (skipped), value calculated using timer frequency.. 24.00 BogoMIPS (lpj=60000)
+[    0.003153] pid_max: default: 32768 minimum: 301
+[    0.003266] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.003278] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.003895] CPU: Testing write buffer coherency: ok
+[    0.004104] /cpus/cpu@0 missing clock-frequency property
+[    0.004134] /cpus/cpu@1 missing clock-frequency property
+[    0.004164] /cpus/cpu@2 missing clock-frequency property
+[    0.004192] /cpus/cpu@3 missing clock-frequency property
+[    0.004205] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.004251] Setting up static identity map for 0x80209000 - 0x80209098
+[    0.006479] Tegra Revision: A01 SKU: 0 CPU Process: 1 SoC Process: 0
+[    0.007764] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.008389] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.009003] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.009068] Brought up 4 CPUs
+[    0.009090] SMP: Total of 4 processors activated (96.00 BogoMIPS).
+[    0.009098] CPU: All CPU(s) started in SVC mode.
+[    0.009647] devtmpfs: initialized
+[    0.010542] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.011002] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 9556302231375000 ns
+[    0.012662] pinctrl core: initialized pinctrl subsystem
+[    0.024586] NET: Registered protocol family 16
+[    0.026690] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.042637] cpuidle: using governor ladder
+[    0.057658] cpuidle: using governor menu
+[    0.072281] No ATAGs?
+[    0.072315] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.072326] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.075943] Serial: AMBA PL011 UART driver
+[    0.076841] tegra-mc 70019000.memory-controller: no memory timings for RAM code 3 registered
+[    0.106775] dvdd_ts: Failed to request enable GPIO61: -517
+[    0.106902] reg-fixed-voltage regulators:regulator@1: Failed to register regulator: -517
+[    0.107122] usb1_vbus: Failed to request enable GPIO108: -517
+[    0.107239] reg-fixed-voltage regulators:regulator@3: Failed to register regulator: -517
+[    0.107456] usb2_vbus: Failed to request enable GPIO86: -517
+[    0.107570] reg-fixed-voltage regulators:regulator@4: Failed to register regulator: -517
+[    0.108105] VDD_5V0_HDMI_CON: Failed to request enable GPIO81: -517
+[    0.108221] reg-fixed-voltage regulators:regulator@7: Failed to register regulator: -517
+[    0.110810] vgaarb: loaded
+[    0.111567] SCSI subsystem initialized
+[    0.111761] libata version 3.00 loaded.
+[    0.112106] usbcore: registered new interface driver usbfs
+[    0.112178] usbcore: registered new interface driver hub
+[    0.112255] usbcore: registered new device driver usb
+[    0.115882] tps65090 2-0048: No cache defaults, reading back from HW
+[    0.122023] palmas 2-0058: Irq flag is 0x00000000
+[    0.125260] palmas 2-0058: Muxing GPIO ff, PWM 0, LED 0
+[    0.134756] sdhci-vdd-sd-slot: ramp_delay not set
+[    0.160766] media: Linux media interface: v0.10
+[    0.160837] Linux video capture interface: v2.00
+[    0.160891] pps_core: LinuxPPS API ver. 1 registered
+[    0.160900] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.160933] PTP clock support registered
+[    0.161204] EDAC MC: Ver: 3.0.0
+[    0.162651] Advanced Linux Sound Architecture Driver Initialized.
+[    0.163813] Switched to clocksource arch_sys_counter
+[    0.175232] NET: Registered protocol family 2
+[    0.175761] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.175852] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.176039] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.176094] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.176136] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.176314] NET: Registered protocol family 1
+[    0.176561] RPC: Registered named UNIX socket transport module.
+[    0.176572] RPC: Registered udp transport module.
+[    0.176579] RPC: Registered tcp transport module.
+[    0.176587] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.176610] PCI: CLS 0 bytes, default 64
+[    0.179181] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.191567] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.192532] NFS: Registering the id_resolver key type
+[    0.192566] Key type id_resolver registered
+[    0.192576] Key type id_legacy registered
+[    0.192661] ntfs: driver 2.1.32 [Flags: R/O].
+[    0.193886] bounce: pool size: 64 pages
+[    0.194115] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.194141] io scheduler noop registered
+[    0.194161] io scheduler deadline registered
+[    0.194379] io scheduler cfq registered (default)
+[    0.200230] palmas-pinctrl 7000d000.i2c:tps65913@58:pinmux: try to register 26 pins ...
+[    0.200244] pinctrl core: registered pin 0 (gpio0) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200256] pinctrl core: registered pin 1 (gpio1) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200266] pinctrl core: registered pin 2 (gpio2) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200275] pinctrl core: registered pin 3 (gpio3) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200284] pinctrl core: registered pin 4 (gpio4) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200293] pinctrl core: registered pin 5 (gpio5) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200301] pinctrl core: registered pin 6 (gpio6) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200311] pinctrl core: registered pin 7 (gpio7) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200319] pinctrl core: registered pin 8 (gpio8) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200327] pinctrl core: registered pin 9 (gpio9) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200337] pinctrl core: registered pin 10 (gpio10) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200346] pinctrl core: registered pin 11 (gpio11) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200354] pinctrl core: registered pin 12 (gpio12) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200363] pinctrl core: registered pin 13 (gpio13) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200371] pinctrl core: registered pin 14 (gpio14) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200379] pinctrl core: registered pin 15 (gpio15) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200388] pinctrl core: registered pin 16 (vac) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200397] pinctrl core: registered pin 17 (powergood) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200406] pinctrl core: registered pin 18 (nreswarm) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200414] pinctrl core: registered pin 19 (pwrdown) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200423] pinctrl core: registered pin 20 (gpadc_start) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200432] pinctrl core: registered pin 21 (reset_in) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200440] pinctrl core: registered pin 22 (nsleep) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200449] pinctrl core: registered pin 23 (enable1) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200458] pinctrl core: registered pin 24 (enable2) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200466] pinctrl core: registered pin 25 (int) on 7000d000.i2c:tps65913@58:pinmux
+[    0.200532] palmas-pinctrl 7000d000.i2c:tps65913@58:pinmux: request pin 6 (gpio6) for 7000d000.i2c:tps65913@58:pinmux
+[    0.201908] tegra114-pinctrl 70000868.pinmux: try to register 177 pins ...
+[    0.201920] pinctrl core: registered pin 0 (CLK_32K_OUT PA0) on 70000868.pinmux
+[    0.201930] pinctrl core: registered pin 1 (UART3_CTS_N PA1) on 70000868.pinmux
+[    0.201939] pinctrl core: registered pin 2 (DAP2_FS PA2) on 70000868.pinmux
+[    0.201948] pinctrl core: registered pin 3 (DAP2_SCLK PA3) on 70000868.pinmux
+[    0.201956] pinctrl core: registered pin 4 (DAP2_DIN PA4) on 70000868.pinmux
+[    0.201965] pinctrl core: registered pin 5 (DAP2_DOUT PA5) on 70000868.pinmux
+[    0.201975] pinctrl core: registered pin 6 (SDMMC3_CLK PA6) on 70000868.pinmux
+[    0.201984] pinctrl core: registered pin 7 (SDMMC3_CMD PA7) on 70000868.pinmux
+[    0.201992] pinctrl core: registered pin 8 (GMI_A17 PB0) on 70000868.pinmux
+[    0.202001] pinctrl core: registered pin 9 (GMI_A18 PB1) on 70000868.pinmux
+[    0.202010] pinctrl core: registered pin 12 (SDMMC3_DAT3 PB4) on 70000868.pinmux
+[    0.202018] pinctrl core: registered pin 13 (SDMMC3_DAT2 PB5) on 70000868.pinmux
+[    0.202028] pinctrl core: registered pin 14 (SDMMC3_DAT1 PB6) on 70000868.pinmux
+[    0.202037] pinctrl core: registered pin 15 (SDMMC3_DAT0 PB7) on 70000868.pinmux
+[    0.202046] pinctrl core: registered pin 16 (UART3_RTS_N PC0) on 70000868.pinmux
+[    0.202054] pinctrl core: registered pin 18 (UART2_TXD PC2) on 70000868.pinmux
+[    0.202063] pinctrl core: registered pin 19 (UART2_RXD PC3) on 70000868.pinmux
+[    0.202072] pinctrl core: registered pin 20 (GEN1_I2C_SCL PC4) on 70000868.pinmux
+[    0.202080] pinctrl core: registered pin 21 (GEN1_I2C_SDA PC5) on 70000868.pinmux
+[    0.202089] pinctrl core: registered pin 23 (GMI_WP_N PC7) on 70000868.pinmux
+[    0.202097] pinctrl core: registered pin 48 (GMI_AD0 PG0) on 70000868.pinmux
+[    0.202106] pinctrl core: registered pin 49 (GMI_AD1 PG1) on 70000868.pinmux
+[    0.202115] pinctrl core: registered pin 50 (GMI_AD2 PG2) on 70000868.pinmux
+[    0.202124] pinctrl core: registered pin 51 (GMI_AD3 PG3) on 70000868.pinmux
+[    0.202132] pinctrl core: registered pin 52 (GMI_AD4 PG4) on 70000868.pinmux
+[    0.202140] pinctrl core: registered pin 53 (GMI_AD5 PG5) on 70000868.pinmux
+[    0.202149] pinctrl core: registered pin 54 (GMI_AD6 PG6) on 70000868.pinmux
+[    0.202158] pinctrl core: registered pin 55 (GMI_AD7 PG7) on 70000868.pinmux
+[    0.202166] pinctrl core: registered pin 56 (GMI_AD8 PH0) on 70000868.pinmux
+[    0.202175] pinctrl core: registered pin 57 (GMI_AD9 PH1) on 70000868.pinmux
+[    0.202184] pinctrl core: registered pin 58 (GMI_AD10 PH2) on 70000868.pinmux
+[    0.202192] pinctrl core: registered pin 59 (GMI_AD11 PH3) on 70000868.pinmux
+[    0.202201] pinctrl core: registered pin 60 (GMI_AD12 PH4) on 70000868.pinmux
+[    0.202210] pinctrl core: registered pin 61 (GMI_AD13 PH5) on 70000868.pinmux
+[    0.202219] pinctrl core: registered pin 62 (GMI_AD14 PH6) on 70000868.pinmux
+[    0.202228] pinctrl core: registered pin 63 (GMI_AD15 PH7) on 70000868.pinmux
+[    0.202238] pinctrl core: registered pin 64 (GMI_WR_N PI0) on 70000868.pinmux
+[    0.202246] pinctrl core: registered pin 65 (GMI_OE_N PI1) on 70000868.pinmux
+[    0.202256] pinctrl core: registered pin 67 (GMI_CS6_N PI3) on 70000868.pinmux
+[    0.202264] pinctrl core: registered pin 68 (GMI_RST_N PI4) on 70000868.pinmux
+[    0.202273] pinctrl core: registered pin 69 (GMI_IORDY PI5) on 70000868.pinmux
+[    0.202282] pinctrl core: registered pin 70 (GMI_CS7_N PI6) on 70000868.pinmux
+[    0.202291] pinctrl core: registered pin 71 (GMI_WAIT PI7) on 70000868.pinmux
+[    0.202299] pinctrl core: registered pin 72 (GMI_CS0_N PJ0) on 70000868.pinmux
+[    0.202308] pinctrl core: registered pin 74 (GMI_CS1_N PJ2) on 70000868.pinmux
+[    0.202317] pinctrl core: registered pin 75 (GMI_DQS_P PJ3) on 70000868.pinmux
+[    0.202325] pinctrl core: registered pin 77 (UART2_CTS_N PJ5) on 70000868.pinmux
+[    0.202334] pinctrl core: registered pin 78 (UART2_RTS_N PJ6) on 70000868.pinmux
+[    0.202343] pinctrl core: registered pin 79 (GMI_A16 PJ7) on 70000868.pinmux
+[    0.202352] pinctrl core: registered pin 80 (GMI_ADV_N PK0) on 70000868.pinmux
+[    0.202360] pinctrl core: registered pin 81 (GMI_CLK PK1) on 70000868.pinmux
+[    0.202370] pinctrl core: registered pin 82 (GMI_CS4_N PK2) on 70000868.pinmux
+[    0.202384] pinctrl core: registered pin 83 (GMI_CS2_N PK3) on 70000868.pinmux
+[    0.202393] pinctrl core: registered pin 84 (GMI_CS3_N PK4) on 70000868.pinmux
+[    0.202402] pinctrl core: registered pin 85 (SPDIF_OUT PK5) on 70000868.pinmux
+[    0.202410] pinctrl core: registered pin 86 (SPDIF_IN PK6) on 70000868.pinmux
+[    0.202419] pinctrl core: registered pin 87 (GMI_A19 PK7) on 70000868.pinmux
+[    0.202428] pinctrl core: registered pin 104 (DAP1_FS PN0) on 70000868.pinmux
+[    0.202437] pinctrl core: registered pin 105 (DAP1_DIN PN1) on 70000868.pinmux
+[    0.202445] pinctrl core: registered pin 106 (DAP1_DOUT PN2) on 70000868.pinmux
+[    0.202454] pinctrl core: registered pin 107 (DAP1_SCLK PN3) on 70000868.pinmux
+[    0.202463] pinctrl core: registered pin 108 (USB_VBUS_EN0 PN4) on 70000868.pinmux
+[    0.202473] pinctrl core: registered pin 109 (USB_VBUS_EN1 PN5) on 70000868.pinmux
+[    0.202481] pinctrl core: registered pin 111 (HDMI_INT PN7) on 70000868.pinmux
+[    0.202490] pinctrl core: registered pin 112 (ULPI_DATA7 PO0) on 70000868.pinmux
+[    0.202500] pinctrl core: registered pin 113 (ULPI_DATA0 PO1) on 70000868.pinmux
+[    0.202509] pinctrl core: registered pin 114 (ULPI_DATA1 PO2) on 70000868.pinmux
+[    0.202517] pinctrl core: registered pin 115 (ULPI_DATA2 PO3) on 70000868.pinmux
+[    0.202526] pinctrl core: registered pin 116 (ULPI_DATA3 PO4) on 70000868.pinmux
+[    0.202536] pinctrl core: registered pin 117 (ULPI_DATA4 PO5) on 70000868.pinmux
+[    0.202544] pinctrl core: registered pin 118 (ULPI_DATA5 PO6) on 70000868.pinmux
+[    0.202554] pinctrl core: registered pin 119 (ULPI_DATA6 PO7) on 70000868.pinmux
+[    0.202562] pinctrl core: registered pin 120 (DAP3_FS PP0) on 70000868.pinmux
+[    0.202571] pinctrl core: registered pin 121 (DAP3_DIN PP1) on 70000868.pinmux
+[    0.202580] pinctrl core: registered pin 122 (DAP3_DOUT PP2) on 70000868.pinmux
+[    0.202589] pinctrl core: registered pin 123 (DAP3_SCLK PP3) on 70000868.pinmux
+[    0.202598] pinctrl core: registered pin 124 (DAP4_FS PP4) on 70000868.pinmux
+[    0.202606] pinctrl core: registered pin 125 (DAP4_DIN PP5) on 70000868.pinmux
+[    0.202615] pinctrl core: registered pin 126 (DAP4_DOUT PP6) on 70000868.pinmux
+[    0.202623] pinctrl core: registered pin 127 (DAP4_SCLK PP7) on 70000868.pinmux
+[    0.202633] pinctrl core: registered pin 128 (KB_COL0 PQ0) on 70000868.pinmux
+[    0.202642] pinctrl core: registered pin 129 (KB_COL1 PQ1) on 70000868.pinmux
+[    0.202651] pinctrl core: registered pin 130 (KB_COL2 PQ2) on 70000868.pinmux
+[    0.202660] pinctrl core: registered pin 131 (KB_COL3 PQ3) on 70000868.pinmux
+[    0.202668] pinctrl core: registered pin 132 (KB_COL4 PQ4) on 70000868.pinmux
+[    0.202677] pinctrl core: registered pin 133 (KB_COL5 PQ5) on 70000868.pinmux
+[    0.202686] pinctrl core: registered pin 134 (KB_COL6 PQ6) on 70000868.pinmux
+[    0.202694] pinctrl core: registered pin 135 (KB_COL7 PQ7) on 70000868.pinmux
+[    0.202703] pinctrl core: registered pin 136 (KB_ROW0 PR0) on 70000868.pinmux
+[    0.202712] pinctrl core: registered pin 137 (KB_ROW1 PR1) on 70000868.pinmux
+[    0.202721] pinctrl core: registered pin 138 (KB_ROW2 PR2) on 70000868.pinmux
+[    0.202730] pinctrl core: registered pin 139 (KB_ROW3 PR3) on 70000868.pinmux
+[    0.202738] pinctrl core: registered pin 140 (KB_ROW4 PR4) on 70000868.pinmux
+[    0.202747] pinctrl core: registered pin 141 (KB_ROW5 PR5) on 70000868.pinmux
+[    0.202755] pinctrl core: registered pin 142 (KB_ROW6 PR6) on 70000868.pinmux
+[    0.202765] pinctrl core: registered pin 143 (KB_ROW7 PR7) on 70000868.pinmux
+[    0.202773] pinctrl core: registered pin 144 (KB_ROW8 PS0) on 70000868.pinmux
+[    0.202782] pinctrl core: registered pin 145 (KB_ROW9 PS1) on 70000868.pinmux
+[    0.202790] pinctrl core: registered pin 146 (KB_ROW10 PS2) on 70000868.pinmux
+[    0.202799] pinctrl core: registered pin 157 (GEN2_I2C_SCL PT5) on 70000868.pinmux
+[    0.202809] pinctrl core: registered pin 158 (GEN2_I2C_SDA PT6) on 70000868.pinmux
+[    0.202818] pinctrl core: registered pin 159 (SDMMC4_CMD PT7) on 70000868.pinmux
+[    0.202827] pinctrl core: registered pin 160 (PU0) on 70000868.pinmux
+[    0.202836] pinctrl core: registered pin 161 (PU1) on 70000868.pinmux
+[    0.202845] pinctrl core: registered pin 162 (PU2) on 70000868.pinmux
+[    0.202853] pinctrl core: registered pin 163 (PU3) on 70000868.pinmux
+[    0.202862] pinctrl core: registered pin 164 (PU4) on 70000868.pinmux
+[    0.202870] pinctrl core: registered pin 165 (PU5) on 70000868.pinmux
+[    0.202879] pinctrl core: registered pin 166 (PU6) on 70000868.pinmux
+[    0.202888] pinctrl core: registered pin 168 (PV0) on 70000868.pinmux
+[    0.202897] pinctrl core: registered pin 169 (PV1) on 70000868.pinmux
+[    0.202905] pinctrl core: registered pin 170 (SDMMC3_CD_N PV2) on 70000868.pinmux
+[    0.202914] pinctrl core: registered pin 171 (SDMMC1_WP_N PV3) on 70000868.pinmux
+[    0.202923] pinctrl core: registered pin 172 (DDC_SCL PV4) on 70000868.pinmux
+[    0.202932] pinctrl core: registered pin 173 (DDC_SDA PV5) on 70000868.pinmux
+[    0.202941] pinctrl core: registered pin 178 (GPIO_W2_AUD PW2) on 70000868.pinmux
+[    0.202953] pinctrl core: registered pin 179 (GPIO_W3_AUD PW3) on 70000868.pinmux
+[    0.202962] pinctrl core: registered pin 180 (CLK1_OUT PW4) on 70000868.pinmux
+[    0.202971] pinctrl core: registered pin 181 (CLK2_OUT PW5) on 70000868.pinmux
+[    0.202981] pinctrl core: registered pin 182 (UART3_TXD PW6) on 70000868.pinmux
+[    0.202989] pinctrl core: registered pin 183 (UART3_RXD PW7) on 70000868.pinmux
+[    0.202998] pinctrl core: registered pin 184 (DVFS_PWM PX0) on 70000868.pinmux
+[    0.203006] pinctrl core: registered pin 185 (GPIO_X1_AUD PX1) on 70000868.pinmux
+[    0.203016] pinctrl core: registered pin 186 (DVFS_CLK PX2) on 70000868.pinmux
+[    0.203024] pinctrl core: registered pin 187 (GPIO_X3_AUD PX3) on 70000868.pinmux
+[    0.203033] pinctrl core: registered pin 188 (GPIO_X4_AUD PX4) on 70000868.pinmux
+[    0.203042] pinctrl core: registered pin 189 (GPIO_X5_AUD PX5) on 70000868.pinmux
+[    0.203051] pinctrl core: registered pin 190 (GPIO_X6_AUD PX6) on 70000868.pinmux
+[    0.203059] pinctrl core: registered pin 191 (GPIO_X7_AUD PX7) on 70000868.pinmux
+[    0.203069] pinctrl core: registered pin 192 (ULPI_CLK PY0) on 70000868.pinmux
+[    0.203078] pinctrl core: registered pin 193 (ULPI_DIR PY1) on 70000868.pinmux
+[    0.203087] pinctrl core: registered pin 194 (ULPI_NXT PY2) on 70000868.pinmux
+[    0.203096] pinctrl core: registered pin 195 (ULPI_STP PY3) on 70000868.pinmux
+[    0.203105] pinctrl core: registered pin 196 (SDMMC1_DAT3 PY4) on 70000868.pinmux
+[    0.203113] pinctrl core: registered pin 197 (SDMMC1_DAT2 PY5) on 70000868.pinmux
+[    0.203123] pinctrl core: registered pin 198 (SDMMC1_DAT1 PY6) on 70000868.pinmux
+[    0.203131] pinctrl core: registered pin 199 (SDMMC1_DAT0 PY7) on 70000868.pinmux
+[    0.203141] pinctrl core: registered pin 200 (SDMMC1_CLK PZ0) on 70000868.pinmux
+[    0.203149] pinctrl core: registered pin 201 (SDMMC1_CMD PZ1) on 70000868.pinmux
+[    0.203159] pinctrl core: registered pin 205 (SYS_CLK_REQ PZ5) on 70000868.pinmux
+[    0.203168] pinctrl core: registered pin 206 (PWR_I2C_SCL PZ6) on 70000868.pinmux
+[    0.203177] pinctrl core: registered pin 207 (PWR_I2C_SDA PZ7) on 70000868.pinmux
+[    0.203186] pinctrl core: registered pin 208 (SDMMC4_DAT0 PAA0) on 70000868.pinmux
+[    0.203194] pinctrl core: registered pin 209 (SDMMC4_DAT1 PAA1) on 70000868.pinmux
+[    0.203203] pinctrl core: registered pin 210 (SDMMC4_DAT2 PAA2) on 70000868.pinmux
+[    0.203212] pinctrl core: registered pin 211 (SDMMC4_DAT3 PAA3) on 70000868.pinmux
+[    0.203220] pinctrl core: registered pin 212 (SDMMC4_DAT4 PAA4) on 70000868.pinmux
+[    0.203229] pinctrl core: registered pin 213 (SDMMC4_DAT5 PAA5) on 70000868.pinmux
+[    0.203238] pinctrl core: registered pin 214 (SDMMC4_DAT6 PAA6) on 70000868.pinmux
+[    0.203247] pinctrl core: registered pin 215 (SDMMC4_DAT7 PAA7) on 70000868.pinmux
+[    0.203255] pinctrl core: registered pin 216 (PBB0) on 70000868.pinmux
+[    0.203264] pinctrl core: registered pin 217 (CAM_I2C_SCL PBB1) on 70000868.pinmux
+[    0.203273] pinctrl core: registered pin 218 (CAM_I2C_SDA PBB2) on 70000868.pinmux
+[    0.203282] pinctrl core: registered pin 219 (PBB3) on 70000868.pinmux
+[    0.203290] pinctrl core: registered pin 220 (PBB4) on 70000868.pinmux
+[    0.203299] pinctrl core: registered pin 221 (PBB5) on 70000868.pinmux
+[    0.203307] pinctrl core: registered pin 222 (PBB6) on 70000868.pinmux
+[    0.203316] pinctrl core: registered pin 223 (PBB7) on 70000868.pinmux
+[    0.203326] pinctrl core: registered pin 224 (CAM_MCLK PCC0) on 70000868.pinmux
+[    0.203334] pinctrl core: registered pin 225 (PCC1) on 70000868.pinmux
+[    0.203343] pinctrl core: registered pin 226 (PCC2) on 70000868.pinmux
+[    0.203351] pinctrl core: registered pin 228 (SDMMC4_CLK PCC4) on 70000868.pinmux
+[    0.203360] pinctrl core: registered pin 229 (CLK2_REQ PCC5) on 70000868.pinmux
+[    0.203370] pinctrl core: registered pin 240 (CLK3_OUT PEE0) on 70000868.pinmux
+[    0.203378] pinctrl core: registered pin 241 (CLK3_REQ PEE1) on 70000868.pinmux
+[    0.203388] pinctrl core: registered pin 242 (CLK1_REQ PEE2) on 70000868.pinmux
+[    0.203397] pinctrl core: registered pin 243 (HDMI_CEC PEE3) on 70000868.pinmux
+[    0.203405] pinctrl core: registered pin 244 (SDMMC3_CLK_LB_OUT PEE4) on 70000868.pinmux
+[    0.203415] pinctrl core: registered pin 245 (SDMMC3_CLK_LB_IN PEE5) on 70000868.pinmux
+[    0.203424] pinctrl core: registered pin 246 (CORE_PWR_REQ) on 70000868.pinmux
+[    0.203432] pinctrl core: registered pin 247 (CPU_PWR_REQ) on 70000868.pinmux
+[    0.203441] pinctrl core: registered pin 248 (PWR_INT_N) on 70000868.pinmux
+[    0.203450] pinctrl core: registered pin 249 (RESET_OUT_N) on 70000868.pinmux
+[    0.203459] pinctrl core: registered pin 250 (OWR) on 70000868.pinmux
+[    0.203468] pinctrl core: registered pin 251 (JTAG_RTCK) on 70000868.pinmux
+[    0.203477] pinctrl core: registered pin 252 (CLK_32K_IN) on 70000868.pinmux
+[    0.203486] pinctrl core: registered pin 253 (GMI_CLK_LB) on 70000868.pinmux
+[    0.207227] tegra114-pinctrl 70000868.pinmux: request pin 180 (CLK1_OUT PW4) for 70000868.pinmux
+[    0.207246] tegra114-pinctrl 70000868.pinmux: request pin 105 (DAP1_DIN PN1) for 70000868.pinmux
+[    0.207263] tegra114-pinctrl 70000868.pinmux: request pin 106 (DAP1_DOUT PN2) for 70000868.pinmux
+[    0.207280] tegra114-pinctrl 70000868.pinmux: request pin 104 (DAP1_FS PN0) for 70000868.pinmux
+[    0.207296] tegra114-pinctrl 70000868.pinmux: request pin 107 (DAP1_SCLK PN3) for 70000868.pinmux
+[    0.207312] tegra114-pinctrl 70000868.pinmux: request pin 4 (DAP2_DIN PA4) for 70000868.pinmux
+[    0.207328] tegra114-pinctrl 70000868.pinmux: request pin 5 (DAP2_DOUT PA5) for 70000868.pinmux
+[    0.207344] tegra114-pinctrl 70000868.pinmux: request pin 2 (DAP2_FS PA2) for 70000868.pinmux
+[    0.207359] tegra114-pinctrl 70000868.pinmux: request pin 3 (DAP2_SCLK PA3) for 70000868.pinmux
+[    0.207375] tegra114-pinctrl 70000868.pinmux: request pin 125 (DAP4_DIN PP5) for 70000868.pinmux
+[    0.207390] tegra114-pinctrl 70000868.pinmux: request pin 126 (DAP4_DOUT PP6) for 70000868.pinmux
+[    0.207405] tegra114-pinctrl 70000868.pinmux: request pin 124 (DAP4_FS PP4) for 70000868.pinmux
+[    0.207420] tegra114-pinctrl 70000868.pinmux: request pin 127 (DAP4_SCLK PP7) for 70000868.pinmux
+[    0.207436] tegra114-pinctrl 70000868.pinmux: request pin 184 (DVFS_PWM PX0) for 70000868.pinmux
+[    0.207451] tegra114-pinctrl 70000868.pinmux: request pin 186 (DVFS_CLK PX2) for 70000868.pinmux
+[    0.207466] tegra114-pinctrl 70000868.pinmux: request pin 192 (ULPI_CLK PY0) for 70000868.pinmux
+[    0.207482] tegra114-pinctrl 70000868.pinmux: request pin 113 (ULPI_DATA0 PO1) for 70000868.pinmux
+[    0.207497] tegra114-pinctrl 70000868.pinmux: request pin 114 (ULPI_DATA1 PO2) for 70000868.pinmux
+[    0.207512] tegra114-pinctrl 70000868.pinmux: request pin 115 (ULPI_DATA2 PO3) for 70000868.pinmux
+[    0.207528] tegra114-pinctrl 70000868.pinmux: request pin 116 (ULPI_DATA3 PO4) for 70000868.pinmux
+[    0.207543] tegra114-pinctrl 70000868.pinmux: request pin 117 (ULPI_DATA4 PO5) for 70000868.pinmux
+[    0.207558] tegra114-pinctrl 70000868.pinmux: request pin 118 (ULPI_DATA5 PO6) for 70000868.pinmux
+[    0.207573] tegra114-pinctrl 70000868.pinmux: request pin 119 (ULPI_DATA6 PO7) for 70000868.pinmux
+[    0.207589] tegra114-pinctrl 70000868.pinmux: request pin 112 (ULPI_DATA7 PO0) for 70000868.pinmux
+[    0.207604] tegra114-pinctrl 70000868.pinmux: request pin 193 (ULPI_DIR PY1) for 70000868.pinmux
+[    0.207620] tegra114-pinctrl 70000868.pinmux: request pin 194 (ULPI_NXT PY2) for 70000868.pinmux
+[    0.207635] tegra114-pinctrl 70000868.pinmux: request pin 195 (ULPI_STP PY3) for 70000868.pinmux
+[    0.207650] tegra114-pinctrl 70000868.pinmux: request pin 217 (CAM_I2C_SCL PBB1) for 70000868.pinmux
+[    0.207668] tegra114-pinctrl 70000868.pinmux: request pin 218 (CAM_I2C_SDA PBB2) for 70000868.pinmux
+[    0.207685] tegra114-pinctrl 70000868.pinmux: request pin 224 (CAM_MCLK PCC0) for 70000868.pinmux
+[    0.207702] tegra114-pinctrl 70000868.pinmux: request pin 216 (PBB0) for 70000868.pinmux
+[    0.207718] tegra114-pinctrl 70000868.pinmux: request pin 157 (GEN2_I2C_SCL PT5) for 70000868.pinmux
+[    0.207735] tegra114-pinctrl 70000868.pinmux: request pin 158 (GEN2_I2C_SDA PT6) for 70000868.pinmux
+[    0.207753] tegra114-pinctrl 70000868.pinmux: request pin 79 (GMI_A16 PJ7) for 70000868.pinmux
+[    0.207768] tegra114-pinctrl 70000868.pinmux: request pin 8 (GMI_A17 PB0) for 70000868.pinmux
+[    0.207783] tegra114-pinctrl 70000868.pinmux: request pin 9 (GMI_A18 PB1) for 70000868.pinmux
+[    0.207799] tegra114-pinctrl 70000868.pinmux: request pin 87 (GMI_A19 PK7) for 70000868.pinmux
+[    0.207814] tegra114-pinctrl 70000868.pinmux: request pin 53 (GMI_AD5 PG5) for 70000868.pinmux
+[    0.207829] tegra114-pinctrl 70000868.pinmux: request pin 67 (GMI_CS6_N PI3) for 70000868.pinmux
+[    0.207845] tegra114-pinctrl 70000868.pinmux: request pin 64 (GMI_WR_N PI0) for 70000868.pinmux
+[    0.207859] tegra114-pinctrl 70000868.pinmux: request pin 54 (GMI_AD6 PG6) for 70000868.pinmux
+[    0.207875] tegra114-pinctrl 70000868.pinmux: request pin 55 (GMI_AD7 PG7) for 70000868.pinmux
+[    0.207890] tegra114-pinctrl 70000868.pinmux: request pin 60 (GMI_AD12 PH4) for 70000868.pinmux
+[    0.207905] tegra114-pinctrl 70000868.pinmux: request pin 57 (GMI_AD9 PH1) for 70000868.pinmux
+[    0.207920] tegra114-pinctrl 70000868.pinmux: request pin 74 (GMI_CS1_N PJ2) for 70000868.pinmux
+[    0.207935] tegra114-pinctrl 70000868.pinmux: request pin 65 (GMI_OE_N PI1) for 70000868.pinmux
+[    0.207950] tegra114-pinctrl 70000868.pinmux: request pin 181 (CLK2_OUT PW5) for 70000868.pinmux
+[    0.207965] tegra114-pinctrl 70000868.pinmux: request pin 200 (SDMMC1_CLK PZ0) for 70000868.pinmux
+[    0.207980] tegra114-pinctrl 70000868.pinmux: request pin 201 (SDMMC1_CMD PZ1) for 70000868.pinmux
+[    0.207995] tegra114-pinctrl 70000868.pinmux: request pin 199 (SDMMC1_DAT0 PY7) for 70000868.pinmux
+[    0.208010] tegra114-pinctrl 70000868.pinmux: request pin 198 (SDMMC1_DAT1 PY6) for 70000868.pinmux
+[    0.208025] tegra114-pinctrl 70000868.pinmux: request pin 197 (SDMMC1_DAT2 PY5) for 70000868.pinmux
+[    0.208040] tegra114-pinctrl 70000868.pinmux: request pin 196 (SDMMC1_DAT3 PY4) for 70000868.pinmux
+[    0.208055] tegra114-pinctrl 70000868.pinmux: request pin 171 (SDMMC1_WP_N PV3) for 70000868.pinmux
+[    0.208070] tegra114-pinctrl 70000868.pinmux: request pin 6 (SDMMC3_CLK PA6) for 70000868.pinmux
+[    0.208085] tegra114-pinctrl 70000868.pinmux: request pin 7 (SDMMC3_CMD PA7) for 70000868.pinmux
+[    0.208100] tegra114-pinctrl 70000868.pinmux: request pin 15 (SDMMC3_DAT0 PB7) for 70000868.pinmux
+[    0.208116] tegra114-pinctrl 70000868.pinmux: request pin 14 (SDMMC3_DAT1 PB6) for 70000868.pinmux
+[    0.208131] tegra114-pinctrl 70000868.pinmux: request pin 13 (SDMMC3_DAT2 PB5) for 70000868.pinmux
+[    0.208146] tegra114-pinctrl 70000868.pinmux: request pin 12 (SDMMC3_DAT3 PB4) for 70000868.pinmux
+[    0.208162] tegra114-pinctrl 70000868.pinmux: request pin 132 (KB_COL4 PQ4) for 70000868.pinmux
+[    0.208177] tegra114-pinctrl 70000868.pinmux: request pin 244 (SDMMC3_CLK_LB_OUT PEE4) for 70000868.pinmux
+[    0.208192] tegra114-pinctrl 70000868.pinmux: request pin 245 (SDMMC3_CLK_LB_IN PEE5) for 70000868.pinmux
+[    0.208208] tegra114-pinctrl 70000868.pinmux: request pin 228 (SDMMC4_CLK PCC4) for 70000868.pinmux
+[    0.208222] tegra114-pinctrl 70000868.pinmux: request pin 159 (SDMMC4_CMD PT7) for 70000868.pinmux
+[    0.208237] tegra114-pinctrl 70000868.pinmux: request pin 208 (SDMMC4_DAT0 PAA0) for 70000868.pinmux
+[    0.208252] tegra114-pinctrl 70000868.pinmux: request pin 209 (SDMMC4_DAT1 PAA1) for 70000868.pinmux
+[    0.208267] tegra114-pinctrl 70000868.pinmux: request pin 210 (SDMMC4_DAT2 PAA2) for 70000868.pinmux
+[    0.208282] tegra114-pinctrl 70000868.pinmux: request pin 211 (SDMMC4_DAT3 PAA3) for 70000868.pinmux
+[    0.208297] tegra114-pinctrl 70000868.pinmux: request pin 212 (SDMMC4_DAT4 PAA4) for 70000868.pinmux
+[    0.208312] tegra114-pinctrl 70000868.pinmux: request pin 213 (SDMMC4_DAT5 PAA5) for 70000868.pinmux
+[    0.208328] tegra114-pinctrl 70000868.pinmux: request pin 214 (SDMMC4_DAT6 PAA6) for 70000868.pinmux
+[    0.208343] tegra114-pinctrl 70000868.pinmux: request pin 215 (SDMMC4_DAT7 PAA7) for 70000868.pinmux
+[    0.208357] tegra114-pinctrl 70000868.pinmux: request pin 0 (CLK_32K_OUT PA0) for 70000868.pinmux
+[    0.208373] tegra114-pinctrl 70000868.pinmux: request pin 128 (KB_COL0 PQ0) for 70000868.pinmux
+[    0.208388] tegra114-pinctrl 70000868.pinmux: request pin 129 (KB_COL1 PQ1) for 70000868.pinmux
+[    0.208404] tegra114-pinctrl 70000868.pinmux: request pin 130 (KB_COL2 PQ2) for 70000868.pinmux
+[    0.208419] tegra114-pinctrl 70000868.pinmux: request pin 136 (KB_ROW0 PR0) for 70000868.pinmux
+[    0.208434] tegra114-pinctrl 70000868.pinmux: request pin 137 (KB_ROW1 PR1) for 70000868.pinmux
+[    0.208449] tegra114-pinctrl 70000868.pinmux: request pin 138 (KB_ROW2 PR2) for 70000868.pinmux
+[    0.208464] tegra114-pinctrl 70000868.pinmux: request pin 121 (DAP3_DIN PP1) for 70000868.pinmux
+[    0.208479] tegra114-pinctrl 70000868.pinmux: request pin 123 (DAP3_SCLK PP3) for 70000868.pinmux
+[    0.208494] tegra114-pinctrl 70000868.pinmux: request pin 168 (PV0) for 70000868.pinmux
+[    0.208510] tegra114-pinctrl 70000868.pinmux: request pin 143 (KB_ROW7 PR7) for 70000868.pinmux
+[    0.208525] tegra114-pinctrl 70000868.pinmux: request pin 146 (KB_ROW10 PS2) for 70000868.pinmux
+[    0.208540] tegra114-pinctrl 70000868.pinmux: request pin 145 (KB_ROW9 PS1) for 70000868.pinmux
+[    0.208556] tegra114-pinctrl 70000868.pinmux: request pin 206 (PWR_I2C_SCL PZ6) for 70000868.pinmux
+[    0.208573] tegra114-pinctrl 70000868.pinmux: request pin 207 (PWR_I2C_SDA PZ7) for 70000868.pinmux
+[    0.208591] tegra114-pinctrl 70000868.pinmux: request pin 205 (SYS_CLK_REQ PZ5) for 70000868.pinmux
+[    0.208606] tegra114-pinctrl 70000868.pinmux: request pin 246 (CORE_PWR_REQ) for 70000868.pinmux
+[    0.208621] tegra114-pinctrl 70000868.pinmux: request pin 247 (CPU_PWR_REQ) for 70000868.pinmux
+[    0.208636] tegra114-pinctrl 70000868.pinmux: request pin 248 (PWR_INT_N) for 70000868.pinmux
+[    0.208651] tegra114-pinctrl 70000868.pinmux: request pin 249 (RESET_OUT_N) for 70000868.pinmux
+[    0.208666] tegra114-pinctrl 70000868.pinmux: request pin 240 (CLK3_OUT PEE0) for 70000868.pinmux
+[    0.208681] tegra114-pinctrl 70000868.pinmux: request pin 20 (GEN1_I2C_SCL PC4) for 70000868.pinmux
+[    0.208699] tegra114-pinctrl 70000868.pinmux: request pin 21 (GEN1_I2C_SDA PC5) for 70000868.pinmux
+[    0.208716] tegra114-pinctrl 70000868.pinmux: request pin 77 (UART2_CTS_N PJ5) for 70000868.pinmux
+[    0.208731] tegra114-pinctrl 70000868.pinmux: request pin 78 (UART2_RTS_N PJ6) for 70000868.pinmux
+[    0.208746] tegra114-pinctrl 70000868.pinmux: request pin 19 (UART2_RXD PC3) for 70000868.pinmux
+[    0.208761] tegra114-pinctrl 70000868.pinmux: request pin 18 (UART2_TXD PC2) for 70000868.pinmux
+[    0.208776] tegra114-pinctrl 70000868.pinmux: request pin 1 (UART3_CTS_N PA1) for 70000868.pinmux
+[    0.208808] tegra114-pinctrl 70000868.pinmux: request pin 183 (UART3_RXD PW7) for 70000868.pinmux
+[    0.208825] tegra114-pinctrl 70000868.pinmux: request pin 16 (UART3_RTS_N PC0) for 70000868.pinmux
+[    0.208840] tegra114-pinctrl 70000868.pinmux: request pin 182 (UART3_TXD PW6) for 70000868.pinmux
+[    0.208855] tegra114-pinctrl 70000868.pinmux: request pin 250 (OWR) for 70000868.pinmux
+[    0.208871] tegra114-pinctrl 70000868.pinmux: request pin 243 (HDMI_CEC PEE3) for 70000868.pinmux
+[    0.208888] tegra114-pinctrl 70000868.pinmux: request pin 172 (DDC_SCL PV4) for 70000868.pinmux
+[    0.208906] tegra114-pinctrl 70000868.pinmux: request pin 173 (DDC_SDA PV5) for 70000868.pinmux
+[    0.208923] tegra114-pinctrl 70000868.pinmux: request pin 86 (SPDIF_IN PK6) for 70000868.pinmux
+[    0.208940] tegra114-pinctrl 70000868.pinmux: request pin 108 (USB_VBUS_EN0 PN4) for 70000868.pinmux
+[    0.208957] tegra114-pinctrl 70000868.pinmux: request pin 190 (GPIO_X6_AUD PX6) for 70000868.pinmux
+[    0.208972] tegra114-pinctrl 70000868.pinmux: request pin 188 (GPIO_X4_AUD PX4) for 70000868.pinmux
+[    0.208987] tegra114-pinctrl 70000868.pinmux: request pin 191 (GPIO_X7_AUD PX7) for 70000868.pinmux
+[    0.209002] tegra114-pinctrl 70000868.pinmux: request pin 189 (GPIO_X5_AUD PX5) for 70000868.pinmux
+[    0.209017] tegra114-pinctrl 70000868.pinmux: request pin 178 (GPIO_W2_AUD PW2) for 70000868.pinmux
+[    0.209032] tegra114-pinctrl 70000868.pinmux: request pin 179 (GPIO_W3_AUD PW3) for 70000868.pinmux
+[    0.209047] tegra114-pinctrl 70000868.pinmux: request pin 185 (GPIO_X1_AUD PX1) for 70000868.pinmux
+[    0.209063] tegra114-pinctrl 70000868.pinmux: request pin 187 (GPIO_X3_AUD PX3) for 70000868.pinmux
+[    0.209078] tegra114-pinctrl 70000868.pinmux: request pin 120 (DAP3_FS PP0) for 70000868.pinmux
+[    0.209093] tegra114-pinctrl 70000868.pinmux: request pin 122 (DAP3_DOUT PP2) for 70000868.pinmux
+[    0.209108] tegra114-pinctrl 70000868.pinmux: request pin 169 (PV1) for 70000868.pinmux
+[    0.209123] tegra114-pinctrl 70000868.pinmux: request pin 219 (PBB3) for 70000868.pinmux
+[    0.209139] tegra114-pinctrl 70000868.pinmux: request pin 221 (PBB5) for 70000868.pinmux
+[    0.209153] tegra114-pinctrl 70000868.pinmux: request pin 222 (PBB6) for 70000868.pinmux
+[    0.209169] tegra114-pinctrl 70000868.pinmux: request pin 223 (PBB7) for 70000868.pinmux
+[    0.209184] tegra114-pinctrl 70000868.pinmux: request pin 225 (PCC1) for 70000868.pinmux
+[    0.209199] tegra114-pinctrl 70000868.pinmux: request pin 226 (PCC2) for 70000868.pinmux
+[    0.209213] tegra114-pinctrl 70000868.pinmux: request pin 48 (GMI_AD0 PG0) for 70000868.pinmux
+[    0.209229] tegra114-pinctrl 70000868.pinmux: request pin 49 (GMI_AD1 PG1) for 70000868.pinmux
+[    0.209244] tegra114-pinctrl 70000868.pinmux: request pin 58 (GMI_AD10 PH2) for 70000868.pinmux
+[    0.209259] tegra114-pinctrl 70000868.pinmux: request pin 59 (GMI_AD11 PH3) for 70000868.pinmux
+[    0.209274] tegra114-pinctrl 70000868.pinmux: request pin 61 (GMI_AD13 PH5) for 70000868.pinmux
+[    0.209289] tegra114-pinctrl 70000868.pinmux: request pin 56 (GMI_AD8 PH0) for 70000868.pinmux
+[    0.209304] tegra114-pinctrl 70000868.pinmux: request pin 81 (GMI_CLK PK1) for 70000868.pinmux
+[    0.209319] tegra114-pinctrl 70000868.pinmux: request pin 50 (GMI_AD2 PG2) for 70000868.pinmux
+[    0.209334] tegra114-pinctrl 70000868.pinmux: request pin 51 (GMI_AD3 PG3) for 70000868.pinmux
+[    0.209349] tegra114-pinctrl 70000868.pinmux: request pin 80 (GMI_ADV_N PK0) for 70000868.pinmux
+[    0.209363] tegra114-pinctrl 70000868.pinmux: request pin 72 (GMI_CS0_N PJ0) for 70000868.pinmux
+[    0.209380] tegra114-pinctrl 70000868.pinmux: request pin 83 (GMI_CS2_N PK3) for 70000868.pinmux
+[    0.209395] tegra114-pinctrl 70000868.pinmux: request pin 82 (GMI_CS4_N PK2) for 70000868.pinmux
+[    0.209410] tegra114-pinctrl 70000868.pinmux: request pin 70 (GMI_CS7_N PI6) for 70000868.pinmux
+[    0.209425] tegra114-pinctrl 70000868.pinmux: request pin 75 (GMI_DQS_P PJ3) for 70000868.pinmux
+[    0.209440] tegra114-pinctrl 70000868.pinmux: request pin 69 (GMI_IORDY PI5) for 70000868.pinmux
+[    0.209455] tegra114-pinctrl 70000868.pinmux: request pin 23 (GMI_WP_N PC7) for 70000868.pinmux
+[    0.209470] tegra114-pinctrl 70000868.pinmux: request pin 84 (GMI_CS3_N PK4) for 70000868.pinmux
+[    0.209485] tegra114-pinctrl 70000868.pinmux: request pin 229 (CLK2_REQ PCC5) for 70000868.pinmux
+[    0.209501] tegra114-pinctrl 70000868.pinmux: request pin 131 (KB_COL3 PQ3) for 70000868.pinmux
+[    0.209516] tegra114-pinctrl 70000868.pinmux: request pin 134 (KB_COL6 PQ6) for 70000868.pinmux
+[    0.209531] tegra114-pinctrl 70000868.pinmux: request pin 135 (KB_COL7 PQ7) for 70000868.pinmux
+[    0.209546] tegra114-pinctrl 70000868.pinmux: request pin 133 (KB_COL5 PQ5) for 70000868.pinmux
+[    0.209561] tegra114-pinctrl 70000868.pinmux: request pin 139 (KB_ROW3 PR3) for 70000868.pinmux
+[    0.209576] tegra114-pinctrl 70000868.pinmux: request pin 140 (KB_ROW4 PR4) for 70000868.pinmux
+[    0.209591] tegra114-pinctrl 70000868.pinmux: request pin 142 (KB_ROW6 PR6) for 70000868.pinmux
+[    0.209606] tegra114-pinctrl 70000868.pinmux: request pin 144 (KB_ROW8 PS0) for 70000868.pinmux
+[    0.209621] tegra114-pinctrl 70000868.pinmux: request pin 241 (CLK3_REQ PEE1) for 70000868.pinmux
+[    0.209635] tegra114-pinctrl 70000868.pinmux: request pin 164 (PU4) for 70000868.pinmux
+[    0.209651] tegra114-pinctrl 70000868.pinmux: request pin 165 (PU5) for 70000868.pinmux
+[    0.209666] tegra114-pinctrl 70000868.pinmux: request pin 166 (PU6) for 70000868.pinmux
+[    0.209681] tegra114-pinctrl 70000868.pinmux: request pin 111 (HDMI_INT PN7) for 70000868.pinmux
+[    0.209697] tegra114-pinctrl 70000868.pinmux: request pin 242 (CLK1_REQ PEE2) for 70000868.pinmux
+[    0.209712] tegra114-pinctrl 70000868.pinmux: request pin 109 (USB_VBUS_EN1 PN5) for 70000868.pinmux
+[    0.216645] tegra114-pinctrl 70000868.pinmux: request pin 58 (GMI_AD10 PH2) for Tegra GPIOs:58
+[    0.216692] vdd-lcd-bl: supplied by vdd_ac_bat
+[    0.218334] tegra-ahb 6000c004.ahb: incorrect AHB base address in DT data - enabling workaround
+[    0.223491] tegra-apbdma 6000a000.dma: Tegra20 APB DMA driver register 32 channels
+[    0.224724] tegra-pmc 7000e400.pmc: i2c-thermtrip node not found, emergency thermal reset disabled.
+[    0.291519] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.293882] SuperH (H)SCI(F) driver initialized
+[    0.294641] msm_serial: driver initialized
+[    0.295575] console [ttyS0] disabled
+[    0.295613] 70006300.serial: ttyS0 at MMIO 0x70006300 (irq = 329, base_baud = 25500000) is a Tegra
+[    4.052907] console [ttyS0] enabled
+[    4.057208] STMicroelectronics ASC driver initialized
+[    4.064484] [drm] Initialized drm 1.1.0 20060810
+[    4.070944] vdd-ao: supplied by vdd_ac_bat
+[    4.075288] vddio-1v8: supplied by vdd-ao
+[    4.079692] avdd-dsi-csi: supplied by vddio-1v8
+[    4.086282] tegra-hdmi 54280000.hdmi: failed to get HDMI regulator
+[    4.094236] vdd-sys-3v3: supplied by vdd_ac_bat
+[    4.098994] avdd-lcd: supplied by vdd-sys-3v3
+[    4.109519] loop: module loaded
+[    4.118467] m25p80 spi32766.0: w25q32dw (4096 Kbytes)
+[    4.126964] CAN device driver interface
+[    4.132063] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.2.15-k
+[    4.139118] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    4.147468] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    4.154924] usbcore: registered new interface driver pegasus
+[    4.160663] usbcore: registered new interface driver asix
+[    4.166120] usbcore: registered new interface driver ax88179_178a
+[    4.172270] usbcore: registered new interface driver cdc_ether
+[    4.178190] usbcore: registered new interface driver smsc75xx
+[    4.184018] usbcore: registered new interface driver smsc95xx
+[    4.189829] usbcore: registered new interface driver net1080
+[    4.195546] usbcore: registered new interface driver cdc_subset
+[    4.201524] usbcore: registered new interface driver zaurus
+[    4.207191] usbcore: registered new interface driver cdc_ncm
+[    4.214610] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    4.221148] ehci-pci: EHCI PCI platform driver
+[    4.225657] ehci-platform: EHCI generic platform driver
+[    4.231089] ehci-omap: OMAP-EHCI Host Controller driver
+[    4.236464] ehci-orion: EHCI orion driver
+[    4.240624] SPEAr-ehci: EHCI SPEAr driver
+[    4.244787] ehci-st: EHCI STMicroelectronics driver
+[    4.249826] ehci-exynos: EHCI EXYNOS driver
+[    4.254180] tegra-ehci: Tegra EHCI driver
+[    4.258519] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    4.264726] ohci-pci: OHCI PCI platform driver
+[    4.269234] ohci-platform: OHCI generic platform driver
+[    4.274630] ohci-omap3: OHCI OMAP3 driver
+[    4.278774] SPEAr-ohci: OHCI SPEAr driver
+[    4.282940] ohci-st: OHCI STMicroelectronics driver
+[    4.288047] usbcore: registered new interface driver usb-storage
+[    4.295524] mousedev: PS/2 mouse device common for all mice
+[    4.306412] palmas-rtc 7000d000.i2c:tps65913@58:rtc: rtc core: registered 7000d000.i2c:tps659 as rtc0
+[    4.317428] tegra_rtc 7000e000.rtc: rtc core: registered 7000e000.rtc as rtc1
+[    4.324621] tegra_rtc 7000e000.rtc: Tegra internal Real Time Clock
+[    4.331525] i2c /dev entries driver
+[    4.337569] usbcore: registered new interface driver uvcvideo
+[    4.343328] USB Video Class driver (1.1.1)
+[    4.347439] gspca_main: v2.14.0 registered
+[    4.352227] sbs-battery 0-000b: sbs_probe: Failed to get device status
+[    4.358776] sbs-battery: probe of 0-000b failed with error -121
+[    4.367103] vdd-sensor-2v85: supplied by vdd-sys-3v3
+[    4.378566] sdhci: Secure Digital Host Controller Interface driver
+[    4.384761] sdhci: Copyright(c) Pierre Ossman
+[    4.390513] Synopsys Designware Multimedia Card Interface Driver
+[    4.397613] sdhci-pltfm: SDHCI platform and OF driver helper
+[    4.404003] tegra114-pinctrl 70000868.pinmux: request pin 170 (SDMMC3_CD_N PV2) for Tegra GPIOs:170
+[    4.413058] sdhci-tegra 78000400.sdhci: Got CD GPIO
+[    4.417958] tegra114-pinctrl 70000868.pinmux: request pin 132 (KB_COL4 PQ4) for Tegra GPIOs:132
+[    4.426662] sdhci-tegra 78000400.sdhci: Got WP GPIO
+[    4.432661] sdhci-tegra 78000400.sdhci: No vmmc regulator found
+[    4.438598] sdhci-tegra 78000400.sdhci: No vqmmc regulator found
+[    4.444612] mmc0: Invalid maximum block size, assuming 512 bytes
+[    4.483948] mmc0: SDHCI controller on 78000400.sdhci [78000400.sdhci] using ADMA
+[    4.491628] sdhci-tegra 78000600.sdhci: No vmmc regulator found
+[    4.497564] sdhci-tegra 78000600.sdhci: No vqmmc regulator found
+[    4.503581] mmc1: Invalid maximum block size, assuming 512 bytes
+[    4.543830] mmc1: SDHCI controller on 78000600.sdhci [78000600.sdhci] using ADMA
+[    4.552364] ledtrig-cpu: registered to indicate activity on CPUs
+[    4.558605] usbcore: registered new interface driver usbhid
+[    4.564187] usbhid: USB HID core driver
+[    4.571489] usbcore: registered new interface driver snd-usb-audio
+[    4.578890] tegra114-pinctrl 70000868.pinmux: request pin 171 (SDMMC1_WP_N PV3) for Tegra GPIOs:171
+[    4.637756] mmc1: MAN_BKOPS_EN bit is not set
+[    4.645058] mmc1: new high speed MMC card at address 0001
+[    4.650852] mmcblk0: mmc1:0001 SEM32G 29.1 GiB 
+[    4.655511] mmcblk0boot0: mmc1:0001 SEM32G partition 1 4.00 MiB
+[    4.661556] mmcblk0boot1: mmc1:0001 SEM32G partition 2 4.00 MiB
+[    4.667588] mmcblk0rpmb: mmc1:0001 SEM32G partition 3 4.00 MiB
+[    4.675953]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8
+[    5.001777] tegra30-i2s 70080400.i2s: DMA channels sourced from device 70080000.ahub
+[    5.017382] tegra114-pinctrl 70000868.pinmux: request pin 143 (KB_ROW7 PR7) for Tegra GPIOs:143
+[    5.026645] tegra-snd-rt5640 sound: rt5640-aif1 <-> 70080400.i2s mapping ok
+[    5.037302] input: NVIDIA Tegra Dalmore Headphones as /devices/soc0/sound/sound/card0/input0
+[    5.047191] NET: Registered protocol family 17
+[    5.051671] can: controller area network core (rev 20120528 abi 9)
+[    5.057929] NET: Registered protocol family 29
+[    5.062391] can: raw protocol (rev 20120528)
+[    5.066677] can: broadcast manager protocol (rev 20120528 t)
+[    5.072356] can: netlink gateway (rev 20130117) max_hops=1
+[    5.078250] Key type dns_resolver registered
+[    5.083141] ThumbEE CPU extension supported.
+[    5.087436] Registering SWP/SWPB emulation handler
+[    5.094048] tegra114-pinctrl 70000868.pinmux: request pin 61 (GMI_AD13 PH5) for Tegra GPIOs:61
+[    5.103109] tegra114-pinctrl 70000868.pinmux: request pin 108 (USB_VBUS_EN0 PN4) for Tegra GPIOs:108
+[    5.112650] tegra114-pinctrl 70000868.pinmux: request pin 86 (SPDIF_IN PK6) for Tegra GPIOs:86
+[    5.123353] tegra114-pinctrl 70000868.pinmux: request pin 81 (GMI_CLK PK1) for Tegra GPIOs:81
+[    5.132607] vdd-sys-5v0: supplied by vdd_ac_bat
+[    5.137877] VDD_5V0_HDMI_CON: supplied by vdd-sys-5v0
+[    5.144313] vdd_hdmi_5v0: supplied by vdd-sys-5v0
+[    5.149874] tegra114-pinctrl 70000868.pinmux: request pin 111 (HDMI_INT PN7) for Tegra GPIOs:111
+[    5.161117] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    5.167767] [drm] No driver support for vblank timestamp query.
+[    5.231182] Console: switching to colour frame buffer device 240x75
+[    5.258660] drm drm: fb0:  frame buffer device
+[    5.263119] drm drm: registered panic notifier
+[    5.278956] [drm] Initialized tegra 0.0.0 20120330 on minor 0
+[    5.285701] usb2_vbus: supplied by vdd-sys-5v0
+[    5.292179] tegra-ehci 7d008000.usb: EHCI Host Controller
+[    5.297648] tegra-ehci 7d008000.usb: new USB bus registered, assigned bus number 1
+[    5.305869] tegra-ehci 7d008000.usb: irq 339, io mem 0x7d008000
+[    5.318967] tegra-ehci 7d008000.usb: USB 2.0 started, EHCI 1.10
+[    5.325859] hub 1-0:1.0: USB hub found
+[    5.329737] hub 1-0:1.0: 1 port detected
+[    5.335130] tegra114-pinctrl 70000868.pinmux: request pin 69 (GMI_IORDY PI5) for Tegra GPIOs:69
+[    5.343956] tegra114-pinctrl 70000868.pinmux: request pin 128 (KB_COL0 PQ0) for Tegra GPIOs:128
+[    5.352784] tegra114-pinctrl 70000868.pinmux: request pin 137 (KB_ROW1 PR1) for Tegra GPIOs:137
+[    5.361605] tegra114-pinctrl 70000868.pinmux: request pin 138 (KB_ROW2 PR2) for Tegra GPIOs:138
+[    5.370677] input: gpio-keys as /devices/soc0/gpio-keys/input/input1
+[    5.378291] palmas-rtc 7000d000.i2c:tps65913@58:rtc: setting system clock to 2000-10-24 08:08:41 UTC (972374921)
+[    5.399981] vdd_cam_1v8_reg: disabling
+[    5.403734] usb1_vbus: disabling
+[    5.407005] dvdd_ts: disabling
+[    5.415120] ALSA device list:
+[    5.418092]   #0: NVIDIA Tegra Dalmore
+[    5.423237] EXT4-fs (mmcblk0p1): mounting ext3 file system using the ext4 subsystem
+[    5.449022] EXT4-fs (mmcblk0p1): recovery complete
+[    5.453839] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+[    5.461979] VFS: Mounted root (ext3 filesystem) on device 179:1.
+[    5.472899] devtmpfs: mounted
+[    5.476607] Freeing unused kernel memory: 900K (c0d75000 - c0e56000)
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+root@(none):/# [    5.644026] usb 1-1: new high-speed USB device number 2 using tegra-ehci

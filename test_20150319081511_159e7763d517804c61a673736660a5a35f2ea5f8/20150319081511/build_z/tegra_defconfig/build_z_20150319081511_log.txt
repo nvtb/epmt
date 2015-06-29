@@ -1,0 +1,6 @@
+test_build: Thu Mar 19 08:20:01 PDT 2015: started on tegra_defconfig test_20150319081511_159e7763d517804c61a673736660a5a35f2ea5f8 (159e7763d517804c61a673736660a5a35f2ea5f8)
+test_build: Thu Mar 19 08:20:01 PDT 2015: serial is 20150319081511
+   text	   data	    bss	    dec	    hex	filename
+9302268	 405804	 359404	10067476	 999e14	vmlinux
+test_build: Thu Mar 19 08:22:21 PDT 2015: succeeded on tegra_defconfig test_20150319081511_159e7763d517804c61a673736660a5a35f2ea5f8
+test_build: Thu Mar 19 08:22:21 PDT 2015: ended on tegra_defconfig test_20150319081511_159e7763d517804c61a673736660a5a35f2ea5f8

@@ -1,0 +1,7 @@
+test_build: Mon May 11 20:33:35 PDT 2015: started on multi_v7_defconfig test_20150511203324_f17107cb8886e291269242246bda0a3ddfadaab0 (f17107cb8886e291269242246bda0a3ddfadaab0)
+test_build: Mon May 11 20:33:35 PDT 2015: serial is 20150511203324
+drivers/gpu/drm/drm_crtc.c:4325:13: warning: ‘drm_property_unreference_blob_locked’ defined but not used [-Wunused-function]
+   text	   data	    bss	    dec	    hex	filename
+12479040	1434428	 326440	14239908	 d948a4	vmlinux
+test_build: Mon May 11 20:35:31 PDT 2015: succeeded on multi_v7_defconfig test_20150511203324_f17107cb8886e291269242246bda0a3ddfadaab0
+test_build: Mon May 11 20:35:31 PDT 2015: ended on multi_v7_defconfig test_20150511203324_f17107cb8886e291269242246bda0a3ddfadaab0

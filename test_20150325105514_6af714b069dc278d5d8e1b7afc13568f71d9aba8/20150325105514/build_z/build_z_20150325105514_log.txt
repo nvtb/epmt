@@ -1,0 +1,18 @@
+test_build: Wed Mar 25 10:59:17 PDT 2015: started on multi_v7_defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8 (6af714b069dc278d5d8e1b7afc13568f71d9aba8)
+test_build: Wed Mar 25 10:59:17 PDT 2015: serial is 20150325105514
+drivers/net/ethernet/intel/igb/igb_ptp.c: In function ‘igb_ptp_feature_enable_i210’:
+drivers/net/ethernet/intel/igb/igb_ptp.c:395:21: warning: ‘pin’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+drivers/net/ethernet/intel/igb/igb_ptp.c:471:6: note: ‘pin’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+11529438	1233980	 315048	13078466	 c78fc2	vmlinux
+test_build: Wed Mar 25 11:01:07 PDT 2015: succeeded on multi_v7_defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8
+test_build: Wed Mar 25 11:01:07 PDT 2015: ended on multi_v7_defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8
+test_build: Wed Mar 25 10:59:17 PDT 2015: started on tegra_defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8 (6af714b069dc278d5d8e1b7afc13568f71d9aba8)
+test_build: Wed Mar 25 10:59:17 PDT 2015: serial is 20150325105514
+drivers/net/ethernet/intel/igb/igb_ptp.c: In function ‘igb_ptp_feature_enable_i210’:
+drivers/net/ethernet/intel/igb/igb_ptp.c:395:21: warning: ‘pin’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+drivers/net/ethernet/intel/igb/igb_ptp.c:471:6: note: ‘pin’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9272710	 403628	 359408	10035746	 992222	vmlinux
+test_build: Wed Mar 25 11:02:10 PDT 2015: succeeded on tegra_defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8
+test_build: Wed Mar 25 11:02:10 PDT 2015: ended on tegra_defconfig test_20150325105514_6af714b069dc278d5d8e1b7afc13568f71d9aba8

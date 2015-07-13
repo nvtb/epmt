@@ -1,0 +1,19 @@
+test_build: Mon Jul 13 03:47:24 PDT 2015: started on multi_v7_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140 (41166bc983e55ee0055c2f1149d4296e740ae140)
+test_build: Mon Jul 13 03:47:24 PDT 2015: serial is 20150713033706
+<stdin>:1253:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
+   text	   data	    bss	    dec	    hex	filename
+12187649	1455004	 334888	13977541	 d547c5	vmlinux
+test_build: Mon Jul 13 03:49:10 PDT 2015: succeeded on multi_v7_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140
+test_build: Mon Jul 13 03:49:10 PDT 2015: ended on multi_v7_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140
+test_build: Mon Jul 13 03:47:22 PDT 2015: started on tegra_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140 (41166bc983e55ee0055c2f1149d4296e740ae140)
+test_build: Mon Jul 13 03:47:22 PDT 2015: serial is 20150713033706
+<stdin>:1253:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
+net/bluetooth/mgmt.c: In function ‘read_local_oob_ext_data_complete’:
+net/bluetooth/mgmt.c:6613:8: warning: ‘r192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6624:13: note: ‘r192’ was declared here
+net/bluetooth/mgmt.c:6613:8: warning: ‘h192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6624:6: note: ‘h192’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9858878	 446844	 371860	10677582	 a2ed4e	vmlinux
+test_build: Mon Jul 13 03:49:57 PDT 2015: succeeded on tegra_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140
+test_build: Mon Jul 13 03:49:57 PDT 2015: ended on tegra_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140

@@ -1,0 +1,12 @@
+test_sparse: Mon Jul 13 03:49:20 PDT 2015: started on tegra_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140 (41166bc983e55ee0055c2f1149d4296e740ae140)
+test_sparse: Mon Jul 13 03:49:20 PDT 2015: serial is 20150713033706
+test_sparse: sparse version unknown (checksum d41d8cd98f00b204e9800998ecf8427e)
+/bin/sh: 1: sparse: not found
+make[2]: *** [scripts/mod/empty.o] Error 127
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [scripts/mod] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [scripts] Error 2
+make: *** Waiting for unfinished jobs....
+test_sparse: Mon Jul 13 03:49:28 PDT 2015: FAILED on tegra_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140
+test_sparse: Mon Jul 13 03:49:28 PDT 2015: ended on tegra_defconfig test_20150713033706_41166bc983e55ee0055c2f1149d4296e740ae140

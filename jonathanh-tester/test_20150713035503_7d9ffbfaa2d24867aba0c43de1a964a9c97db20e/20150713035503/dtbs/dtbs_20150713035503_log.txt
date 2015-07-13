@@ -1,0 +1,5 @@
+test_build: Mon Jul 13 03:55:33 PDT 2015: started on tegra124-jetson-tk1.dtb test_20150713035503_7d9ffbfaa2d24867aba0c43de1a964a9c97db20e (7d9ffbfaa2d24867aba0c43de1a964a9c97db20e)
+test_build: Mon Jul 13 03:55:33 PDT 2015: serial is 20150713035503
+65184 arch/arm/boot/dts/tegra124-jetson-tk1.dtb
+test_build: Mon Jul 13 03:55:38 PDT 2015: succeeded on tegra124-jetson-tk1.dtb test_20150713035503_7d9ffbfaa2d24867aba0c43de1a964a9c97db20e
+test_build: Mon Jul 13 03:55:38 PDT 2015: ended on tegra124-jetson-tk1.dtb test_20150713035503_7d9ffbfaa2d24867aba0c43de1a964a9c97db20e

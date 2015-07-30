@@ -1,0 +1,7 @@
+test_build: Thu Jul 30 09:00:21 PDT 2015: started on defconfig test_20150730085501_67b3234a75688df3dc7c91b1624dd2e355b1c160 (67b3234a75688df3dc7c91b1624dd2e355b1c160)
+test_build: Thu Jul 30 09:00:21 PDT 2015: serial is 20150730085501
+<stdin>:1298:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
+   text	   data	    bss	    dec	    hex	filename
+8109227	 795440	 207592	9112259	 8b0ac3	vmlinux
+test_build: Thu Jul 30 09:02:58 PDT 2015: succeeded on defconfig test_20150730085501_67b3234a75688df3dc7c91b1624dd2e355b1c160
+test_build: Thu Jul 30 09:02:58 PDT 2015: ended on defconfig test_20150730085501_67b3234a75688df3dc7c91b1624dd2e355b1c160

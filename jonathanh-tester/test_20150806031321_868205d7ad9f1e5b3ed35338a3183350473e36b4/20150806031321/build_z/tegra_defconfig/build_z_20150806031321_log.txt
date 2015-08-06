@@ -1,0 +1,15 @@
+test_build: Thu Aug 6 03:19:11 PDT 2015: started on tegra_defconfig test_20150806031321_868205d7ad9f1e5b3ed35338a3183350473e36b4 (868205d7ad9f1e5b3ed35338a3183350473e36b4)
+test_build: Thu Aug 6 03:19:11 PDT 2015: serial is 20150806031321
+<stdin>:1298:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
+<stdin>:1301:2: warning: #warning syscall mlock2 not implemented [-Wcpp]
+kernel/notifier.c: In function ‘notify_die’:
+kernel/notifier.c:547:2: warning: ‘deprecate_rcu_lockdep_assert’ is deprecated (declared at include/linux/rcupdate.h:540) [-Wdeprecated-declarations]
+net/bluetooth/mgmt.c: In function ‘read_local_oob_ext_data_complete’:
+net/bluetooth/mgmt.c:6636:8: warning: ‘r192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6647:13: note: ‘r192’ was declared here
+net/bluetooth/mgmt.c:6636:8: warning: ‘h192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6647:6: note: ‘h192’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9699025	 448388	 372128	10519541	 a083f5	vmlinux
+test_build: Thu Aug 6 03:21:42 PDT 2015: succeeded on tegra_defconfig test_20150806031321_868205d7ad9f1e5b3ed35338a3183350473e36b4
+test_build: Thu Aug 6 03:21:42 PDT 2015: ended on tegra_defconfig test_20150806031321_868205d7ad9f1e5b3ed35338a3183350473e36b4

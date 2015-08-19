@@ -1,0 +1,10 @@
+test_sparse: Wed Aug 19 04:49:32 PDT 2015: started on defconfig test_20150819044339_f4566ed08d34ba299412d0bb1a6909ec9af0ed35 (f4566ed08d34ba299412d0bb1a6909ec9af0ed35)
+test_sparse: Wed Aug 19 04:49:32 PDT 2015: serial is 20150819044339
+test_sparse: sparse version unknown (checksum d41d8cd98f00b204e9800998ecf8427e)
+/bin/sh: 1: sparse: not found
+make[2]: *** [scripts/mod/empty.o] Error 127
+make[1]: *** [scripts/mod] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [scripts] Error 2
+test_sparse: Wed Aug 19 04:49:37 PDT 2015: FAILED on defconfig test_20150819044339_f4566ed08d34ba299412d0bb1a6909ec9af0ed35
+test_sparse: Wed Aug 19 04:49:37 PDT 2015: ended on defconfig test_20150819044339_f4566ed08d34ba299412d0bb1a6909ec9af0ed35

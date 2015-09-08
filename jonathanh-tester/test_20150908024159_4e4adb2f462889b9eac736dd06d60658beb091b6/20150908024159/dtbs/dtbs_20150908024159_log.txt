@@ -1,0 +1,5 @@
+test_build: Tue Sep 8 02:42:26 PDT 2015: started on tegra124-jetson-tk1.dtb test_20150908024159_4e4adb2f462889b9eac736dd06d60658beb091b6 (4e4adb2f462889b9eac736dd06d60658beb091b6)
+test_build: Tue Sep 8 02:42:26 PDT 2015: serial is 20150908024159
+64210 arch/arm/boot/dts/tegra124-jetson-tk1.dtb
+test_build: Tue Sep 8 02:42:30 PDT 2015: succeeded on tegra124-jetson-tk1.dtb test_20150908024159_4e4adb2f462889b9eac736dd06d60658beb091b6
+test_build: Tue Sep 8 02:42:30 PDT 2015: ended on tegra124-jetson-tk1.dtb test_20150908024159_4e4adb2f462889b9eac736dd06d60658beb091b6

@@ -1,0 +1,11 @@
+test_build: Mon Nov 9 04:47:45 PST 2015: started on multi_v7_defconfig test_20151109044730_2318c8722b51e465ddd66c70268861af663f7790 (2318c8722b51e465ddd66c70268861af663f7790)
+test_build: Mon Nov 9 04:47:45 PST 2015: serial is 20151109044730
+<stdin>:1304:2: warning: #warning syscall mlock2 not implemented [-Wcpp]
+drivers/gpu/drm/drm_gem_cma_helper.c: In function ‘drm_gem_cma_prime_mmap’:
+drivers/gpu/drm/drm_gem_cma_helper.c:484:21: warning: unused variable ‘dev’ [-Wunused-variable]
+drivers/regulator/core.c: In function ‘regulator_lock_supply’:
+drivers/regulator/core.c:142:6: warning: unused variable ‘i’ [-Wunused-variable]
+   text	   data	    bss	    dec	    hex	filename
+12898404	1509004	 349288	14756696	 e12b58	vmlinux
+test_build: Mon Nov 9 04:49:40 PST 2015: succeeded on multi_v7_defconfig test_20151109044730_2318c8722b51e465ddd66c70268861af663f7790
+test_build: Mon Nov 9 04:49:40 PST 2015: ended on multi_v7_defconfig test_20151109044730_2318c8722b51e465ddd66c70268861af663f7790

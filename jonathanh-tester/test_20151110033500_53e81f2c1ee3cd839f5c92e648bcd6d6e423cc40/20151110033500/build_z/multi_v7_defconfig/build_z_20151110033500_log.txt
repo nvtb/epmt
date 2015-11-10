@@ -1,0 +1,14 @@
+test_build: Tue Nov 10 03:46:50 PST 2015: started on multi_v7_defconfig test_20151110033500_53e81f2c1ee3cd839f5c92e648bcd6d6e423cc40 (53e81f2c1ee3cd839f5c92e648bcd6d6e423cc40)
+test_build: Tue Nov 10 03:46:50 PST 2015: serial is 20151110033500
+<stdin>:1304:2: warning: #warning syscall mlock2 not implemented [-Wcpp]
+drivers/gpu/drm/drm_gem_cma_helper.c: In function ‘drm_gem_cma_prime_mmap’:
+drivers/gpu/drm/drm_gem_cma_helper.c:484:21: warning: unused variable ‘dev’ [-Wunused-variable]
+drivers/regulator/core.c: In function ‘regulator_lock_supply’:
+drivers/regulator/core.c:142:6: warning: unused variable ‘i’ [-Wunused-variable]
+WARNING: modpost: Found 4 section mismatch(es).
+To see full details build your kernel with:
+'make CONFIG_DEBUG_SECTION_MISMATCH=y'
+   text	   data	    bss	    dec	    hex	filename
+12899736	1509612	 349288	14758636	 e132ec	vmlinux
+test_build: Tue Nov 10 03:48:45 PST 2015: succeeded on multi_v7_defconfig test_20151110033500_53e81f2c1ee3cd839f5c92e648bcd6d6e423cc40
+test_build: Tue Nov 10 03:48:45 PST 2015: ended on multi_v7_defconfig test_20151110033500_53e81f2c1ee3cd839f5c92e648bcd6d6e423cc40

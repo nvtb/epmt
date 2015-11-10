@@ -1,0 +1,25 @@
+test_build: Tue Nov 10 02:31:17 PST 2015: started on multi_v7_defconfig test_20151110023102_963513aaee6eaca81259c0698a62c308fe10863a (963513aaee6eaca81259c0698a62c308fe10863a)
+test_build: Tue Nov 10 02:31:17 PST 2015: serial is 20151110023102
+<stdin>:1304:2: warning: #warning syscall mlock2 not implemented [-Wcpp]
+drivers/gpu/drm/drm_gem_cma_helper.c: In function ‘drm_gem_cma_prime_mmap’:
+drivers/gpu/drm/drm_gem_cma_helper.c:484:21: warning: unused variable ‘dev’ [-Wunused-variable]
+drivers/regulator/core.c: In function ‘regulator_lock_supply’:
+drivers/regulator/core.c:142:6: warning: unused variable ‘i’ [-Wunused-variable]
+   text	   data	    bss	    dec	    hex	filename
+12898404	1509004	 349288	14756696	 e12b58	vmlinux
+test_build: Tue Nov 10 02:33:12 PST 2015: succeeded on multi_v7_defconfig test_20151110023102_963513aaee6eaca81259c0698a62c308fe10863a
+test_build: Tue Nov 10 02:33:12 PST 2015: ended on multi_v7_defconfig test_20151110023102_963513aaee6eaca81259c0698a62c308fe10863a
+test_build: Tue Nov 10 02:31:15 PST 2015: started on tegra_defconfig test_20151110023102_963513aaee6eaca81259c0698a62c308fe10863a (963513aaee6eaca81259c0698a62c308fe10863a)
+test_build: Tue Nov 10 02:31:15 PST 2015: serial is 20151110023102
+<stdin>:1304:2: warning: #warning syscall mlock2 not implemented [-Wcpp]
+net/bluetooth/mgmt.c: In function ‘read_local_oob_ext_data_complete’:
+net/bluetooth/mgmt.c:6635:8: warning: ‘r192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6646:13: note: ‘r192’ was declared here
+net/bluetooth/mgmt.c:6635:8: warning: ‘h192’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+net/bluetooth/mgmt.c:6646:6: note: ‘h192’ was declared here
+drivers/regulator/core.c: In function ‘regulator_lock_supply’:
+drivers/regulator/core.c:142:6: warning: unused variable ‘i’ [-Wunused-variable]
+   text	   data	    bss	    dec	    hex	filename
+10038029	 471604	 373136	10882769	 a60ed1	vmlinux
+test_build: Tue Nov 10 02:33:35 PST 2015: succeeded on tegra_defconfig test_20151110023102_963513aaee6eaca81259c0698a62c308fe10863a
+test_build: Tue Nov 10 02:33:35 PST 2015: ended on tegra_defconfig test_20151110023102_963513aaee6eaca81259c0698a62c308fe10863a

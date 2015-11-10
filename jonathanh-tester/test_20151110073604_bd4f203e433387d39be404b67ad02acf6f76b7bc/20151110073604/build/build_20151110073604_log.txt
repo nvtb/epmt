@@ -1,0 +1,10 @@
+test_build: Tue Nov 10 07:39:07 PST 2015: started on defconfig test_20151110073604_bd4f203e433387d39be404b67ad02acf6f76b7bc (bd4f203e433387d39be404b67ad02acf6f76b7bc)
+test_build: Tue Nov 10 07:39:07 PST 2015: serial is 20151110073604
+drivers/regulator/core.c: In function ‘regulator_lock_supply’:
+drivers/regulator/core.c:142:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i = 0;
+      ^
+   text	   data	    bss	    dec	    hex	filename
+8239169	 818952	 212904	9271025	 8d76f1	vmlinux
+test_build: Tue Nov 10 07:41:50 PST 2015: succeeded on defconfig test_20151110073604_bd4f203e433387d39be404b67ad02acf6f76b7bc
+test_build: Tue Nov 10 07:41:50 PST 2015: ended on defconfig test_20151110073604_bd4f203e433387d39be404b67ad02acf6f76b7bc

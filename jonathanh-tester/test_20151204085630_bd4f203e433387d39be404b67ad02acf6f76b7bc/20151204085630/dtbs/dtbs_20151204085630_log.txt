@@ -1,0 +1,5 @@
+test_build: Fri Dec 4 08:57:12 PST 2015: started on arm/rtsm_ve-aemv8a.dtb test_20151204085630_bd4f203e433387d39be404b67ad02acf6f76b7bc (bd4f203e433387d39be404b67ad02acf6f76b7bc)
+test_build: Fri Dec 4 08:57:12 PST 2015: serial is 20151204085630
+8743 arch/arm64/boot/dts/arm/rtsm_ve-aemv8a.dtb
+test_build: Fri Dec 4 08:57:17 PST 2015: succeeded on arm/rtsm_ve-aemv8a.dtb test_20151204085630_bd4f203e433387d39be404b67ad02acf6f76b7bc
+test_build: Fri Dec 4 08:57:17 PST 2015: ended on arm/rtsm_ve-aemv8a.dtb test_20151204085630_bd4f203e433387d39be404b67ad02acf6f76b7bc

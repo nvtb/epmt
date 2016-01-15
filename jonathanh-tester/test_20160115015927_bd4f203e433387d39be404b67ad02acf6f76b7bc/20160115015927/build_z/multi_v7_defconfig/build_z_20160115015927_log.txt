@@ -1,0 +1,9 @@
+test_build: Fri Jan 15 01:59:40 PST 2016: started on multi_v7_defconfig test_20160115015927_bd4f203e433387d39be404b67ad02acf6f76b7bc (bd4f203e433387d39be404b67ad02acf6f76b7bc)
+test_build: Fri Jan 15 01:59:40 PST 2016: serial is 20160115015927
+<stdin>:1304:2: warning: #warning syscall mlock2 not implemented [-Wcpp]
+drivers/regulator/core.c: In function ‘regulator_lock_supply’:
+drivers/regulator/core.c:142:6: warning: unused variable ‘i’ [-Wunused-variable]
+   text	   data	    bss	    dec	    hex	filename
+12726300	1500380	 349096	14575776	 de68a0	vmlinux
+test_build: Fri Jan 15 02:01:32 PST 2016: succeeded on multi_v7_defconfig test_20160115015927_bd4f203e433387d39be404b67ad02acf6f76b7bc
+test_build: Fri Jan 15 02:01:32 PST 2016: ended on multi_v7_defconfig test_20160115015927_bd4f203e433387d39be404b67ad02acf6f76b7bc

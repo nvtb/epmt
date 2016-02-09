@@ -1,0 +1,6 @@
+test_build: Tue Feb 9 08:56:35 PST 2016: started on nvidia/tegra210-p2371-0000.dtb test_20160209084116_075b7ac7613642efc73b0a6ed4ba3e4e082f4061 (075b7ac7613642efc73b0a6ed4ba3e4e082f4061)
+test_build: Tue Feb 9 08:56:35 PST 2016: serial is 20160209084116
+make[1]: *** No rule to make target `arch/arm64/boot/dts/nvidia/tegra210-p2371-0000.dtb'.  Stop.
+make: *** [nvidia/tegra210-p2371-0000.dtb] Error 2
+test_build: Tue Feb 9 08:56:38 PST 2016: FAILED on nvidia/tegra210-p2371-0000.dtb test_20160209084116_075b7ac7613642efc73b0a6ed4ba3e4e082f4061
+test_build: Tue Feb 9 08:56:38 PST 2016: ended on nvidia/tegra210-p2371-0000.dtb test_20160209084116_075b7ac7613642efc73b0a6ed4ba3e4e082f4061

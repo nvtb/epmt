@@ -1,0 +1,5 @@
+test_build: Thu Apr 28 02:58:50 PDT 2016: started on nvidia/tegra210-p2371-0000.dtb test_20160428025444_bd4f203e433387d39be404b67ad02acf6f76b7bc (bd4f203e433387d39be404b67ad02acf6f76b7bc)
+test_build: Thu Apr 28 02:58:50 PDT 2016: serial is 20160428025444
+37108 arch/arm64/boot/dts/nvidia/tegra210-p2371-0000.dtb
+test_build: Thu Apr 28 02:58:53 PDT 2016: succeeded on nvidia/tegra210-p2371-0000.dtb test_20160428025444_bd4f203e433387d39be404b67ad02acf6f76b7bc
+test_build: Thu Apr 28 02:58:53 PDT 2016: ended on nvidia/tegra210-p2371-0000.dtb test_20160428025444_bd4f203e433387d39be404b67ad02acf6f76b7bc

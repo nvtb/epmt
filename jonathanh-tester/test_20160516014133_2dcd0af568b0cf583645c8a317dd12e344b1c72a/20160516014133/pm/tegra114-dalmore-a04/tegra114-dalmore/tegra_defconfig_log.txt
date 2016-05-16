@@ -1,0 +1,567 @@
+
+U-Boot SPL 2014.01-00219-gc4d376f (Feb 18 2014 - 19:57:32)
+
+
+U-Boot 2014.01-00219-gc4d376f (Feb 18 2014 - 19:57:32)
+
+TEGRA114
+Board: NVIDIA Dalmore
+I2C:   ready
+DRAM:  2 GiB
+MMC:   Tegra SD/MMC: 0, Tegra SD/MMC: 1
+In:    serial
+Out:   serial
+Err:   serial
+Net:   Net Initialization Skipped
+No ethernet found.
+Hit any key to stop autoboot:  2  0 
+Tegra114 (Dalmore) # 
+Tegra114 (Dalmore) # usb reset
+(Re)start USB...
+USB0:   USB EHCI 1.10
+scanning bus 0 for devices... 2 USB Device(s) found
+       scanning usb for storage devices... 0 Storage Device(s) found
+       scanning usb for ethernet devices... 
+Warning: asx0 using MAC address from net device
+1 Ethernet Device(s) found
+Tegra114 (Dalmore) # setenv bootargs 'ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=7369c667-ff51-ec4a-29cd-baabf2fbe346 rootwait gpt debug earlyprintk init=/bin/bash'
+Tegra114 (Dalmore) # setenv ipaddr 192.168.100.100; setenv serverip 192.168.100.1; setenv tftpserverip 192.168.100.1
+Tegra114 (Dalmore) # tftpboot 0x81000000 zImage.tegra_defconfig
+Using asx0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.100
+Filename 'zImage.tegra_defconfig'.
+Load address: 0x81000000
+Loading: *#################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 ######################################
+	 3.1 MiB/s
+done
+Bytes transferred = 5315968 (511d80 hex)
+Tegra114 (Dalmore) # tftpboot 0x82000000 tegra114-dalmore.dtb
+Using asx0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.100
+Filename 'tegra114-dalmore.dtb'.
+Load address: 0x82000000
+Loading: *###
+	 2.8 MiB/s
+done
+Bytes transferred = 34894 (884e hex)
+Tegra114 (Dalmore) # bootz 0x81000000 - 0x82000000
+Kernel image @ 0x81000000 [ 0x000000 - 0x511d80 ]
+## Flattened Device Tree blob at 82000000
+   Booting using the fdt blob at 0x82000000
+   Loading Device Tree to 8fff4000, end 8ffff84d ... OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.6.0-83646-g2dcd0af (pwalmsley@kaivo) (gcc version 4.7.3 20130328 (prerelease) (crosstool-NG linaro-1.13.1-4.7-2013.04-20130415 - Linaro GCC 2013.04) ) #1 SMP PREEMPT Mon May 16 01:46:22 PDT 2016
+[    0.000000] CPU: ARMv7 Processor [412fc0f2] revision 2 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: NVIDIA Tegra114 Dalmore evaluation board
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] bootconsole [earlycon0] enabled
+[    0.000000] cma: Reserved 64 MiB at 0xfbc00000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] On node 0 totalpages: 524032
+[    0.000000] free_area_init_node: node 0, pgdat c0c5c440, node_mem_map eeff7000
+[    0.000000]   Normal zone: 1536 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 196608 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 327424 pages, LIFO batch:31
+[    0.000000] percpu: Embedded 12 pages/cpu @eefa2000 s19968 r8192 d20992 u49152
+[    0.000000] pcpu-alloc: s19968 r8192 d20992 u49152 alloc=12*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 522496
+[    0.000000] Kernel command line: ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=7369c667-ff51-ec4a-29cd-baabf2fbe346 rootwait gpt debug earlyprintk init=/bin/bash
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 2000996K/2096128K available (7412K kernel code, 375K rwdata, 2516K rodata, 1024K init, 362K bss, 29596K reserved, 65536K cma-reserved, 1244160K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0ab22c4   (10921 kB)
+[    0.000000]       .init : 0xc0b00000 - 0xc0c00000   (1024 kB)
+[    0.000000]       .data : 0xc0c00000 - 0xc0c5dfc0   ( 376 kB)
+[    0.000000]        .bss : 0xc0c5f000 - 0xc0cb9a04   ( 363 kB)
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	Build-time adjustment of leaf fanout to 32.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] /interrupt-controller@60004000: 160 interrupts forwarded to /interrupt-controller@50041000
+[    0.000000] Tegra clk 127: register failed with -17
+[    0.000008] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 2147483647500ns
+[    0.007527] clocksource: timer_us: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275 ns
+[    0.017144] Switching to timer-based delay loop, resolution 1000ns
+[    0.024206] Architected cp15 timer(s) running at 12.00MHz (virt).
+[    0.029540] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2c47f4ee7, max_idle_ns: 440795202497 ns
+[    0.040375] sched_clock: 56 bits at 12MHz, resolution 83ns, wraps every 4398046511096ns
+[    0.048428] Switching to timer-based delay loop, resolution 83ns
+[    0.054938] Console: colour dummy device 80x30
+[    0.059015] Calibrating delay loop (skipped), value calculated using timer frequency.. 24.00 BogoMIPS (lpj=120000)
+[    0.069398] pid_max: default: 32768 minimum: 301
+[    0.074654] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.080769] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.089333] CPU: Testing write buffer coherency: ok
+[    0.093089] /cpus/cpu@0 missing clock-frequency property
+[    0.098190] /cpus/cpu@1 missing clock-frequency property
+[    0.103584] /cpus/cpu@2 missing clock-frequency property
+[    0.108938] /cpus/cpu@3 missing clock-frequency property
+[    0.114308] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.120049] Setting up static identity map for 0x80100000 - 0x80100098
+[    0.177136] Tegra Revision: A01 SKU: 0 CPU Process: 1 SoC Process: 0
+[    0.227226] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.267283] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.307348] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.307451] Brought up 4 CPUs
+[    0.325758] SMP: Total of 4 processors activated (96.00 BogoMIPS).
+[    0.332008] CPU: All CPU(s) started in SVC mode.
+[    0.338528] devtmpfs: initialized
+[    0.369472] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.376020] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.386657] pinctrl core: initialized pinctrl subsystem
+[    0.392548] NET: Registered protocol family 16
+[    0.396552] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.425417] cpuidle: using governor menu
+[    0.448036] No ATAGs?
+[    0.448252] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.456564] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.463611] tegra-mc 70019000.memory-controller: no memory timings for RAM code 3 registered
+[    0.524579] dvdd_ts: Failed to request enable GPIO61: -517
+[    0.528245] reg-fixed-voltage regulators:regulator@1: Failed to register regulator: -517
+[    0.536544] usb1_vbus: Failed to request enable GPIO108: -517
+[    0.542196] reg-fixed-voltage regulators:regulator@3: Failed to register regulator: -517
+[    0.550488] usb2_vbus: Failed to request enable GPIO86: -517
+[    0.556062] reg-fixed-voltage regulators:regulator@4: Failed to register regulator: -517
+[    0.564978] VDD_5V0_HDMI_CON: Failed to request enable GPIO81: -517
+[    0.570537] reg-fixed-voltage regulators:regulator@7: Failed to register regulator: -517
+[    0.580605] vgaarb: loaded
+[    0.583035] SCSI subsystem initialized
+[    0.585600] libata version 3.00 loaded.
+[    0.589928] usbcore: registered new interface driver usbfs
+[    0.594904] usbcore: registered new interface driver hub
+[    0.600298] usbcore: registered new device driver usb
+[    0.609677] tps65090 2-0048: No cache defaults, reading back from HW
+[    0.623657] genirq: Setting trigger mode 8 for irq 341 failed (irq_chip_set_type_parent+0x0/0x28)
+[    0.630730] palmas 2-0058: Irq flag is 0x00000000
+[    0.639147] palmas 2-0058: Muxing GPIO ff, PWM 0, LED 0
+[    0.654696] sdhci-vdd-sd-slot: ramp_delay not set
+[    0.696688] Linux video capture interface: v2.00
+[    0.699598] pps_core: LinuxPPS API ver. 1 registered
+[    0.704529] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.713753] PTP clock support registered
+[    0.718787] Advanced Linux Sound Architecture Driver Initialized.
+[    0.725635] Bluetooth: Core ver 2.21
+[    0.727547] NET: Registered protocol family 31
+[    0.732000] Bluetooth: HCI device and connection manager initialized
+[    0.738409] Bluetooth: HCI socket layer initialized
+[    0.743362] Bluetooth: L2CAP socket layer initialized
+[    0.748494] Bluetooth: SCO socket layer initialized
+[    0.755044] clocksource: Switched to clocksource arch_sys_counter
+[    0.784880] NET: Registered protocol family 2
+[    0.788787] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.794610] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.801221] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.807878] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.813444] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.820291] NET: Registered protocol family 1
+[    0.824999] RPC: Registered named UNIX socket transport module.
+[    0.830251] RPC: Registered udp transport module.
+[    0.834990] RPC: Registered tcp transport module.
+[    0.839773] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.846287] PCI: CLS 0 bytes, default 64
+[    0.854819] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.860393] workingset: timestamp_bits=28 max_order=19 bucket_order=0
+[    0.867383] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.872516] NFS: Registering the id_resolver key type
+[    0.876774] Key type id_resolver registered
+[    0.880923] Key type id_legacy registered
+[    0.889784] bounce: pool size: 64 pages
+[    0.891805] io scheduler noop registered (default)
+[    0.908284] vdd-lcd-bl: supplied by vdd_ac_bat
+[    0.923250] tegra-apbdma 6000a000.dma: Tegra20 APB DMA driver register 32 channels
+[    0.929931] tegra-pmc 7000e400.pmc: i2c-thermtrip node not found, emergency thermal reset disabled.
+[    0.938896] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.948475] console [ttyS0] disabled
+[    0.950273] 70006300.serial: ttyS0 at MMIO 0x70006300 (irq = 329, base_baud = 25500000) is a Tegra
+[    0.959301] console [ttyS0] enabled
+[    0.959301] console [ttyS0] enabled
+[    0.965593] bootconsole [earlycon0] disabled
+[    0.965593] bootconsole [earlycon0] disabled
+[    0.986939] [drm] Initialized drm 1.1.0 20060810
+[    0.992909] tegra-hdmi 54280000.hdmi: failed to get HDMI regulator
+[    0.999771] vdd-ao: supplied by vdd_ac_bat
+[    1.004120] vddio-1v8: supplied by vdd-ao
+[    1.008561] avdd-dsi-csi: supplied by vddio-1v8
+[    1.017649] vdd-sys-3v3: supplied by vdd_ac_bat
+[    1.022416] avdd-lcd: supplied by vdd-sys-3v3
+[    1.063662] loop: module loaded
+[    1.080375] m25p80 spi32766.0: w25q32dw (4096 Kbytes)
+[    1.088821] CAN device driver interface
+[    1.092775] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.3.0-k
+[    1.099748] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    1.105716] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    1.113230] usbcore: registered new interface driver pegasus
+[    1.119081] usbcore: registered new interface driver asix
+[    1.124598] usbcore: registered new interface driver ax88179_178a
+[    1.130853] usbcore: registered new interface driver cdc_ether
+[    1.136886] usbcore: registered new interface driver smsc75xx
+[    1.142795] usbcore: registered new interface driver smsc95xx
+[    1.148684] usbcore: registered new interface driver net1080
+[    1.154459] usbcore: registered new interface driver cdc_subset
+[    1.160516] usbcore: registered new interface driver zaurus
+[    1.166313] usbcore: registered new interface driver cdc_ncm
+[    1.172457] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.179008] ehci-pci: EHCI PCI platform driver
+[    1.183575] tegra-ehci: Tegra EHCI driver
+[    1.188301] usbcore: registered new interface driver cdc_acm
+[    1.193951] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.202106] usbcore: registered new interface driver cdc_wdm
+[    1.207955] usbcore: registered new interface driver usb-storage
+[    1.214789] mousedev: PS/2 mouse device common for all mice
+[    1.235621] palmas-rtc 7000d000.i2c:tps65913@58:rtc: rtc core: registered 7000d000.i2c:tps659 as rtc0
+[    1.246619] tegra_rtc 7000e000.rtc: rtc core: registered 7000e000.rtc as rtc1
+[    1.253842] tegra_rtc 7000e000.rtc: Tegra internal Real Time Clock
+[    1.260443] i2c /dev entries driver
+[    1.265595] usbcore: registered new interface driver uvcvideo
+[    1.271330] USB Video Class driver (1.1.1)
+[    1.275448] gspca_main: v2.14.0 registered
+[    1.280275] sbs-battery 0-000b: sbs_probe: Failed to get device status
+[    1.286835] sbs-battery: probe of 0-000b failed with error -121
+[    1.294858] vdd-sensor-2v85: supplied by vdd-sys-3v3
+[    1.304338] sdhci: Secure Digital Host Controller Interface driver
+[    1.310533] sdhci: Copyright(c) Pierre Ossman
+[    1.314889] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.320891] sdhci-tegra 78000400.sdhci: Got CD GPIO
+[    1.325804] sdhci-tegra 78000400.sdhci: Got WP GPIO
+[    1.331867] mmc0: Invalid maximum block size, assuming 512 bytes
+[    1.385289] mmc0: SDHCI controller on 78000400.sdhci [78000400.sdhci] using ADMA
+[    1.392998] mmc1: Invalid maximum block size, assuming 512 bytes
+[    1.445103] mmc1: SDHCI controller on 78000600.sdhci [78000600.sdhci] using ADMA
+[    1.463022] usbcore: registered new interface driver usbhid
+[    1.470654] usbhid: USB HID core driver
+[    1.530270] mmc1: new high speed MMC card at address 0001
+[    1.536835] mmcblk1: mmc1:0001 SEM32G 29.1 GiB 
+[    1.541970] mmcblk1boot0: mmc1:0001 SEM32G partition 1 4.00 MiB
+[    1.557096] mmc0: new high speed SDHC card at address aaaa
+[    1.562834] mmcblk1boot1: mmc1:0001 SEM32G partition 2 4.00 MiB
+[    1.569784] mmcblk0: mmc0:aaaa SL16G 14.8 GiB 
+[    1.579780] mmcblk1rpmb: mmc1:0001 SEM32G partition 3 4.00 MiB
+[    1.588961]  mmcblk1: p1 p2 p3 p4 p5 p6 p7 p8
+[    1.595713]  mmcblk0: p1 p2 p3
+[    1.918433] tegra30-i2s 70080400.i2s: DMA channels sourced from device 70080000.ahub
+[    1.935887] tegra-snd-rt5640 sound: rt5640-aif1 <-> 70080400.i2s mapping ok
+[    1.948524] input: NVIDIA Tegra Dalmore Headphones as /devices/soc0/sound/sound/card0/input0
+[    1.959725] NET: Registered protocol family 10
+[    1.965900] mip6: Mobile IPv6
+[    1.968875] sit: IPv6 over IPv4 tunneling driver
+[    1.976689] NET: Registered protocol family 17
+[    1.981172] NET: Registered protocol family 15
+[    1.985642] can: controller area network core (rev 20120528 abi 9)
+[    1.992001] NET: Registered protocol family 29
+[    1.996471] can: raw protocol (rev 20120528)
+[    2.000745] can: broadcast manager protocol (rev 20120528 t)
+[    2.006438] can: netlink gateway (rev 20130117) max_hops=1
+[    2.012133] Bluetooth: RFCOMM socket layer initialized
+[    2.017314] Bluetooth: RFCOMM ver 1.11
+[    2.021079] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    2.026416] Bluetooth: BNEP socket layer initialized
+[    2.031381] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    2.037321] Bluetooth: HIDP socket layer initialized
+[    2.042616] Key type dns_resolver registered
+[    2.048248] Registering SWP/SWPB emulation handler
+[    2.059263] vdd-sys-5v0: supplied by vdd_ac_bat
+[    2.064313] VDD_5V0_HDMI_CON: supplied by vdd-sys-5v0
+[    2.071140] vdd_hdmi_5v0: supplied by vdd-sys-5v0
+[    2.080656] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    2.087436] [drm] No driver support for vblank timestamp query.
+[    2.153452] Console: switching to colour frame buffer device 240x75
+[    2.180969] drm drm: fb0:  frame buffer device
+[    2.215174] [drm] Initialized tegra 0.0.0 20120330 on minor 0
+[    2.221406] usb2_vbus: supplied by vdd-sys-5v0
+[    2.227481] tegra-ehci 7d008000.usb: EHCI Host Controller
+[    2.232954] tegra-ehci 7d008000.usb: new USB bus registered, assigned bus number 1
+[    2.240995] tegra-ehci 7d008000.usb: irq 339, io mem 0x7d008000
+[    2.265178] tegra-ehci 7d008000.usb: USB 2.0 started, EHCI 1.10
+[    2.272967] hub 1-0:1.0: USB hub found
+[    2.276796] hub 1-0:1.0: 1 port detected
+[    2.283236] input: gpio-keys as /devices/soc0/gpio-keys/input/input1
+[    2.292430] palmas-rtc 7000d000.i2c:tps65913@58:rtc: setting system clock to 2000-03-09 20:06:23 UTC (952632383)
+[    2.324952] dvdd_ts: disabling
+[    2.328061] usb1_vbus: disabling
+[    2.331296] vdd_cam_1v8_reg: disabling
+[    2.335413] ALSA device list:
+[    2.338377]   #0: NVIDIA Tegra Dalmore
+[    2.343577] EXT4-fs (mmcblk1p1): mounting ext3 file system using the ext4 subsystem
+[    2.367482] EXT4-fs (mmcblk1p1): recovery complete
+[    2.372287] EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Opts: (null)
+[    2.380605] VFS: Mounted root (ext3 filesystem) on device 179:1.
+[    2.392588] devtmpfs: mounted
+[    2.396704] Freeing unused kernel memory: 1024K (c0b00000 - c0c00000)
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+root@(none):/# [    2.595225] usb 1-1: new high-speed USB device number 2 using tegra-ehci
+mount -t sysfs none /sys
+root@(none):/# 
+root@(none):/# [    3.595440] asix 1-1:1.0 eth0: register 'asix' at usb-7d008000.usb-1, ASIX AX88772 USB 2.0 Ethernet, 00:50:b6:0d:b5:16
+mount -t debugfs none /sys/kernel/debug
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:18 1970
+[    5.173205] PM: Syncing filesystems ... done.
+[    5.196759] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    5.198154] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    5.198158] Suspending console(s) (use no_console_suspend to debug)
+[    5.287057] PM: suspend of devices complete after 62.738 msecs
+[    5.288996] PM: late suspend of devices complete after 1.922 msecs
+[    5.290553] PM: noirq suspend of devices complete after 1.547 msecs
+[    5.290558] Disabling non-boot CPUs ...
+[    5.325202] IRQ16 no longer affine to CPU1
+[    5.325559] CPU1: shutdown
+[    5.395502] CPU2: shutdown
+[    5.455555] CPU3: shutdown
+[    5.487452] Entering suspend state LP1
+[    5.487499] Enabling non-boot CPUs ...
+[    5.538330] CPU1 is up
+[    5.588994] CPU2 is up
+[    5.639742] CPU3 is up
+[    5.640765] PM: noirq resume of devices complete after 1.012 msecs
+[    5.643003] PM: early resume of devices complete after 1.606 msecs
+[    5.737209] PM: resume of devices complete after 94.188 msecs
+[    5.805650] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:26 1970
+[    6.248059] PM: Syncing filesystems ... done.
+[    6.266724] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    6.268139] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    6.268144] Suspending console(s) (use no_console_suspend to debug)
+[    6.367220] PM: suspend of devices complete after 69.695 msecs
+[    6.369155] PM: late suspend of devices complete after 1.920 msecs
+[    6.370702] PM: noirq suspend of devices complete after 1.536 msecs
+[    6.370707] Disabling non-boot CPUs ...
+[    6.395509] CPU1: shutdown
+[    6.455164] IRQ16 no longer affine to CPU2
+[    6.455543] CPU2: shutdown
+[    6.515501] CPU3: shutdown
+[    6.547373] Entering suspend state LP1
+[    6.547420] Enabling non-boot CPUs ...
+[    6.598297] CPU1 is up
+[    6.648945] CPU2 is up
+[    6.699696] CPU3 is up
+[    6.700704] PM: noirq resume of devices complete after 0.997 msecs
+[    6.703187] PM: early resume of devices complete after 1.837 msecs
+[    6.807200] PM: resume of devices complete after 103.996 msecs
+[    6.875707] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:34 1970
+[    7.296458] PM: Syncing filesystems ... done.
+[    7.306971] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    7.308524] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    7.308530] Suspending console(s) (use no_console_suspend to debug)
+[    7.417063] PM: suspend of devices complete after 71.678 msecs
+[    7.419077] PM: late suspend of devices complete after 1.997 msecs
+[    7.420623] PM: noirq suspend of devices complete after 1.536 msecs
+[    7.420627] Disabling non-boot CPUs ...
+[    7.445477] CPU1: shutdown
+[    7.505492] CPU2: shutdown
+[    7.565107] IRQ16 no longer affine to CPU3
+[    7.565470] CPU3: shutdown
+[    7.597345] Entering suspend state LP1
+[    7.597393] Enabling non-boot CPUs ...
+[    7.648259] CPU1 is up
+[    7.698910] CPU2 is up
+[    7.749663] CPU3 is up
+[    7.750660] PM: noirq resume of devices complete after 0.986 msecs
+[    7.752808] PM: early resume of devices complete after 1.491 msecs
+[    7.857151] PM: resume of devices complete after 104.324 msecs
+[    7.925737] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:42 1970
+[    8.341190] PM: Syncing filesystems ... done.
+[    8.366650] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    8.368067] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    8.368071] Suspending console(s) (use no_console_suspend to debug)
+[    8.467034] PM: suspend of devices complete after 75.918 msecs
+[    8.469043] PM: late suspend of devices complete after 1.992 msecs
+[    8.470620] PM: noirq suspend of devices complete after 1.568 msecs
+[    8.470624] Disabling non-boot CPUs ...
+[    8.495413] CPU1: shutdown
+[    8.565407] CPU2: shutdown
+[    8.625358] CPU3: shutdown
+[    8.657318] Entering suspend state LP1
+[    8.657366] Enabling non-boot CPUs ...
+[    8.708233] CPU1 is up
+[    8.758878] CPU2 is up
+[    8.809605] CPU3 is up
+[    8.810633] PM: noirq resume of devices complete after 1.017 msecs
+[    8.812925] PM: early resume of devices complete after 1.631 msecs
+[    8.907098] PM: resume of devices complete after 94.156 msecs
+[    8.971413] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:50 1970
+[    9.404301] PM: Syncing filesystems ... done.
+[    9.426607] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    9.428026] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    9.428031] Suspending console(s) (use no_console_suspend to debug)
+[    9.517056] PM: suspend of devices complete after 63.410 msecs
+[    9.519000] PM: late suspend of devices complete after 1.926 msecs
+[    9.520576] PM: noirq suspend of devices complete after 1.565 msecs
+[    9.520580] Disabling non-boot CPUs ...
+[    9.555353] CPU1: shutdown
+[    9.624995] IRQ16 no longer affine to CPU2
+[    9.625362] CPU2: shutdown
+[    9.705318] CPU3: shutdown
+[    9.747264] Entering suspend state LP1
+[    9.747312] Enabling non-boot CPUs ...
+[    9.798173] CPU1 is up
+[    9.848823] CPU2 is up
+[    9.899572] CPU3 is up
+[    9.900544] PM: noirq resume of devices complete after 0.962 msecs
+[    9.902493] PM: early resume of devices complete after 1.288 msecs
+[    9.997040] PM: resume of devices complete after 94.529 msecs
+[   10.065470] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:58 1970
+[   10.494357] PM: Syncing filesystems ... done.
+[   10.516564] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   10.517987] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   10.517992] Suspending console(s) (use no_console_suspend to debug)
+[   10.606993] PM: suspend of devices complete after 62.928 msecs
+[   10.608785] PM: late suspend of devices complete after 1.777 msecs
+[   10.610399] PM: noirq suspend of devices complete after 1.603 msecs
+[   10.610404] Disabling non-boot CPUs ...
+[   10.634995] IRQ16 no longer affine to CPU1
+[   10.635355] CPU1: shutdown
+[   10.695345] CPU2: shutdown
+[   10.755326] CPU3: shutdown
+[   10.787215] Entering suspend state LP1
+[   10.787263] Enabling non-boot CPUs ...
+[   10.838145] CPU1 is up
+[   10.888769] CPU2 is up
+[   10.939532] CPU3 is up
+[   10.940587] PM: noirq resume of devices complete after 1.045 msecs
+[   10.942977] PM: early resume of devices complete after 1.727 msecs
+[   11.047042] PM: resume of devices complete after 104.047 msecs
+[   11.115607] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:06 1970
+[   11.534192] PM: Syncing filesystems ... done.
+[   11.556516] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   11.557936] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   11.557940] Suspending console(s) (use no_console_suspend to debug)
+[   11.667397] PM: suspend of devices complete after 83.614 msecs
+[   11.669106] PM: late suspend of devices complete after 1.694 msecs
+[   11.670747] PM: noirq suspend of devices complete after 1.632 msecs
+[   11.670751] Disabling non-boot CPUs ...
+[   11.694924] IRQ16 no longer affine to CPU1
+[   11.695293] CPU1: shutdown
+[   11.755275] CPU2: shutdown
+[   11.815233] CPU3: shutdown
+[   11.847173] Entering suspend state LP1
+[   11.847222] Enabling non-boot CPUs ...
+[   11.898100] CPU1 is up
+[   11.948735] CPU2 is up
+[   11.999482] CPU3 is up
+[   12.000479] PM: noirq resume of devices complete after 0.987 msecs
+[   12.002855] PM: early resume of devices complete after 1.739 msecs
+[   12.096987] PM: resume of devices complete after 94.114 msecs
+[   12.165582] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:14 1970
+[   12.591244] PM: Syncing filesystems ... done.
+[   12.616477] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   12.617898] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   12.617902] Suspending console(s) (use no_console_suspend to debug)
+[   12.706795] PM: suspend of devices complete after 65.649 msecs
+[   12.708851] PM: late suspend of devices complete after 2.039 msecs
+[   12.710491] PM: noirq suspend of devices complete after 1.631 msecs
+[   12.710495] Disabling non-boot CPUs ...
+[   12.744882] IRQ16 no longer affine to CPU1
+[   12.745249] CPU1: shutdown
+[   12.815222] CPU2: shutdown
+[   12.895232] CPU3: shutdown
+[   12.927125] Entering suspend state LP1
+[   12.927173] Enabling non-boot CPUs ...
+[   12.978059] CPU1 is up
+[   13.028701] CPU2 is up
+[   13.079444] CPU3 is up
+[   13.080412] PM: noirq resume of devices complete after 0.957 msecs
+[   13.082720] PM: early resume of devices complete after 1.653 msecs
+[   13.176888] PM: resume of devices complete after 94.152 msecs
+[   13.245290] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:22 1970
+[   13.673122] PM: Syncing filesystems ... done.
+[   13.696418] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   13.697836] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   13.697840] Suspending console(s) (use no_console_suspend to debug)
+[   13.786792] PM: suspend of devices complete after 64.341 msecs
+[   13.788545] PM: late suspend of devices complete after 1.737 msecs
+[   13.790178] PM: noirq suspend of devices complete after 1.624 msecs
+[   13.790183] Disabling non-boot CPUs ...
+[   13.814835] IRQ16 no longer affine to CPU1
+[   13.815203] CPU1: shutdown
+[   13.885202] CPU2: shutdown
+[   13.945144] CPU3: shutdown
+[   13.977092] Entering suspend state LP1
+[   13.977139] Enabling non-boot CPUs ...
+[   14.028012] CPU1 is up
+[   14.078648] CPU2 is up
+[   14.129394] CPU3 is up
+[   14.130390] PM: noirq resume of devices complete after 0.985 msecs
+[   14.132686] PM: early resume of devices complete after 1.655 msecs
+[   14.226896] PM: resume of devices complete after 94.192 msecs
+[   14.295335] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:30 1970
+[   14.724434] PM: Syncing filesystems ... done.
+[   14.746395] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   14.747814] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   14.747818] Suspending console(s) (use no_console_suspend to debug)
+[   14.847078] PM: suspend of devices complete after 73.055 msecs
+[   14.848779] PM: late suspend of devices complete after 1.686 msecs
+[   14.850431] PM: noirq suspend of devices complete after 1.643 msecs
+[   14.850435] Disabling non-boot CPUs ...
+[   14.884807] IRQ16 no longer affine to CPU1
+[   14.885175] CPU1: shutdown
+[   14.945138] CPU2: shutdown
+[   15.005105] CPU3: shutdown
+[   15.037048] Entering suspend state LP1
+[   15.037096] Enabling non-boot CPUs ...
+[   15.087961] CPU1 is up
+[   15.138595] CPU2 is up
+[   15.189400] CPU3 is up
+[   15.190384] PM: noirq resume of devices complete after 0.972 msecs
+[   15.192766] PM: early resume of devices complete after 1.724 msecs
+[   15.287049] PM: resume of devices complete after 94.266 msecs
+[   15.355513] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# NVTB SYSTEM SUSPEND TEST COMPLETE

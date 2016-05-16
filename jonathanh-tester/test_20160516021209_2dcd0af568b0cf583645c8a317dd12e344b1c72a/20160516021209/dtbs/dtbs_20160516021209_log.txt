@@ -1,0 +1,6 @@
+test_build: Mon May 16 02:14:47 PDT 2016: started on nvidia/tegra210-smaug.dtb test_20160516021209_2dcd0af568b0cf583645c8a317dd12e344b1c72a (2dcd0af568b0cf583645c8a317dd12e344b1c72a)
+test_build: Mon May 16 02:14:47 PDT 2016: serial is 20160516021209
+make[1]: *** No rule to make target `arch/arm64/boot/dts/nvidia/tegra210-smaug.dtb'.  Stop.
+make: *** [nvidia/tegra210-smaug.dtb] Error 2
+test_build: Mon May 16 02:14:50 PDT 2016: FAILED on nvidia/tegra210-smaug.dtb test_20160516021209_2dcd0af568b0cf583645c8a317dd12e344b1c72a
+test_build: Mon May 16 02:14:50 PDT 2016: ended on nvidia/tegra210-smaug.dtb test_20160516021209_2dcd0af568b0cf583645c8a317dd12e344b1c72a

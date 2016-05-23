@@ -1,0 +1,9 @@
+test_build: Mon May 23 12:16:54 PDT 2016: started on defconfig test_20160523121528_cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742 (cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742)
+test_build: Mon May 23 12:16:54 PDT 2016: serial is 20160523121528
+drivers/xen/balloon.c:154:13: warning: ‘release_memory_resource’ declared ‘static’ but never defined [-Wunused-function]
+ static void release_memory_resource(struct resource *resource);
+             ^
+   text	   data	    bss	    dec	    hex	filename
+11283792	1134000	 265024	12682816	 c18640	vmlinux
+test_build: Mon May 23 12:20:42 PDT 2016: succeeded on defconfig test_20160523121528_cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742
+test_build: Mon May 23 12:20:42 PDT 2016: ended on defconfig test_20160523121528_cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742

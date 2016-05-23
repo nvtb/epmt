@@ -1,0 +1,5 @@
+test_build: Mon May 23 12:16:42 PDT 2016: started on nvidia/tegra210-smaug.dtb test_20160523121528_cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742 (cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742)
+test_build: Mon May 23 12:16:42 PDT 2016: serial is 20160523121528
+38731 arch/arm64/boot/dts/nvidia/tegra210-smaug.dtb
+test_build: Mon May 23 12:16:45 PDT 2016: succeeded on nvidia/tegra210-smaug.dtb test_20160523121528_cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742
+test_build: Mon May 23 12:16:45 PDT 2016: ended on nvidia/tegra210-smaug.dtb test_20160523121528_cbafe21e7ae07b7d8ca5050889fc1f4d3a7c4742

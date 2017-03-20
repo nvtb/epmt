@@ -1,9 +1,0 @@
-test_build: Wed Mar 25 07:34:14 PDT 2015: started on multi_v7_defconfig test_20150325072126_9eccca0843205f87c00404b663188b88eb248051 (9eccca0843205f87c00404b663188b88eb248051)
-test_build: Wed Mar 25 07:34:14 PDT 2015: serial is 20150325072126
-drivers/net/ethernet/intel/igb/igb_ptp.c: In function ‘igb_ptp_feature_enable_i210’:
-drivers/net/ethernet/intel/igb/igb_ptp.c:395:21: warning: ‘pin’ may be used uninitialized in this function [-Wmaybe-uninitialized]
-drivers/net/ethernet/intel/igb/igb_ptp.c:471:6: note: ‘pin’ was declared here
-   text	   data	    bss	    dec	    hex	filename
-12028273	1334004	 322344	13684621	 d0cf8d	vmlinux
-test_build: Wed Mar 25 07:36:08 PDT 2015: succeeded on multi_v7_defconfig test_20150325072126_9eccca0843205f87c00404b663188b88eb248051
-test_build: Wed Mar 25 07:36:08 PDT 2015: ended on multi_v7_defconfig test_20150325072126_9eccca0843205f87c00404b663188b88eb248051

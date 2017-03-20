@@ -1,8 +1,0 @@
-test_build: Wed May 27 05:55:08 PDT 2015: started on multi_v7_defconfig test_20150527055028_b031599c28a38c92b745822d702e9b073d49dbaa (b031599c28a38c92b745822d702e9b073d49dbaa)
-test_build: Wed May 27 05:55:08 PDT 2015: serial is 20150527055028
-.config:601:warning: override: reassigning to symbol COMMON_CLK_QCOM
-<stdin>:1253:2: warning: #warning syscall userfaultfd not implemented [-Wcpp]
-   text	   data	    bss	    dec	    hex	filename
-12754511	1498532	 342696	14595739	 deb69b	vmlinux
-test_build: Wed May 27 05:57:17 PDT 2015: succeeded on multi_v7_defconfig test_20150527055028_b031599c28a38c92b745822d702e9b073d49dbaa
-test_build: Wed May 27 05:57:17 PDT 2015: ended on multi_v7_defconfig test_20150527055028_b031599c28a38c92b745822d702e9b073d49dbaa

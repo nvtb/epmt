@@ -1,6 +1,0 @@
-test_build: Fri May 1 03:13:15 PDT 2015: started on defconfig test_20150501031229_f4f4e07b467f9021434482ee2a7ffc7b30279f7f (f4f4e07b467f9021434482ee2a7ffc7b30279f7f)
-test_build: Fri May 1 03:13:15 PDT 2015: serial is 20150501031229
-   text	   data	    bss	    dec	    hex	filename
-7950248	 569856	 206248	8726352	 852750	vmlinux
-test_build: Fri May 1 03:15:41 PDT 2015: succeeded on defconfig test_20150501031229_f4f4e07b467f9021434482ee2a7ffc7b30279f7f
-test_build: Fri May 1 03:15:41 PDT 2015: ended on defconfig test_20150501031229_f4f4e07b467f9021434482ee2a7ffc7b30279f7f

@@ -1,0 +1,2 @@
+test_sparse: Tue Mar 28 01:53:19 PDT 2017: started on defconfig test_20170328014908_93a4a44c5b2a0699f511b346a663799f6c9afa4f (93a4a44c5b2a0699f511b346a663799f6c9afa4f)
+test_sparse: Tue Mar 28 01:53:19 PDT 2017: serial is 20170328014908

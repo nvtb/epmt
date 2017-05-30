@@ -1,0 +1,675 @@
+
+
+U-Boot 2015.04-00466-gedec83e90172 (Mar 14 2016 - 10:42:01)
+
+TEGRA124
+Model: Acer Chromebook 13 CB5-311
+DRAM:  4 GiB
+:   Tegra SD/MMC: 0, Tegra SD/MMC: 1, Tegra SD/MMC: 2
+MMC init failed
+Using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   Net Initialization Skipped
+No ethernet found.
+Hit any key to stop autoboot:  2  0 
+Tegra124 (Nyan-big) # 
+Tegra124 (Nyan-big) # usb start
+starting USB...
+USB0:   USB EHCI 1.10
+scanning bus 0 for devices... 2 USB Device(s) found
+USB1:   USB EHCI 1.10
+scanning bus 1 for devices... 2 USB Device(s) found
+       scanning usb for storage devices... 1 Storage Device(s) found
+       scanning usb for ethernet devices... 
+Warning: asx0 using MAC address from net device
+1 Ethernet Device(s) found
+Tegra124 (Nyan-big) # mw 0x7000e4a0 0x00080000
+Tegra124 (Nyan-big) # setenv bootargs 'ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=4d36e82a-b3c0-4b4b-bfcd-afe5217ac023 rootwait gpt debug noinitrd earlyprintk init=/bin/bash'
+Tegra124 (Nyan-big) # setenv ipaddr 192.168.100.102; setenv serverip 192.168.100.1; setenv tftpserverip 192.168.100.1
+Tegra124 (Nyan-big) # tftpboot 0x82000000 zImage.multi_v7_defconfig
+Using asx0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.102
+Filename 'zImage.multi_v7_defconfig'.
+Load address: 0x82000000
+Loading: *#################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 ###################
+	 2.9 MiB/s
+done
+Bytes transferred = 7906728 (78a5a8 hex)
+Tegra124 (Nyan-big) # tftpboot 0x83000000 tegra124-nyan-big.dtb
+Using asx0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.102
+Filename 'tegra124-nyan-big.dtb'.
+Load address: 0x83000000
+Loading: *#####
+	 3 MiB/s
+done
+Bytes transferred = 68155 (10a3b hex)
+Tegra124 (Nyan-big) # bootz 0x82000000 - 0x83000000
+Kernel image @ 0x82000000 [ 0x000000 - 0x78a5a8 ]
+## Flattened Device Tree blob at 83000000
+   Booting using the fdt blob at 0x83000000
+   Using Device Tree in place at 83000000, end 83013a3a
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.12.0-rc3-next-20170530-175078-g056c138 (jonathanh@sellafield) (gcc version 4.7.3 20130328 (prerelease) (crosstool-NG linaro-1.13.1-4.7-2013.04-20130415 - Linaro GCC 2013.04) ) #1 SMP Tue May 30 07:42:30 PDT 2017
+[    0.000000] CPU: ARMv7 Processor [413fc0f3] revision 3 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] OF: fdt: Machine model: Acer Chromebook 13 CB5-311
+[    0.000000] OF: fdt: Ignoring memory range 0x100000000 - 0x17ffff000
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 64 MiB at 0xfb800000
+[    0.000000] On node 0 totalpages: 524287
+[    0.000000] free_area_init_node: node 0, pgdat c157ef80, node_mem_map eeff8000
+[    0.000000]   DMA zone: 1536 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 196608 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 327679 pages, LIFO batch:31
+[    0.000000] percpu: Embedded 17 pages/cpu @eef81000 s39232 r8192 d22208 u69632
+[    0.000000] pcpu-alloc: s39232 r8192 d22208 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 522751
+[    0.000000] Kernel command line: ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=4d36e82a-b3c0-4b4b-bfcd-afe5217ac023 rootwait gpt debug noinitrd earlyprintk init=/bin/bash
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 1994448K/2097148K available (10240K kernel code, 1562K rwdata, 4380K rodata, 2048K init, 401K bss, 37164K reserved, 65536K cma-reserved, 1245180K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0208000 - 0xc0d00000   (11232 kB)
+[    0.000000]       .init : 0xc1200000 - 0xc1400000   (2048 kB)
+[    0.000000]       .data : 0xc1400000 - 0xc1586bf0   (1563 kB)
+[    0.000000]        .bss : 0xc158fcb0 - 0xc15f4158   ( 402 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU event tracing is enabled.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=4.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] /interrupt-controller@60004000: 160 interrupts forwarded to /interrupt-controller@50041000
+[    0.000000] Tegra clk 127: register failed with -17
+[    0.000004] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 2147483647500ns
+[    0.000012] clocksource: timer_us: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275 ns
+[    0.000018] Switching to timer-based delay loop, resolution 1000ns
+[    0.001812] arch_timer: cp15 timer(s) running at 12.00MHz (virt).
+[    0.001819] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2c47f4ee7, max_idle_ns: 440795202497 ns
+[    0.001826] sched_clock: 56 bits at 12MHz, resolution 83ns, wraps every 4398046511096ns
+[    0.001831] Switching to timer-based delay loop, resolution 83ns
+[    0.002045] Console: colour dummy device 80x30
+[    0.002060] Calibrating delay loop (skipped), value calculated using timer frequency.. 24.00 BogoMIPS (lpj=120000)
+[    0.002066] pid_max: default: 32768 minimum: 301
+[    0.002101] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.002107] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.002309] CPU: Testing write buffer coherency: ok
+[    0.002426] /cpus/cpu@0 missing clock-frequency property
+[    0.002441] /cpus/cpu@1 missing clock-frequency property
+[    0.002455] /cpus/cpu@2 missing clock-frequency property
+[    0.002470] /cpus/cpu@3 missing clock-frequency property
+[    0.002475] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.002590] Setting up static identity map for 0x80300000 - 0x803000a0
+[    0.003288] Hierarchical SRCU implementation.
+[    0.003972] Tegra Revision: A01 SKU: 131 CPU Process: 1 SoC Process: 1
+[    0.004240] EFI services will not be available.
+[    0.004332] smp: Bringing up secondary CPUs ...
+[    0.004633] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.012068] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.022083] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.031790] smp: Brought up 1 node, 4 CPUs
+[    0.031798] SMP: Total of 4 processors activated (96.00 BogoMIPS).
+[    0.031802] CPU: All CPU(s) started in SVC mode.
+[    0.032352] devtmpfs: initialized
+[    0.038124] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.038312] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.038321] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.038888] pinctrl core: initialized pinctrl subsystem
+[    0.039656] NET: Registered protocol family 16
+[    0.040412] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.041305] cpuidle: using governor menu
+[    0.050162] No ATAGs?
+[    0.050217] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.050223] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.053006] Serial: AMBA PL011 UART driver
+[    0.053355] tegra-mc 70019000.memory-controller: no memory timings for RAM code 0 registered
+[    0.058751] AT91: Could not find identification node
+[    0.058959] +5V_SYS: supplied by +VDD_MUX
+[    0.059059] +3.3V_SYS: supplied by +VDD_MUX
+[    0.059276] +VDD_LED: Failed to request enable GPIO122: -517
+[    0.059282] reg-fixed-voltage regulators:regulator@5: Failed to register regulator: -517
+[    0.059316] +5V_VDD_TS_SW: Failed to request enable GPIO81: -517
+[    0.059321] reg-fixed-voltage regulators:regulator@6: Failed to register regulator: -517
+[    0.059355] +5V_USB_HS: Failed to request enable GPIO108: -517
+[    0.059360] reg-fixed-voltage regulators:regulator@7: Failed to register regulator: -517
+[    0.059392] +5V_USB_SS: Failed to request enable GPIO109: -517
+[    0.059397] reg-fixed-voltage regulators:regulator@8: Failed to register regulator: -517
+[    0.059485] +1.05V_RUN_AVDD_HDMI_PLL: Failed to request enable GPIO63: -517
+[    0.059490] reg-fixed-voltage regulators:regulator@11: Failed to register regulator: -517
+[    0.059523] +5V_HDMI_CON: Failed to request enable GPIO86: -517
+[    0.059527] reg-fixed-voltage regulators:regulator@12: Failed to register regulator: -517
+[    0.060514] vgaarb: loaded
+[    0.060789] SCSI subsystem initialized
+[    0.060859] libata version 3.00 loaded.
+[    0.060948] usbcore: registered new interface driver usbfs
+[    0.060969] usbcore: registered new interface driver hub
+[    0.060991] usbcore: registered new device driver usb
+[    0.062289] pps_core: LinuxPPS API ver. 1 registered
+[    0.062294] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.062302] PTP clock support registered
+[    0.062369] EDAC MC: Ver: 3.0.0
+[    0.062767] tegra-emc 7001b000.emc: no memory timings for RAM code 0 found in DT
+[    0.062777] tegra-emc: probe of 7001b000.emc failed with error -2
+[    0.063214] clocksource: Switched to clocksource arch_sys_counter
+[    0.082845] NET: Registered protocol family 2
+[    0.083042] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.083076] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.083138] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.083176] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.083191] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.083269] NET: Registered protocol family 1
+[    0.083414] RPC: Registered named UNIX socket transport module.
+[    0.083418] RPC: Registered udp transport module.
+[    0.083421] RPC: Registered tcp transport module.
+[    0.083424] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.083430] PCI: CLS 0 bytes, default 64
+[    0.083987] hw perfevents: enabled with armv7_cortex_a15 PMU driver, 7 counters available
+[    0.084646] workingset: timestamp_bits=30 max_order=19 bucket_order=0
+[    0.087514] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.087760] NFS: Registering the id_resolver key type
+[    0.087776] Key type id_resolver registered
+[    0.087779] Key type id_legacy registered
+[    0.087795] ntfs: driver 2.1.32 [Flags: R/O].
+[    0.088407] bounce: pool size: 64 pages
+[    0.088424] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.088429] io scheduler noop registered
+[    0.088433] io scheduler deadline registered
+[    0.088444] io scheduler cfq registered (default)
+[    0.088448] io scheduler mq-deadline registered
+[    0.088451] io scheduler kyber registered
+[    0.089609] tegra-xusb-padctl 7009f000.padctl: failed to setup XUSB ports: -517
+[    0.099876] tegra-apbdma 60020000.dma: Tegra20 APB DMA driver register 32 channels
+[    0.100719] tegra-pmc 7000e400.pmc: i2c-thermtrip node not found, emergency thermal reset disabled.
+[    0.119146] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.120188] console [ttyS0] disabled
+[    0.120206] 70006000.serial: ttyS0 at MMIO 0x70006000 (irq = 333, base_baud = 25500000) is a Tegra
+[    1.012632] console [ttyS0] enabled
+[    1.016403] SuperH (H)SCI(F) driver initialized
+[    1.021239] msm_serial: driver initialized
+[    1.025397] STMicroelectronics ASC driver initialized
+[    1.032416] tegra-hdmi 54280000.hdmi: failed to get HDMI regulator
+[    1.038952] tegra-dpaux 545c0000.dpaux: failed to get VDD supply: -517
+[    1.046373] panel-simple panel: panel supply power not found, using dummy regulator
+[    1.057601] brd: module loaded
+[    1.063365] loop: module loaded
+[    1.067423] as3722 4-0040: AS3722 with revision 0x1 found
+[    1.077425] as3722-sd2: supplied by +5V_SYS
+[    1.081836] as3722-sd3: supplied by +5V_SYS
+[    1.086174] +1.35V_LP0(sd3): Bringing 0uV into 1350000-1350000uV
+[    1.092340] as3722-sd4: supplied by +5V_SYS
+[    1.096725] +1.05V_RUN: Bringing 0uV into 1050000-1050000uV
+[    1.102460] as3722-sd5: supplied by +5V_SYS
+[    1.108034] as3722-ldo0: supplied by +1.35V_LP0(sd2)
+[    1.113769] +1.8V_RUN_CAM: Bringing 0uV into 1800000-1800000uV
+[    1.119781] as3722-ldo2: supplied by +1.8V_VDDIO
+[    1.125403] as3722-ldo3: supplied by +3.3V_SYS
+[    1.129847] +1.00V_LP0_VDD_RTC: Bringing 1100000uV into 1000000-1000000uV
+[    1.137422] as3722-ldo4: supplied by +3.3V_SYS
+[    1.142010] +3.3V_RUN_CAM: Bringing 0uV into 2800000-2800000uV
+[    1.148028] as3722-ldo5: supplied by +1.8V_VDDIO
+[    1.152792] +1.2V_RUN_CAM_FRONT: Bringing 0uV into 1200000-1200000uV
+[    1.159475] +VDDIO_SDMMC3: Bringing 0uV into 1800000-1800000uV
+[    1.165495] as3722-ldo7: supplied by +1.8V_VDDIO
+[    1.170261] +1.05V_RUN_CAM_REAR: Bringing 0uV into 1050000-1050000uV
+[    1.176807] as3722-ldo9: supplied by +5V_SYS
+[    1.181367] +2.8V_RUN_TOUCH: Bringing 0uV into 2800000-2800000uV
+[    1.187558] as3722-ldo10: supplied by +5V_SYS
+[    1.192061] +2.8V_RUN_CAM_AF: Bringing 0uV into 2800000-2800000uV
+[    1.198494] +1.8V_RUN_VPP_FUSE: Bringing 0uV into 1800000-1800000uV
+[    1.210909] random: fast init done
+[    1.216704] m25p80 spi32765.0: w25q32dw (4096 Kbytes)
+[    1.222769] libphy: Fixed MDIO Bus: probed
+[    1.227257] CAN device driver interface
+[    1.231393] bgmac_bcma: Broadcom 47xx GBit MAC driver loaded
+[    1.237492] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    1.243313] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    1.249235] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.4.0-k
+[    1.256185] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    1.262933] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    1.270340] usbcore: registered new interface driver pegasus
+[    1.276005] usbcore: registered new interface driver asix
+[    1.281399] usbcore: registered new interface driver ax88179_178a
+[    1.287495] usbcore: registered new interface driver cdc_ether
+[    1.293333] usbcore: registered new interface driver smsc75xx
+[    1.299078] usbcore: registered new interface driver smsc95xx
+[    1.304824] usbcore: registered new interface driver net1080
+[    1.310478] usbcore: registered new interface driver cdc_subset
+[    1.316397] usbcore: registered new interface driver zaurus
+[    1.321972] usbcore: registered new interface driver cdc_ncm
+[    1.328260] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.334779] ehci-pci: EHCI PCI platform driver
+[    1.339225] ehci-platform: EHCI generic platform driver
+[    1.344510] ehci-orion: EHCI orion driver
+[    1.348561] SPEAr-ehci: EHCI SPEAr driver
+[    1.352604] ehci-st: EHCI STMicroelectronics driver
+[    1.357520] ehci-exynos: EHCI EXYNOS driver
+[    1.361741] ehci-atmel: EHCI Atmel driver
+[    1.365789] tegra-ehci: Tegra EHCI driver
+[    1.369847] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.376018] ohci-pci: OHCI PCI platform driver
+[    1.380462] ohci-platform: OHCI generic platform driver
+[    1.385732] ohci-omap3: OHCI OMAP3 driver
+[    1.389773] SPEAr-ohci: OHCI SPEAr driver
+[    1.393823] ohci-st: OHCI STMicroelectronics driver
+[    1.398735] ohci-atmel: OHCI Atmel driver
+[    1.402977] usbcore: registered new interface driver usb-storage
+[    1.410016] elan_i2c 1-0015: 1-0015 supply vcc not found, using dummy regulator
+[    1.418574] as3722-rtc as3722-rtc: rtc core: registered as3722-rtc as rtc0
+[    1.425444] as3722-rtc as3722-rtc: RTC interrupt 372
+[    1.432343] tegra_rtc 7000e000.rtc: rtc core: registered 7000e000.rtc as rtc1
+[    1.439481] tegra_rtc 7000e000.rtc: Tegra internal Real Time Clock
+[    1.445828] i2c /dev entries driver
+[    1.451625] lm90 0-004c: 0-004c supply vcc not found, using dummy regulator
+[    1.463005] sdhci: Secure Digital Host Controller Interface driver
+[    1.469186] sdhci: Copyright(c) Pierre Ossman
+[    1.474069] Synopsys Designware Multimedia Card Interface Driver
+[    1.480490] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.486416] sdhci-tegra 700b0000.sdhci: allocated mmc-pwrseq
+[    1.500205] sdhci-tegra 700b0400.sdhci: Got CD GPIO
+[    1.505086] sdhci-tegra 700b0400.sdhci: Got WP GPIO
+[    1.525340] mmc0: Unknown controller version (3). You may experience problems.
+[    1.532573] mmc0: Invalid maximum block size, assuming 512 bytes
+[    1.584157] elan_i2c 1-0015: Elan Touchpad: Module ID: 0x002a, Firmware: 0x0005, Sample: 0x0007, IAP: 0x0009
+[    1.594095] input: Elan Touchpad as /devices/soc0/7000c400.i2c/i2c-1/1-0015/input/input0
+[    1.603220] mmc0: SDHCI controller on 700b0600.sdhci [700b0600.sdhci] using ADMA
+[    1.611255] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.617361] usbcore: registered new interface driver usbhid
+[    1.622917] usbhid: USB HID core driver
+[    1.628140] NET: Registered protocol family 10
+[    1.632888] Segment Routing with IPv6
+[    1.636571] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.642692] NET: Registered protocol family 17
+[    1.647132] can: controller area network core (rev 20170425 abi 9)
+[    1.653321] NET: Registered protocol family 29
+[    1.657753] can: raw protocol (rev 20170425)
+[    1.662009] can: broadcast manager protocol (rev 20170425 t)
+[    1.667661] can: netlink gateway (rev 20170425) max_hops=1
+[    1.673262] Key type dns_resolver registered
+[    1.677741] ThumbEE CPU extension supported.
+[    1.681999] Registering SWP/SWPB emulation handler
+[    1.692758] +3.3V_RUN: supplied by +3.3V_SYS
+[    1.697937] +VDD_LED: supplied by +VDD_MUX
+[    1.702190] +3.3V_AVDD_HDMI_AP_GATED: supplied by +3.3V_RUN
+[    1.707820] +1.8V_RUN_CAM: supplied by +3.3V_RUN
+[    1.712456] +VDDIO_SDMMC3: supplied by +3.3V_RUN
+[    1.717091] +1.8V_RUN_VPP_FUSE: supplied by +3.3V_RUN
+[    1.722335] +5V_VDD_TS_SW: supplied by +5V_SYS
+[    1.727130] +5V_USB_HS: supplied by +5V_SYS
+[    1.731473] +5V_USB_SS: supplied by +5V_SYS
+[    1.736758] +3.3V_PANEL: supplied by +3.3V_RUN
+[    1.742193] +3.3V_LP0: supplied by +3.3V_SYS
+[    1.743843] mmc0: new high speed MMC card at address 0001
+[    1.744602] mmcblk0: mmc0:0001 MMC16G 14.4 GiB 
+[    1.745152] mmcblk0boot0: mmc0:0001 MMC16G partition 1 2.00 MiB
+[    1.745351] mmcblk0boot1: mmc0:0001 MMC16G partition 2 2.00 MiB
+[    1.745925] mmcblk0rpmb: mmc0:0001 MMC16G partition 3 128 KiB
+[    1.751678]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12
+[    1.780591] +1.05V_RUN_AVDD_HDMI_PLL: supplied by +1.05V_RUN
+[    1.786658] +5V_HDMI_CON: supplied by +5V_SYS
+[    1.791652]  usb3-0: usb3-0 supply vbus not found, using dummy regulator
+[    1.798459]  usb3-1: usb3-1 supply vbus not found, using dummy regulator
+[    1.805268] elan_i2c 1-0015: failed to read report data: -121
+[    1.814370] tegra-sor 54540000.sor: failed to probe output: -517
+[    1.820877] panel-simple panel: panel supply power not found, using dummy regulator
+[    1.829570] sdhci-tegra 700b0000.sdhci: allocated mmc-pwrseq
+[    1.843423] mmc1: Unknown controller version (3). You may experience problems.
+[    1.850665] mmc1: Invalid maximum block size, assuming 512 bytes
+[    1.857065] mmc1: Switching to 3.3V signalling voltage failed
+[    1.913299] mmc1: SDHCI controller on 700b0000.sdhci [700b0000.sdhci] using ADMA
+[    1.921398] sdhci-tegra 700b0400.sdhci: Got CD GPIO
+[    1.926278] sdhci-tegra 700b0400.sdhci: Got WP GPIO
+[    1.937415] mmc2: Unknown controller version (3). You may experience problems.
+[    1.944703] elan_i2c 1-0015: invalid report id data (ff)
+[    1.950087] mmc2: Invalid maximum block size, assuming 512 bytes
+[    1.984316] mmc1: new high speed SDIO card at address 0001
+[    2.013301] mmc2: SDHCI controller on 700b0400.sdhci [700b0400.sdhci] using ADMA
+[    2.026520] input: gpio-keys as /devices/soc0/gpio-keys/input/input1
+[    2.034382] as3722-rtc as3722-rtc: setting system clock to 2000-01-01 04:52:11 UTC (946702331)
+[    2.043359] +3.3V_AVDD_HDMI_AP_GATED: disabling
+[    2.047888] +1.05V_RUN: disabling
+[    2.051356] +1.8V_RUN_CAM: disabling
+[    2.055190] +3.3V_RUN_CAM: disabling
+[    2.058926] +1.2V_RUN_CAM_FRONT: disabling
+[    2.063387] +1.05V_RUN_CAM_REAR: disabling
+[    2.067711] +2.8V_RUN_TOUCH: disabling
+[    2.071605] +2.8V_RUN_CAM_AF: disabling
+[    2.075708] +1.8V_RUN_VPP_FUSE: disabling
+[    2.079919] +VDD_LED: disabling
+[    2.083058] +5V_VDD_TS_SW: disabling
+[    2.086663] +5V_USB_HS: disabling
+[    2.089975] +5V_USB_SS: disabling
+[    2.093306] +3.3V_PANEL: disabling
+[    2.096709] +1.05V_RUN_AVDD_HDMI_PLL: disabling
+[    2.101229] +5V_HDMI_CON: disabling
+[    2.105647] EXT4-fs (mmcblk0p3): couldn't mount as ext3 due to feature incompatibilities
+[    2.114351] EXT4-fs (mmcblk0p3): couldn't mount as ext2 due to feature incompatibilities
+[    2.195082] mmc2: new high speed SDHC card at address 0007
+[    2.201181] mmcblk2: mmc2:0007 SD08G 7.42 GiB 
+[    2.216006] GPT:Primary header alternate_lba != Alt. header my_lba
+[    2.222179] GPT:3014591 != 15564799
+[    2.225685] GPT:Primary header thinks Alt. header is not at the end of the disk.
+[    2.233063] GPT:3014591 != 15564799
+[    2.236543] GPT: Use GNU Parted to correct GPT errors.
+[    2.241690]  mmcblk2: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12
+[    2.526699] EXT4-fs (mmcblk0p3): recovery complete
+[    2.532327] EXT4-fs (mmcblk0p3): mounted filesystem with ordered data mode. Opts: (null)
+[    2.540464] VFS: Mounted root (ext4 filesystem) on device 179:3.
+[    2.547143] devtmpfs: mounted
+[    2.550784] Freeing unused kernel memory: 2048K
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+root@(none):/# mount -t sysfs none /sys
+root@(none):/# 
+root@(none):/# mount -t debugfs none /sys/kernel/debug
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:29 1970
+[    5.825871] PM: Syncing filesystems ... done.
+[    5.832029] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    5.840148] OOM killer disabled.
+[    5.843383] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    5.852039] Suspending console(s) (use no_console_suspend to debug)
+[    5.875709] PM: suspend of devices complete after 16.884 msecs
+[    5.876918] PM: late suspend of devices complete after 1.201 msecs
+[    5.877700] PM: noirq suspend of devices complete after 0.777 msecs
+[    5.877702] Disabling non-boot CPUs ...
+[    5.923488] IRQ352 no longer affine to CPU1
+[    6.033532] IRQ353 no longer affine to CPU2
+[    6.123504] IRQ354 no longer affine to CPU3
+[    6.174705] Entering suspend state LP1
+[    6.174705] Suspended for 3.449 seconds
+[    6.174716] Enabling non-boot CPUs ...
+[    6.204794] CPU1 is up
+[    6.244647] CPU2 is up
+[    6.284849] CPU3 is up
+[    6.285326] PM: noirq resume of devices complete after 0.473 msecs
+[    6.286799] PM: early resume of devices complete after 1.152 msecs
+[    6.443622] mmc1: Switching to 3.3V signalling voltage failed
+[    6.535120] PM: resume of devices complete after 248.311 msecs
+[    6.613129] OOM killer enabled.
+[    6.616263] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:34 1970
+[    7.452074] PM: Syncing filesystems ... done.
+[    7.457963] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    7.466148] OOM killer disabled.
+[    7.469364] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    7.477985] Suspending console(s) (use no_console_suspend to debug)
+[    7.501411] PM: suspend of devices complete after 16.655 msecs
+[    7.502620] PM: late suspend of devices complete after 1.200 msecs
+[    7.503440] PM: noirq suspend of devices complete after 0.815 msecs
+[    7.503442] Disabling non-boot CPUs ...
+[    7.543421] IRQ352 no longer affine to CPU1
+[    7.653453] IRQ17 no longer affine to CPU2
+[    7.653562] IRQ353 no longer affine to CPU2
+[    7.743472] IRQ354 no longer affine to CPU3
+[    7.794478] Entering suspend state LP1
+[    7.794478] Suspended for 3.379 seconds
+[    7.794489] Enabling non-boot CPUs ...
+[    7.824767] CPU1 is up
+[    7.864613] CPU2 is up
+[    7.904815] CPU3 is up
+[    7.905285] PM: noirq resume of devices complete after 0.464 msecs
+[    7.906615] PM: early resume of devices complete after 1.018 msecs
+[    8.063421] mmc1: Switching to 3.3V signalling voltage failed
+[    8.154872] PM: resume of devices complete after 248.246 msecs
+[    8.236966] OOM killer enabled.
+[    8.240095] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:39 1970
+[    9.072055] PM: Syncing filesystems ... done.
+[    9.077943] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[    9.086132] OOM killer disabled.
+[    9.089348] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[    9.097977] Suspending console(s) (use no_console_suspend to debug)
+[    9.121824] PM: suspend of devices complete after 17.078 msecs
+[    9.123270] PM: late suspend of devices complete after 1.438 msecs
+[    9.124227] PM: noirq suspend of devices complete after 0.950 msecs
+[    9.124230] Disabling non-boot CPUs ...
+[    9.163384] IRQ352 no longer affine to CPU1
+[    9.273487] IRQ353 no longer affine to CPU2
+[    9.353444] IRQ354 no longer affine to CPU3
+[    9.404454] Entering suspend state LP1
+[    9.404454] Suspended for 3.389 seconds
+[    9.404465] Enabling non-boot CPUs ...
+[    9.434743] CPU1 is up
+[    9.474586] CPU2 is up
+[    9.514784] CPU3 is up
+[    9.515224] PM: noirq resume of devices complete after 0.435 msecs
+[    9.516646] PM: early resume of devices complete after 1.098 msecs
+[    9.673296] mmc1: Switching to 3.3V signalling voltage failed
+[    9.764983] PM: resume of devices complete after 248.327 msecs
+[    9.842905] OOM killer enabled.
+[    9.846039] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:44 1970
+[   10.681995] PM: Syncing filesystems ... done.
+[   10.687889] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   10.696074] OOM killer disabled.
+[   10.699290] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   10.707917] Suspending console(s) (use no_console_suspend to debug)
+[   10.731576] PM: suspend of devices complete after 16.889 msecs
+[   10.732691] PM: late suspend of devices complete after 1.106 msecs
+[   10.733436] PM: noirq suspend of devices complete after 0.741 msecs
+[   10.733439] Disabling non-boot CPUs ...
+[   11.003279] migrate_irqs: 2 callbacks suppressed
+[   11.003283] IRQ17 no longer affine to CPU3
+[   11.003386] IRQ354 no longer affine to CPU3
+[   11.034409] Entering suspend state LP1
+[   11.034409] Suspended for 3.369 seconds
+[   11.034420] Enabling non-boot CPUs ...
+[   11.064721] CPU1 is up
+[   11.104557] CPU2 is up
+[   11.144763] CPU3 is up
+[   11.145210] PM: noirq resume of devices complete after 0.442 msecs
+[   11.146542] PM: early resume of devices complete after 1.012 msecs
+[   11.303492] mmc1: Switching to 3.3V signalling voltage failed
+[   11.395102] PM: resume of devices complete after 248.551 msecs
+[   11.473378] OOM killer enabled.
+[   11.476507] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:49 1970
+[   12.311988] PM: Syncing filesystems ... done.
+[   12.317874] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   12.326061] OOM killer disabled.
+[   12.329277] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   12.337904] Suspending console(s) (use no_console_suspend to debug)
+[   12.362350] PM: suspend of devices complete after 17.676 msecs
+[   12.363609] PM: late suspend of devices complete after 1.251 msecs
+[   12.364436] PM: noirq suspend of devices complete after 0.822 msecs
+[   12.364438] Disabling non-boot CPUs ...
+[   12.403327] IRQ352 no longer affine to CPU1
+[   12.503427] IRQ353 no longer affine to CPU2
+[   12.613295] IRQ17 no longer affine to CPU3
+[   12.613397] IRQ354 no longer affine to CPU3
+[   12.664400] Entering suspend state LP1
+[   12.664400] Suspended for 3.369 seconds
+[   12.664410] Enabling non-boot CPUs ...
+[   12.694694] CPU1 is up
+[   12.734538] CPU2 is up
+[   12.774734] CPU3 is up
+[   12.775180] PM: noirq resume of devices complete after 0.441 msecs
+[   12.776586] PM: early resume of devices complete after 1.092 msecs
+[   12.934019] mmc1: Switching to 3.3V signalling voltage failed
+[   13.024422] PM: resume of devices complete after 247.826 msecs
+[   13.106429] OOM killer enabled.
+[   13.109558] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:54 1970
+[   13.941971] PM: Syncing filesystems ... done.
+[   13.947845] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   13.956030] OOM killer disabled.
+[   13.959246] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   13.967870] Suspending console(s) (use no_console_suspend to debug)
+[   13.992315] PM: suspend of devices complete after 17.675 msecs
+[   13.993423] PM: late suspend of devices complete after 1.100 msecs
+[   13.994254] PM: noirq suspend of devices complete after 0.827 msecs
+[   13.994256] Disabling non-boot CPUs ...
+[   14.043315] IRQ352 no longer affine to CPU1
+[   14.133449] IRQ353 no longer affine to CPU2
+[   14.223260] IRQ17 no longer affine to CPU3
+[   14.223362] IRQ354 no longer affine to CPU3
+[   14.274378] Entering suspend state LP1
+[   14.274378] Suspended for 3.389 seconds
+[   14.274389] Enabling non-boot CPUs ...
+[   14.304682] CPU1 is up
+[   14.344508] CPU2 is up
+[   14.384731] CPU3 is up
+[   14.385175] PM: noirq resume of devices complete after 0.438 msecs
+[   14.386448] PM: early resume of devices complete after 0.946 msecs
+[   14.543438] mmc1: Switching to 3.3V signalling voltage failed
+[   14.634922] PM: resume of devices complete after 248.463 msecs
+[   14.716929] OOM killer enabled.
+[   14.720058] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:59 1970
+[   15.551943] PM: Syncing filesystems ... done.
+[   15.557834] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   15.566022] OOM killer disabled.
+[   15.569238] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   15.577865] Suspending console(s) (use no_console_suspend to debug)
+[   15.602326] PM: suspend of devices complete after 17.690 msecs
+[   15.603555] PM: late suspend of devices complete after 1.220 msecs
+[   15.604374] PM: noirq suspend of devices complete after 0.814 msecs
+[   15.604376] Disabling non-boot CPUs ...
+[   15.904359] Entering suspend state LP1
+[   15.904359] Suspended for 3.369 seconds
+[   15.904370] Enabling non-boot CPUs ...
+[   15.934666] CPU1 is up
+[   15.974474] CPU2 is up
+[   16.014689] CPU3 is up
+[   16.015130] PM: noirq resume of devices complete after 0.435 msecs
+[   16.016720] PM: early resume of devices complete after 1.293 msecs
+[   16.173463] mmc1: Switching to 3.3V signalling voltage failed
+[   16.265026] PM: resume of devices complete after 248.297 msecs
+[   16.330516] OOM killer enabled.
+[   16.333648] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:04 1970
+[   17.181911] PM: Syncing filesystems ... done.
+[   17.187799] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   17.195987] OOM killer disabled.
+[   17.199203] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   17.207829] Suspending console(s) (use no_console_suspend to debug)
+[   17.232388] PM: suspend of devices complete after 17.789 msecs
+[   17.233628] PM: late suspend of devices complete after 1.232 msecs
+[   17.234444] PM: noirq suspend of devices complete after 0.811 msecs
+[   17.234446] Disabling non-boot CPUs ...
+[   17.283248] migrate_irqs: 4 callbacks suppressed
+[   17.283250] IRQ352 no longer affine to CPU1
+[   17.373343] IRQ353 no longer affine to CPU2
+[   17.473212] IRQ17 no longer affine to CPU3
+[   17.473315] IRQ354 no longer affine to CPU3
+[   17.524313] Entering suspend state LP1
+[   17.524313] Suspended for 3.379 seconds
+[   17.524324] Enabling non-boot CPUs ...
+[   17.554626] CPU1 is up
+[   17.594445] CPU2 is up
+[   17.634661] CPU3 is up
+[   17.635095] PM: noirq resume of devices complete after 0.429 msecs
+[   17.636512] PM: early resume of devices complete after 1.100 msecs
+[   17.793270] mmc1: Switching to 3.3V signalling voltage failed
+[   17.884735] PM: resume of devices complete after 248.215 msecs
+[   17.971337] OOM killer enabled.
+[   17.974470] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:09 1970
+[   18.801882] PM: Syncing filesystems ... done.
+[   18.807773] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   18.815957] OOM killer disabled.
+[   18.819173] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   18.827802] Suspending console(s) (use no_console_suspend to debug)
+[   18.851431] PM: suspend of devices complete after 16.859 msecs
+[   18.852563] PM: late suspend of devices complete after 1.124 msecs
+[   18.853305] PM: noirq suspend of devices complete after 0.736 msecs
+[   18.853307] Disabling non-boot CPUs ...
+[   18.893223] IRQ352 no longer affine to CPU1
+[   18.993319] IRQ353 no longer affine to CPU2
+[   19.103180] IRQ17 no longer affine to CPU3
+[   19.103284] IRQ354 no longer affine to CPU3
+[   19.154292] Entering suspend state LP1
+[   19.154292] Suspended for 3.369 seconds
+[   19.154303] Enabling non-boot CPUs ...
+[   19.184598] CPU1 is up
+[   19.224425] CPU2 is up
+[   19.264633] CPU3 is up
+[   19.265076] PM: noirq resume of devices complete after 0.438 msecs
+[   19.266618] PM: early resume of devices complete after 1.226 msecs
+[   19.423229] mmc1: Switching to 3.3V signalling voltage failed
+[   19.514910] PM: resume of devices complete after 248.283 msecs
+[   19.596914] OOM killer enabled.
+[   19.600043] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:14 1970
+[   20.441826] PM: Syncing filesystems ... done.
+[   20.447668] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   20.455855] OOM killer disabled.
+[   20.459071] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+[   20.467704] Suspending console(s) (use no_console_suspend to debug)
+[   20.492133] PM: suspend of devices complete after 17.658 msecs
+[   20.493245] PM: late suspend of devices complete after 1.104 msecs
+[   20.494099] PM: noirq suspend of devices complete after 0.849 msecs
+[   20.494102] Disabling non-boot CPUs ...
+[   20.543198] IRQ352 no longer affine to CPU1
+[   20.643296] IRQ353 no longer affine to CPU2
+[   20.774273] Entering suspend state LP1
+[   20.774273] Suspended for 3.379 seconds
+[   20.774284] Enabling non-boot CPUs ...
+[   20.804573] CPU1 is up
+[   20.844400] CPU2 is up
+[   20.884598] CPU3 is up
+[   20.885040] PM: noirq resume of devices complete after 0.437 msecs
+[   20.886529] PM: early resume of devices complete after 1.166 msecs
+[   21.043189] mmc1: Switching to 3.3V signalling voltage failed
+[   21.134837] PM: resume of devices complete after 248.300 msecs
+[   21.208588] OOM killer enabled.
+[   21.211717] Restarting tasks ... done.
+root@(none):/# 
+root@(none):/# NVTB SYSTEM SUSPEND TEST COMPLETE

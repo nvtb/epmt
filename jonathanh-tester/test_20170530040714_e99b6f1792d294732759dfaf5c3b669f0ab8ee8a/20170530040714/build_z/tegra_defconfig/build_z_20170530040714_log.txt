@@ -1,0 +1,9 @@
+test_build: Tue May 30 04:07:28 PDT 2017: started on tegra_defconfig test_20170530040714_e99b6f1792d294732759dfaf5c3b669f0ab8ee8a (e99b6f1792d294732759dfaf5c3b669f0ab8ee8a)
+test_build: Tue May 30 04:07:28 PDT 2017: serial is 20170530040714
+drivers/usb/host/xhci-tegra.c: In function ‘tegra_xusb_mbox_thread’:
+drivers/usb/host/xhci-tegra.c:555:6: warning: ‘err’ may be used uninitialized in this function [-Wuninitialized]
+drivers/usb/host/xhci-tegra.c:485:6: note: ‘err’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9512036	3378388	 314892	13205316	 c97f44	vmlinux
+test_build: Tue May 30 04:10:26 PDT 2017: succeeded on tegra_defconfig test_20170530040714_e99b6f1792d294732759dfaf5c3b669f0ab8ee8a
+test_build: Tue May 30 04:10:26 PDT 2017: ended on tegra_defconfig test_20170530040714_e99b6f1792d294732759dfaf5c3b669f0ab8ee8a

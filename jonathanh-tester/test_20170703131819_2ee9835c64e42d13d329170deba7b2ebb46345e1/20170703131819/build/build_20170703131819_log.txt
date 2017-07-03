@@ -1,0 +1,16 @@
+test_build: Mon Jul 3 13:38:54 PDT 2017: started on defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1 (2ee9835c64e42d13d329170deba7b2ebb46345e1)
+test_build: Mon Jul 3 13:38:54 PDT 2017: serial is 20170703131819
+arch/arm64/Makefile:23: ld does not support --fix-cortex-a53-843419; kernel may be susceptible to erratum
+arch/arm64/Makefile:44: Detected assembler with broken .inst; disassembly will be unreliable
+drivers/ata/libata-scsi.c: In function ‘ata_scsi_var_len_cdb_xlat’:
+drivers/ata/libata-scsi.c:4194:1: warning: label ‘unspprt_sa’ defined but not used [-Wunused-label]
+ unspprt_sa:
+ ^
+drivers/rtc/rtc-brcmstb-waketimer.c: In function ‘brcmstb_waketmr_settime’:
+drivers/rtc/rtc-brcmstb-waketimer.c:142:6: warning: unused variable ‘ret’ [-Wunused-variable]
+  int ret;
+      ^
+   text	   data	    bss	    dec	    hex	filename
+10248573	5782272	 409840	16440685	 fadd6d	vmlinux
+test_build: Mon Jul 3 13:41:40 PDT 2017: succeeded on defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1
+test_build: Mon Jul 3 13:41:40 PDT 2017: ended on defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1

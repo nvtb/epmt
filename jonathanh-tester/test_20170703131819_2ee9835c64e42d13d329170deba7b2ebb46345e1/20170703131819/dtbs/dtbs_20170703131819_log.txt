@@ -1,0 +1,7 @@
+test_build: Mon Jul 3 13:38:34 PDT 2017: started on nvidia/tegra210-smaug.dtb test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1 (2ee9835c64e42d13d329170deba7b2ebb46345e1)
+test_build: Mon Jul 3 13:38:34 PDT 2017: serial is 20170703131819
+arch/arm64/Makefile:23: ld does not support --fix-cortex-a53-843419; kernel may be susceptible to erratum
+arch/arm64/Makefile:44: Detected assembler with broken .inst; disassembly will be unreliable
+52976 arch/arm64/boot/dts/nvidia/tegra210-smaug.dtb
+test_build: Mon Jul 3 13:38:42 PDT 2017: succeeded on nvidia/tegra210-smaug.dtb test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1
+test_build: Mon Jul 3 13:38:42 PDT 2017: ended on nvidia/tegra210-smaug.dtb test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1

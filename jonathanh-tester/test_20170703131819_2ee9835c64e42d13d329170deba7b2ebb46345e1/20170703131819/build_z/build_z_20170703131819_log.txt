@@ -1,0 +1,33 @@
+test_build: Mon Jul 3 13:36:07 PDT 2017: started on multi_v7_defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1 (2ee9835c64e42d13d329170deba7b2ebb46345e1)
+test_build: Mon Jul 3 13:36:07 PDT 2017: serial is 20170703131819
+arch/arm/crypto/Makefile:25: These CRC Extensions modules need binutils 2.23 or higher
+arch/arm/crypto/Makefile:26:  crc32-arm-ce.o
+drivers/ata/libata-scsi.c: In function ‘ata_scsi_var_len_cdb_xlat’:
+drivers/ata/libata-scsi.c:4194:1: warning: label ‘unspprt_sa’ defined but not used [-Wunused-label]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_crtc.c: In function ‘blend_setup’:
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_crtc.c:224:7: warning: missing braces around initializer [-Wmissing-braces]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_crtc.c:224:7: warning: (near initialization for ‘stage[0]’) [-Wmissing-braces]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_crtc.c:225:7: warning: missing braces around initializer [-Wmissing-braces]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_crtc.c:225:7: warning: (near initialization for ‘r_stage[0]’) [-Wmissing-braces]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_plane.c: In function ‘mdp5_plane_mode_set’:
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_plane.c:893:9: warning: missing braces around initializer [-Wmissing-braces]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_plane.c:893:9: warning: (near initialization for ‘step.x’) [-Wmissing-braces]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_plane.c:894:9: warning: missing braces around initializer [-Wmissing-braces]
+drivers/gpu/drm/msm/mdp/mdp5/mdp5_plane.c:894:9: warning: (near initialization for ‘pe.left’) [-Wmissing-braces]
+drivers/rtc/rtc-brcmstb-waketimer.c: In function ‘brcmstb_waketmr_settime’:
+drivers/rtc/rtc-brcmstb-waketimer.c:142:6: warning: unused variable ‘ret’ [-Wunused-variable]
+   text	   data	    bss	    dec	    hex	filename
+11656490	6396484	 411772	18464746	119bfea	vmlinux
+test_build: Mon Jul 3 13:38:41 PDT 2017: succeeded on multi_v7_defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1
+test_build: Mon Jul 3 13:38:41 PDT 2017: ended on multi_v7_defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1
+test_build: Mon Jul 3 13:35:49 PDT 2017: started on tegra_defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1 (2ee9835c64e42d13d329170deba7b2ebb46345e1)
+test_build: Mon Jul 3 13:35:49 PDT 2017: serial is 20170703131819
+drivers/ata/libata-scsi.c: In function ‘ata_scsi_var_len_cdb_xlat’:
+drivers/ata/libata-scsi.c:4194:1: warning: label ‘unspprt_sa’ defined but not used [-Wunused-label]
+drivers/usb/host/xhci-tegra.c: In function ‘tegra_xusb_mbox_thread’:
+drivers/usb/host/xhci-tegra.c:555:6: warning: ‘err’ may be used uninitialized in this function [-Wuninitialized]
+drivers/usb/host/xhci-tegra.c:485:6: note: ‘err’ was declared here
+   text	   data	    bss	    dec	    hex	filename
+9621875	3405284	 306684	13333843	 cb7553	vmlinux
+test_build: Mon Jul 3 13:38:57 PDT 2017: succeeded on tegra_defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1
+test_build: Mon Jul 3 13:38:57 PDT 2017: ended on tegra_defconfig test_20170703131819_2ee9835c64e42d13d329170deba7b2ebb46345e1

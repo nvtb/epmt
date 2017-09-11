@@ -1,0 +1,2 @@
+test_sparse: Mon Sep 11 15:05:59 PDT 2017: started on tegra_defconfig test_20170911150135_da52d783f0369910a81ddcf90d6752cb3c4275ae (da52d783f0369910a81ddcf90d6752cb3c4275ae)
+test_sparse: Mon Sep 11 15:05:59 PDT 2017: serial is 20170911150135

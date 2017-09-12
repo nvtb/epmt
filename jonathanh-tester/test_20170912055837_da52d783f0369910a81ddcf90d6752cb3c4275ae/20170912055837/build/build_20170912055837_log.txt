@@ -1,0 +1,12 @@
+test_build: Tue Sep 12 06:17:38 PDT 2017: started on defconfig test_20170912055837_da52d783f0369910a81ddcf90d6752cb3c4275ae (da52d783f0369910a81ddcf90d6752cb3c4275ae)
+test_build: Tue Sep 12 06:17:38 PDT 2017: serial is 20170912055837
+arch/arm64/Makefile:23: ld does not support --fix-cortex-a53-843419; kernel may be susceptible to erratum
+arch/arm64/Makefile:44: Detected assembler with broken .inst; disassembly will be unreliable
+kernel/signal.c: In function ‘C_SYSC_rt_sigaction’:
+kernel/signal.c:3443:19: warning: unused variable ‘mask’ [-Wunused-variable]
+   compat_sigset_t mask;
+                   ^
+   text	   data	    bss	    dec	    hex	filename
+10365858	6039772	 410736	16816366	10098ee	vmlinux
+test_build: Tue Sep 12 06:20:36 PDT 2017: succeeded on defconfig test_20170912055837_da52d783f0369910a81ddcf90d6752cb3c4275ae
+test_build: Tue Sep 12 06:20:36 PDT 2017: ended on defconfig test_20170912055837_da52d783f0369910a81ddcf90d6752cb3c4275ae

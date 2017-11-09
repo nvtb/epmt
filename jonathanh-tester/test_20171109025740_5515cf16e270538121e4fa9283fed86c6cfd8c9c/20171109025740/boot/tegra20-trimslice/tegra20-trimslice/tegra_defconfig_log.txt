@@ -1,0 +1,540 @@
+
+U-Boot SPL 2015.04-rc3-00209-ga74ef40 (Mar 16 2015 - 14:43:39)
+
+
+U-Boot 2015.04-rc3-00209-ga74ef40 (Mar 16 2015 - 14:43:39)
+
+TEGRA20
+Model: Compulab TrimSlice board
+DRAM:  1 GiB
+MMC:   Tegra SD/MMC: 0, Tegra SD/MMC: 1
+SF: Detected W25Q80BL with page size 256 Bytes, erase size 4 KiB, total 1 MiB
+tegra-pcie: PCI regions:
+tegra-pcie:   I/O: 0x82000000-0x82010000
+tegra-pcie:   non-prefetchable memory: 0xa0000000-0xa8000000
+tegra-pcie:   prefetchable memory: 0xa8000000-0xc0000000
+tegra-pcie: dual-mode configuration
+tegra-pcie: probing port 0, using 2 lanes
+In:    serial
+Out:   serial
+Err:   serial
+Net:   RTL8169#0
+Hit any key to stop autoboot:  2  0 
+Tegra20 (TrimSlice) # 
+Tegra20 (TrimSlice) # usb reset
+resetting USB...
+USB0:   USB EHCI 1.00
+scanning bus 0 for devices... 3 USB Device(s) found
+USB1:   USB EHCI 1.00
+scanning bus 1 for devices... 1 USB Device(s) found
+USB2:   lowlevel init failed
+       scanning usb for storage devices... 0 Storage Device(s) found
+       scanning usb for ethernet devices... 
+Warning: asx0 using MAC address from net device
+1 Ethernet Device(s) found
+Tegra20 (TrimSlice) # setenv bootargs 'ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=11eb23c1-01 rootwait gpt debug noinitrd earlyprintk init=/bin/bash'
+Tegra20 (TrimSlice) # setenv ipaddr 192.168.100.103; setenv serverip 192.168.100.1; setenv tftpserverip 192.168.100.1
+Tegra20 (TrimSlice) # tftpboot 0x00408000 zImage.tegra_defconfig
+Using RTL8169#0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.103
+Filename 'zImage.tegra_defconfig'.
+Load address: 0x408000
+Loading: *#################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #########################################
+	 903.3 KiB/s
+done
+Bytes transferred = 6326368 (608860 hex)
+Tegra20 (TrimSlice) # tftpboot 0x02408000 tegra20-trimslice.dtb
+Using RTL8169#0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.103
+Filename 'tegra20-trimslice.dtb'.
+Load address: 0x2408000
+Loading: *##
+	 860.4 KiB/s
+done
+Bytes transferred = 21160 (52a8 hex)
+Tegra20 (TrimSlice) # bootz 0x00408000 - 0x02408000
+Kernel image @ 0x408000 [ 0x000000 - 0x608860 ]
+## Flattened Device Tree blob at 02408000
+   Booting using the fdt blob at 0x2408000
+   Using Device Tree in place at 02408000, end 024102a7
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.14.0-rc8-next-20171109-214194-g5515cf1 (jonathanh@kaivo) (gcc version 4.7.3 20130328 (prerelease) (crosstool-NG linaro-1.13.1-4.7-2013.04-20130415 - Linaro GCC 2013.04)) #1 SMP PREEMPT Thu Nov 9 03:00:18 PST 2017
+[    0.000000] CPU: ARMv7 Processor [411fc090] revision 0 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: Compulab TrimSlice board
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] bootconsole [earlycon0] enabled
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 64 MiB at 0x3c000000
+[    0.000000] On node 0 totalpages: 262144
+[    0.000000] free_area_init_node: node 0, pgdat c0faf2c0, node_mem_map ef7f7000
+[    0.000000]   Normal zone: 1536 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 196608 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 65536 pages, LIFO batch:15
+[    0.000000] random: fast init done
+[    0.000000] percpu: Embedded 17 pages/cpu @ef7c6000 s39616 r8192 d21824 u69632
+[    0.000000] pcpu-alloc: s39616 r8192 d21824 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 260608
+[    0.000000] Kernel command line: ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=11eb23c1-01 rootwait gpt debug noinitrd earlyprintk init=/bin/bash
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 958400K/1048576K available (9216K kernel code, 778K rwdata, 2820K rodata, 1024K init, 299K bss, 24640K reserved, 65536K cma-reserved, 196608K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0a00000   (10208 kB)
+[    0.000000]       .init : 0xc0e00000 - 0xc0f00000   (1024 kB)
+[    0.000000]       .data : 0xc0f00000 - 0xc0fc2840   ( 779 kB)
+[    0.000000]        .bss : 0xc0fc2840 - 0xc100d4b4   ( 300 kB)
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] /interrupt-controller@60004000: 128 interrupts forwarded to /interrupt-controller@50041000
+[    0.000000] L2C: platform modifies aux control register: 0x02080000 -> 0x3e480001
+[    0.000000] L2C: DT/platform modifies aux control register: 0x02080000 -> 0x3e480001
+[    0.000000] L2C-310 errata 727915 769419 enabled
+[    0.000000] L2C-310 enabling early BRESP for Cortex-A9
+[    0.000000] L2C-310: enabling full line of zeros but not enabled in Cortex-A9
+[    0.000000] L2C-310 ID prefetch enabled, offset 1 lines
+[    0.000000] L2C-310 cache controller enabled, 8 ways, 1024 kB
+[    0.000000] L2C-310: CACHE_ID 0x410000c4, AUX_CTRL 0x7e480001
+[    0.000010] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 2147483647500ns
+[    0.008267] clocksource: timer_us: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275 ns
+[    0.017795] Switching to timer-based delay loop, resolution 1000ns
+[    0.024647] Console: colour dummy device 80x30
+[    0.029009] Calibrating delay loop (skipped), value calculated using timer frequency.. 2.00 BogoMIPS (lpj=10000)
+[    0.039146] pid_max: default: 32768 minimum: 301
+[    0.044168] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.050698] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.058530] CPU: Testing write buffer coherency: ok
+[    0.063620] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.100009] Setting up static identity map for 0x100000 - 0x1000a0
+[    0.106228] Hierarchical SRCU implementation.
+[    0.130295] Tegra Revision: A03 prime SKU: 8 CPU Process: 1 SoC Process: 2
+[    0.149971] smp: Bringing up secondary CPUs ...
+[    0.200603] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.200691] smp: Brought up 1 node, 2 CPUs
+[    0.210362] SMP: Total of 2 processors activated (4.00 BogoMIPS).
+[    0.216391] CPU: All CPU(s) started in SVC mode.
+[    0.222076] devtmpfs: initialized
+[    0.230904] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 1
+[    0.238777] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.248522] futex hash table entries: 512 (order: 3, 32768 bytes)
+[    0.257338] pinctrl core: initialized pinctrl subsystem
+[    0.263845] NET: Registered protocol family 16
+[    0.269931] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.278010] cpuidle: using governor menu
+[    0.298049] No ATAGs?
+[    0.298128] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.308284] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.333599] usb1_vbus: Failed to request enable GPIO170: -517
+[    0.339252] reg-fixed-voltage regulators:regulator@2: Failed to register regulator: -517
+[    0.350607] vgaarb: loaded
+[    0.354056] SCSI subsystem initialized
+[    0.357991] libata version 3.00 loaded.
+[    0.362152] usbcore: registered new interface driver usbfs
+[    0.367618] usbcore: registered new interface driver hub
+[    0.372946] usbcore: registered new device driver usb
+[    0.379886] Linux video capture interface: v2.00
+[    0.384531] pps_core: LinuxPPS API ver. 1 registered
+[    0.389395] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.398571] PTP clock support registered
+[    0.403098] Advanced Linux Sound Architecture Driver Initialized.
+[    0.409778] Bluetooth: Core ver 2.22
+[    0.413342] NET: Registered protocol family 31
+[    0.417687] Bluetooth: HCI device and connection manager initialized
+[    0.424034] Bluetooth: HCI socket layer initialized
+[    0.428871] Bluetooth: L2CAP socket layer initialized
+[    0.433942] Bluetooth: SCO socket layer initialized
+[    0.439413] clocksource: Switched to clocksource timer_us
+[    0.529913] NET: Registered protocol family 2
+[    0.535221] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.542260] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.548707] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.555700] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.561597] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.568145] NET: Registered protocol family 1
+[    0.573148] RPC: Registered named UNIX socket transport module.
+[    0.578968] RPC: Registered udp transport module.
+[    0.583671] RPC: Registered tcp transport module.
+[    0.588328] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.595489] PCI: CLS 0 bytes, default 64
+[    0.600759] hw perfevents: no interrupt-affinity property for /pmu, guessing.
+[    0.607979] hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
+[    0.617561] Initialise system trusted keyrings
+[    0.622116] workingset: timestamp_bits=30 max_order=18 bucket_order=0
+[    0.629595] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.636043] NFS: Registering the id_resolver key type
+[    0.641039] Key type id_resolver registered
+[    0.645156] Key type id_legacy registered
+[    0.653907] Key type asymmetric registered
+[    0.657909] Asymmetric key parser 'x509' registered
+[    0.662992] bounce: pool size: 64 pages
+[    0.666813] io scheduler noop registered (default)
+[    0.671526] io scheduler mq-deadline registered
+[    0.676012] io scheduler kyber registered
+[    0.684668] tegra-pcie 80003000.pcie: dual-mode configuration
+[    0.691274] tegra-pcie 80003000.pcie: probing port 0, using 2 lanes
+[    0.768034] tegra-pcie 80003000.pcie: PCI host bridge to bus 0000:00
+[    0.774315] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.780457] pci_bus 0000:00: root bus resource [mem 0xa0000000-0xa7ffffff]
+[    0.787290] pci_bus 0000:00: root bus resource [mem 0xa8000000-0xbfffffff pref]
+[    0.794584] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.800084] pci 0000:00:01.0: [10de:0bf0] type 01 class 0x060000
+[    0.806019] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4 may corrupt adjacent RW1C bits
+[    0.815646] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4 may corrupt adjacent RW1C bits
+[    0.825276] pci 0000:00:01.0: enabling Extended Tags
+[    0.830205] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x88 may corrupt adjacent RW1C bits
+[    0.839926] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[    0.849632] pci 0000:00:01.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.856192] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4c may corrupt adjacent RW1C bits
+[    0.866115] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x3e may corrupt adjacent RW1C bits
+[    0.875770] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4 may corrupt adjacent RW1C bits
+[    0.885385] pci_bus 0000:00: 1-byte config write to 0000:00:01.0 offset 0xc may corrupt adjacent RW1C bits
+[    0.895000] PCI: bus0: Fast back to back transfers disabled
+[    0.900550] pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.908511] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x3e may corrupt adjacent RW1C bits
+[    0.918231] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x3e may corrupt adjacent RW1C bits
+[    0.928112] pci 0000:01:00.0: [10ec:8168] type 00 class 0x020000
+[    0.934057] pci 0000:01:00.0: reg 0x10: [io  0x0000-0x00ff]
+[    0.939598] pci 0000:01:00.0: reg 0x18: [mem 0x00000000-0x00000fff 64bit pref]
+[    0.946771] pci 0000:01:00.0: reg 0x20: [mem 0x00000000-0x00003fff 64bit pref]
+[    0.953978] pci 0000:01:00.0: reg 0x30: [mem 0x00000000-0x0001ffff pref]
+[    0.960811] PCI: bus1: Fast back to back transfers disabled
+[    0.966289] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+[    0.972914] pci 0000:00:01.0: BAR 8: assigned [mem 0xa0000000-0xa00fffff]
+[    0.979651] pci 0000:00:01.0: BAR 9: assigned [mem 0xa8000000-0xa80fffff 64bit pref]
+[    0.987347] pci 0000:00:01.0: BAR 7: assigned [io  0x1000-0x1fff]
+[    0.993434] pci 0000:01:00.0: BAR 6: assigned [mem 0xa0000000-0xa001ffff pref]
+[    1.000621] pci 0000:01:00.0: BAR 4: assigned [mem 0xa8000000-0xa8003fff 64bit pref]
+[    1.008330] pci 0000:01:00.0: BAR 2: assigned [mem 0xa8004000-0xa8004fff 64bit pref]
+[    1.016055] pci 0000:01:00.0: BAR 0: assigned [io  0x1000-0x10ff]
+[    1.022117] pci 0000:00:01.0: PCI bridge to [bus 01]
+[    1.027040] pci 0000:00:01.0:   bridge window [io  0x1000-0x1fff]
+[    1.033121] pci 0000:00:01.0:   bridge window [mem 0xa0000000-0xa00fffff]
+[    1.039879] pci 0000:00:01.0:   bridge window [mem 0xa8000000-0xa80fffff 64bit pref]
+[    1.047595] pci 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[    1.054577] Disabling cpuidle LP2 state, since PCIe IRQs are in use
+[    1.060794] pcieport 0000:00:01.0: enabling device (0140 -> 0143)
+[    1.067066] pcieport 0000:00:01.0: Signaling PME with IRQ 295
+[    1.076131] tegra-apbdma 6000a000.dma: Tegra20 APB DMA driver register 16 channels
+[    1.085308] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    1.093521] console [ttyS0] disabled
+[    1.097041] 70006000.serial: ttyS0 at MMIO 0x70006000 (irq = 279, base_baud = 13500000) is a Tegra
+[    1.105978] console [ttyS0] enabled
+[    1.105978] console [ttyS0] enabled
+[    1.112883] bootconsole [earlycon0] disabled
+[    1.112883] bootconsole [earlycon0] disabled
+[    1.123970] tegra-hdmi 54280000.hdmi: 54280000.hdmi supply hdmi not found, using dummy regulator
+[    1.136104] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    1.142722] [drm] No driver support for vblank timestamp query.
+[    1.148758] [drm] Cannot find any crtc or sizes
+[    1.153317] [drm] Cannot find any crtc or sizes
+[    1.157876] [drm] Initialized tegra 0.0.0 20120330 for drm on minor 0
+[    1.175735] loop: module loaded
+[    1.181243] m25p80 spi0.0: found s25fl008k, expected w25q80bl
+[    1.187055] m25p80 spi0.0: s25fl008k (1024 Kbytes)
+[    1.193872] libphy: Fixed MDIO Bus: probed
+[    1.197960] CAN device driver interface
+[    1.201887] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.4.0-k
+[    1.208830] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    1.214595] r8169 Gigabit Ethernet driver 2.3LK-NAPI loaded
+[    1.220232] r8169 0000:01:00.0: enabling device (0140 -> 0143)
+[    1.226082] r8169 0000:01:00.0 (unnamed net_device) (uninitialized): not PCI Express
+[    1.234607] r8169 0000:01:00.0 eth0: RTL8168d/8111d at 0xf0863000, 00:01:c0:13:7d:63, XID 081000c0 IRQ 286
+[    1.244265] r8169 0000:01:00.0 eth0: jumbo features [frames: 9200 bytes, tx checksumming: ko]
+[    1.252939] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    1.260421] usbcore: registered new interface driver pegasus
+[    1.266136] usbcore: registered new interface driver asix
+[    1.271606] usbcore: registered new interface driver ax88179_178a
+[    1.277753] usbcore: registered new interface driver cdc_ether
+[    1.283669] usbcore: registered new interface driver smsc75xx
+[    1.289494] usbcore: registered new interface driver smsc95xx
+[    1.295285] usbcore: registered new interface driver net1080
+[    1.301013] usbcore: registered new interface driver cdc_subset
+[    1.306985] usbcore: registered new interface driver zaurus
+[    1.312638] usbcore: registered new interface driver cdc_ncm
+[    1.318590] tegra-phy c5004000.usb-phy: no vbus regulator
+[    1.325156] tegra-phy c5008000.usb-phy: no vbus regulator
+[    1.330712] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.337222] ehci-pci: EHCI PCI platform driver
+[    1.341746] tegra-ehci: Tegra EHCI driver
+[    1.400397] ulpi_phy_power_on: ulpi write failed
+[    1.405004] tegra-ehci c5004000.usb: Failed to power on the phy
+[    1.410945] tegra-ehci: probe of c5004000.usb failed with error -110
+[    1.419940] tegra-ehci c5008000.usb: EHCI Host Controller
+[    1.425350] tegra-ehci c5008000.usb: new USB bus registered, assigned bus number 1
+[    1.433151] tegra-ehci c5008000.usb: irq 290, io mem 0xc5008000
+[    1.459434] tegra-ehci c5008000.usb: USB 2.0 started, EHCI 1.00
+[    1.466249] hub 1-0:1.0: USB hub found
+[    1.470043] hub 1-0:1.0: 1 port detected
+[    1.473979] hub 1-0:1.0: config failed, can't get hub status (err 2)
+[    1.509439] hub 1-0:1.0: activate --> -22
+[    1.514016] usbcore: registered new interface driver cdc_acm
+[    1.519682] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.527736] usbcore: registered new interface driver cdc_wdm
+[    1.533500] usbcore: registered new interface driver usb-storage
+[    1.542204] rtc-em3027 2-0056: rtc core: registered rtc-em3027 as rtc0
+[    1.549425] tegra_rtc 7000e000.rtc: rtc core: registered 7000e000.rtc as rtc1
+[    1.556595] tegra_rtc 7000e000.rtc: Tegra internal Real Time Clock
+[    1.563076] i2c /dev entries driver
+[    1.567479] usbcore: registered new interface driver uvcvideo
+[    1.573251] hub 1-0:1.0: activate --> -22
+[    1.577270] USB Video Class driver (1.1.1)
+[    1.581372] gspca_main: v2.14.0 registered
+[    1.586825] sdhci: Secure Digital Host Controller Interface driver
+[    1.593037] sdhci: Copyright(c) Pierre Ossman
+[    1.597380] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.611974] mmc0: Invalid maximum block size, assuming 512 bytes
+[    1.629473] hub 1-0:1.0: activate --> -22
+[    1.670651] mmc0: SDHCI controller on c8000000.sdhci [c8000000.sdhci] using ADMA
+[    1.678578] sdhci-tegra c8000600.sdhci: Got CD GPIO
+[    1.684070] sdhci-tegra c8000600.sdhci: Got WP GPIO
+[    1.689433] hub 1-0:1.0: activate --> -22
+[    1.698040] mmc1: Invalid maximum block size, assuming 512 bytes
+[    1.749447] hub 1-0:1.0: activate --> -22
+[    1.760065] mmc1: SDHCI controller on c8000600.sdhci [c8000600.sdhci] using ADMA
+[    1.770555] usbcore: registered new interface driver usbhid
+[    1.776112] usbhid: USB HID core driver
+[    1.786799] tegra-snd-trimslice sound: tlv320aic23-hifi <-> 70002800.i2s mapping ok
+[    1.796994] NET: Registered protocol family 10
+[    1.802951] Segment Routing with IPv6
+[    1.806827] mip6: Mobile IPv6
+[    1.809813] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.817252] NET: Registered protocol family 17
+[    1.819444] hub 1-0:1.0: activate --> -22
+[    1.825721] NET: Registered protocol family 15
+[    1.830191] can: controller area network core (rev 20170425 abi 9)
+[    1.836605] NET: Registered protocol family 29
+[    1.841074] can: raw protocol (rev 20170425)
+[    1.845331] can: broadcast manager protocol (rev 20170425 t)
+[    1.850996] can: netlink gateway (rev 20170425) max_hops=1
+[    1.856640] Bluetooth: RFCOMM socket layer initialized
+[    1.861804] Bluetooth: RFCOMM ver 1.11
+[    1.865552] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    1.870890] Bluetooth: BNEP socket layer initialized
+[    1.875841] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    1.879447] hub 1-0:1.0: activate --> -22
+[    1.885759] Bluetooth: HIDP socket layer initialized
+[    1.888283] mmc1: new high speed SD card at address b368
+[    1.888978] mmcblk1: mmc1:b368 NCard 1.83 GiB (ro)
+[    1.893260]  mmcblk1: p1 p2
+[    1.904002] Key type dns_resolver registered
+[    1.908601] Registering SWP/SWPB emulation handler
+[    1.914194] Loading compiled-in X.509 certificates
+[    1.929499] hub 1-0:1.0: activate --> -22
+[    1.930105] utmi_phy_clk_enable: timeout waiting for phy to stabilize
+[    1.930130] tegra-ehci c5000000.usb: EHCI Host Controller
+[    1.930158] tegra-ehci c5000000.usb: new USB bus registered, assigned bus number 2
+[    1.953218] tegra-ehci c5000000.usb: irq 288, io mem 0xc5000000
+[    1.979433] tegra-ehci c5000000.usb: USB 2.0 started, EHCI 1.00
+[    1.979440] hub 1-0:1.0: activate --> -22
+[    1.990264] hub 2-0:1.0: USB hub found
+[    1.994048] hub 2-0:1.0: 1 port detected
+[    1.997986] hub 2-0:1.0: config failed, can't get hub status (err 2)
+[    2.005124] input: gpio-keys as /devices/soc0/gpio-keys/input/input0
+[    2.012352] rtc-em3027 2-0056: hctosys: unable to read the hardware clock
+[    2.019284] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    2.030267] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    2.037049] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    2.045690] hub 1-0:1.0: activate --> -22
+[    2.049722] cfg80211: failed to load regulatory.db
+[    2.054696] ALSA device list:
+[    2.057655]   #0: tegra-trimslice
+[    2.061313] Waiting for root device PARTUUID=11eb23c1-01...
+[    2.079439] hub 1-0:1.0: activate --> -22
+[    2.139656] hub 1-0:1.0: activate --> -22
+[    2.199576] hub 1-0:1.0: activate --> -22
+[    2.259575] hub 1-0:1.0: activate --> -22
+[    2.319574] hub 1-0:1.0: activate --> -22
+[    2.379566] hub 1-0:1.0: activate --> -22
+[    2.439568] hub 1-0:1.0: activate --> -22
+[    2.499564] hub 1-0:1.0: activate --> -22
+[    2.559564] hub 1-0:1.0: activate --> -22
+[    2.619566] hub 1-0:1.0: activate --> -22
+[    2.679569] hub 1-0:1.0: activate --> -22
+[    2.739546] hub 1-0:1.0: activate --> -22
+[    2.799550] hub 1-0:1.0: activate --> -22
+[    2.859643] hub 1-0:1.0: activate --> -22
+[    2.919631] hub 1-0:1.0: activate --> -22
+[    2.957350] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.967403] mmc0: new high speed SDHC card at address b368
+[    2.973764] mmcblk0: mmc0:b368 NCard 3.70 GiB 
+[    2.979446] hub 1-0:1.0: activate --> -22
+[    2.984332]  mmcblk0: p1
+[    2.990488] EXT4-fs (mmcblk0p1): mounting ext3 file system using the ext4 subsystem
+[    3.039538] hub 1-0:1.0: activate --> -22
+[    3.071254] EXT4-fs (mmcblk0p1): recovery complete
+[    3.083058] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+[    3.091262] VFS: Mounted root (ext3 filesystem) on device 179:17.
+[    3.099436] hub 1-0:1.0: activate --> -22
+[    3.110645] devtmpfs: mounted
+[    3.115137] Freeing unused kernel memory: 1024K
+[    3.159488] hub 1-0:1.0: activate --> -22
+[    3.229544] hub 1-0:1.0: activate --> -22
+[    3.289490] hub 1-0:1.0: activate --> -22
+[    3.349489] hub 1-0:1.0: activate --> -22
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+[    3.409458] hub 1-0:1.0: activate --> -22
+[    3.469827] hub 1-0:1.0: activate --> -22
+root@(none):/# [    3.529580] hub 1-0:1.0: activate --> -22
+[    3.589579] hub 1-0:1.0: activate --> -22
+[    3.649570] hub 1-0:1.0: activate --> -22
+[    3.709571] hub 1-0:1.0: activate --> -22
+[    3.769569] hub 1-0:1.0: activate --> -22
+[    3.829569] hub 1-0:1.0: activate --> -22
+[    3.889570] hub 1-0:1.0: activate --> -22
+[    3.949567] hub 1-0:1.0: activate --> -22
+[    4.009607] hub 1-0:1.0: activate --> -22
+[    4.069571] hub 1-0:1.0: activate --> -22
+[    4.129587] hub 1-0:1.0: activate --> -22
+[    4.189517] hub 1-0:1.0: activate --> -22
+[    4.249516] hub 1-0:1.0: activate --> -22
+[    4.309516] hub 1-0:1.0: activate --> -22
+[    4.369514] hub 1-0:1.0: activate --> -22
+[    4.429515] hub 1-0:1.0: activate --> -22
+[    4.489514] hub 1-0:1.0: activate --> -22
+[    4.549514] hub 1-0:1.0: activate --> -22
+[    4.609516] hub 1-0:1.0: activate --> -22
+[    4.669515] hub 1-0:1.0: activate --> -22
+[    4.729515] hub 1-0:1.0: activate --> -22
+[    4.789515] hub 1-0:1.0: activate --> -22
+[    4.849516] hub 1-0:1.0: activate --> -22
+[    4.909516] hub 1-0:1.0: activate --> -22
+[    4.969516] hub 1-0:1.0: activate --> -22
+[    5.029516] hub 1-0:1.0: activate --> -22
+[    5.089569] hub 1-0:1.0: activate --> -22
+[    5.149571] hub 1-0:1.0: activate --> -22
+[    5.209606] hub 1-0:1.0: activate --> -22
+[    5.269585] hub 1-0:1.0: activate --> -22
+[    5.329482] hub 1-0:1.0: activate --> -22
+[    5.389520] hub 1-0:1.0: activate --> -22
+[    5.449521] hub 1-0:1.0: activate --> -22
+[    5.509517] hub 1-0:1.0: activate --> -22
+[    5.569517] hub 1-0:1.0: activate --> -22
+[    5.629518] hub 1-0:1.0: activate --> -22
+[    5.689518] hub 1-0:1.0: activate --> -22
+[    5.749517] hub 1-0:1.0: activate --> -22
+[    5.809517] hub 1-0:1.0: activate --> -22
+[    5.869517] hub 1-0:1.0: activate --> -22
+[    5.929519] hub 1-0:1.0: activate --> -22
+[    5.989517] hub 1-0:1.0: activate --> -22
+[    6.049519] hub 1-0:1.0: activate --> -22
+[    6.109570] hub 1-0:1.0: activate --> -22
+[    6.169565] hub 1-0:1.0: activate --> -22
+[    6.229481] hub 1-0:1.0: activate --> -22
+[    6.289520] hub 1-0:1.0: activate --> -22
+[    6.349517] hub 1-0:1.0: activate --> -22
+[    6.409519] hub 1-0:1.0: activate --> -22
+[    6.469516] hub 1-0:1.0: activate --> -22
+[    6.529518] hub 1-0:1.0: activate --> -22
+[    6.589517] hub 1-0:1.0: activate --> -22
+[    6.649517] hub 1-0:1.0: activate --> -22
+[    6.709518] hub 1-0:1.0: activate --> -22
+[    6.769519] hub 1-0:1.0: activate --> -22
+[    6.829517] hub 1-0:1.0: activate --> -22
+[    6.889517] hub 1-0:1.0: activate --> -22
+[    6.949518] hub 1-0:1.0: activate --> -22
+[    7.009518] hub 1-0:1.0: activate --> -22
+[    7.069575] hub 1-0:1.0: activate --> -22
+[    7.129547] hub 1-0:1.0: activate --> -22
+[    7.189519] hub 1-0:1.0: activate --> -22
+[    7.249517] hub 1-0:1.0: activate --> -22
+[    7.309518] hub 1-0:1.0: activate --> -22
+[    7.369518] hub 1-0:1.0: activate --> -22
+[    7.429517] hub 1-0:1.0: activate --> -22
+[    7.489518] hub 1-0:1.0: activate --> -22
+[    7.549518] hub 1-0:1.0: activate --> -22
+[    7.609517] hub 1-0:1.0: activate --> -22
+[    7.669518] hub 1-0:1.0: activate --> -22
+[    7.729519] hub 1-0:1.0: activate --> -22
+[    7.789519] hub 1-0:1.0: activate --> -22
+[    7.849517] hub 1-0:1.0: activate --> -22
+[    7.909517] hub 1-0:1.0: activate --> -22
+[    7.969518] hub 1-0:1.0: activate --> -22
+[    8.029519] hub 1-0:1.0: activate --> -22
+[    8.089545] hub 1-0:1.0: activate --> -22
+[    8.149523] hub 1-0:1.0: activate --> -22
+[    8.209573] hub 1-0:1.0: activate --> -22
+[    8.269571] hub 1-0:1.0: activate --> -22
+[    8.329573] hub 1-0:1.0: activate --> -22
+[    8.389572] hub 1-0:1.0: activate --> -22
+[    8.449551] hub 1-0:1.0: activate --> -22
+[    8.509483] hub 1-0:1.0: activate --> -22
+[    8.569521] hub 1-0:1.0: activate --> -22
+[    8.629518] hub 1-0:1.0: activate --> -22
+[    8.689519] hub 1-0:1.0: activate --> -22
+[    8.749518] hub 1-0:1.0: activate --> -22
+[    8.809517] hub 1-0:1.0: activate --> -22
+[    8.869519] hub 1-0:1.0: activate --> -22
+[    8.929518] hub 1-0:1.0: activate --> -22
+[    8.989520] hub 1-0:1.0: activate --> -22
+[    9.049527] hub 1-0:1.0: activate --> -22
+[    9.109518] hub 1-0:1.0: activate --> -22
+[    9.169519] hub 1-0:1.0: activate --> -22
+[    9.229581] hub 1-0:1.0: activate --> -22
+[    9.289573] hub 1-0:1.0: activate --> -22
+[    9.349570] hub 1-0:1.0: activate --> -22
+[    9.409569] hub 1-0:1.0: activate --> -22
+[    9.469515] hub 1-0:1.0: activate --> -22
+[    9.529462] hub 1-0:1.0: activate --> -22
+[    9.589520] hub 1-0:1.0: activate --> -22
+[    9.649520] hub 1-0:1.0: activate --> -22
+[    9.709519] hub 1-0:1.0: activate --> -22
+[    9.769518] hub 1-0:1.0: activate --> -22
+[    9.829518] hub 1-0:1.0: activate --> -22
+[    9.889518] hub 1-0:1.0: activate --> -22
+[    9.949517] hub 1-0:1.0: activate --> -22
+[   10.009520] hub 1-0:1.0: activate --> -22
+[   10.069517] hub 1-0:1.0: activate --> -22
+[   10.129575] hub 1-0:1.0: activate --> -22
+[   10.189573] hub 1-0:1.0: activate --> -22
+[   10.249609] hub 1-0:1.0: activate --> -22
+[   10.309573] hub 1-0:1.0: activate --> -22
+[   10.369575] hub 1-0:1.0: activate --> -22
+[   10.429572] hub 1-0:1.0: activate --> -22
+[   10.489571] hub 1-0:1.0: activate --> -22
+[   10.549571] hub 1-0:1.0: activate --> -22
+[   10.609572] hub 1-0:1.0: activate --> -22
+[   10.669571] hub 1-0:1.0: activate --> -22
+[   10.729572] hub 1-0:1.0: activate --> -22
+[   10.789572] hub 1-0:1.0: activate --> -22
+[   10.849571] hub 1-0:1.0: activate --> -22
+[   10.909572] hub 1-0:1.0: activate --> -22
+[   10.969572] hub 1-0:1.0: activate --> -22
+[   11.029575] hub 1-0:1.0: activate --> -22
+[   11.089571] hub 1-0:1.0: activate --> -22
+[   11.149522] hub 1-0:1.0: activate --> -22
+ 
+root@(none):/# [   11.209593] hub 1-0:1.0: activate --> -22
+[   11.269575] hub 1-0:1.0: activate --> -22
+[   11.329575] hub 1-0:1.0: activate --> -22
+[   11.389569] hub 1-0:1.0: activate --> -22
+[   11.449573] hub 1-0:1.0: activate --> -22
+[   11.509569] hub 1-0:1.0: activate --> -22
+[   11.569572] hub 1-0:1.0: activate --> -22
+[   11.629552] hub 1-0:1.0: activate --> -22
+[   11.689580] hub 1-0:1.0: activate --> -22
+[   11.749569] hub 1-0:1.0: activate --> -22
+[   11.809567] hub 1-0:1.0: activate --> -22
+[   11.869568] hub 1-0:1.0: activate --> -22
+[   11.929569] hub 1-0:1.0: activate --> -22

@@ -1,0 +1,963 @@
+
+U-Boot SPL 2015.04-rc3-00209-ga74ef40 (Mar 16 2015 - 14:43:39)
+
+
+U-Boot 2015.04-rc3-00209-ga74ef40 (Mar 16 2015 - 14:43:39)
+
+TEGRA20
+Model: Compulab TrimSlice board
+DRAM:  1 GiB
+MMC:   Tegra SD/MMC: 0, Tegra SD/MMC: 1
+SF: Detected W25Q80BL with page size 256 Bytes, erase size 4 KiB, total 1 MiB
+tegra-pcie: PCI regions:
+tegra-pcie:   I/O: 0x82000000-0x82010000
+tegra-pcie:   non-prefetchable memory: 0xa0000000-0xa8000000
+tegra-pcie:   prefetchable memory: 0xa8000000-0xc0000000
+tegra-pcie: dual-mode configuration
+tegra-pcie: probing port 0, using 2 lanes
+In:    serial
+Out:   serial
+Err:   serial
+Net:   RTL8169#0
+Hit any key to stop autoboot:  2  1  0 
+Tegra20 (TrimSlice) # 
+Tegra20 (TrimSlice) # usb reset
+resetting USB...
+USB0:   USB EHCI 1.00
+scanning bus 0 for devices... 3 USB Device(s) found
+USB1:   USB EHCI 1.00
+scanning bus 1 for devices... 1 USB Device(s) found
+USB2:   lowlevel init failed
+       scanning usb for storage devices... 0 Storage Device(s) found
+       scanning usb for ethernet devices... 
+Warning: asx0 using MAC address from net device
+1 Ethernet Device(s) found
+Tegra20 (TrimSlice) # setenv bootargs 'ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=11eb23c1-01 rootwait gpt debug noinitrd earlyprintk init=/bin/bash'
+Tegra20 (TrimSlice) # setenv ipaddr 192.168.100.103; setenv serverip 192.168.100.1; setenv tftpserverip 192.168.100.1
+Tegra20 (TrimSlice) # tftpboot 0x00408000 zImage.tegra_defconfig
+Using RTL8169#0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.103
+Filename 'zImage.tegra_defconfig'.
+Load address: 0x408000
+Loading: *#################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #########################################
+	 4.1 MiB/s
+done
+Bytes transferred = 6326368 (608860 hex)
+Tegra20 (TrimSlice) # tftpboot 0x02408000 tegra20-trimslice.dtb
+Using RTL8169#0 device
+TFTP from server 192.168.100.1; our IP address is 192.168.100.103
+Filename 'tegra20-trimslice.dtb'.
+Load address: 0x2408000
+Loading: *##
+	 4 MiB/s
+done
+Bytes transferred = 21160 (52a8 hex)
+Tegra20 (TrimSlice) # bootz 0x00408000 - 0x02408000
+Kernel image @ 0x408000 [ 0x000000 - 0x608860 ]
+## Flattened Device Tree blob at 02408000
+   Booting using the fdt blob at 0x2408000
+   Using Device Tree in place at 02408000, end 024102a7
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.14.0-rc8-next-20171109-214194-g5515cf1 (jonathanh@kaivo) (gcc version 4.7.3 20130328 (prerelease) (crosstool-NG linaro-1.13.1-4.7-2013.04-20130415 - Linaro GCC 2013.04)) #1 SMP PREEMPT Thu Nov 9 03:00:18 PST 2017
+[    0.000000] CPU: ARMv7 Processor [411fc090] revision 0 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: Compulab TrimSlice board
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] bootconsole [earlycon0] enabled
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 64 MiB at 0x3c000000
+[    0.000000] On node 0 totalpages: 262144
+[    0.000000] free_area_init_node: node 0, pgdat c0faf2c0, node_mem_map ef7f7000
+[    0.000000]   Normal zone: 1536 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 196608 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 65536 pages, LIFO batch:15
+[    0.000000] random: fast init done
+[    0.000000] percpu: Embedded 17 pages/cpu @ef7c6000 s39616 r8192 d21824 u69632
+[    0.000000] pcpu-alloc: s39616 r8192 d21824 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 260608
+[    0.000000] Kernel command line: ignore_loglevel console=ttyS0,115200n8 rw root=PARTUUID=11eb23c1-01 rootwait gpt debug noinitrd earlyprintk init=/bin/bash
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 958400K/1048576K available (9216K kernel code, 778K rwdata, 2820K rodata, 1024K init, 299K bss, 24640K reserved, 65536K cma-reserved, 196608K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0a00000   (10208 kB)
+[    0.000000]       .init : 0xc0e00000 - 0xc0f00000   (1024 kB)
+[    0.000000]       .data : 0xc0f00000 - 0xc0fc2840   ( 779 kB)
+[    0.000000]        .bss : 0xc0fc2840 - 0xc100d4b4   ( 300 kB)
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] /interrupt-controller@60004000: 128 interrupts forwarded to /interrupt-controller@50041000
+[    0.000000] L2C: platform modifies aux control register: 0x02080000 -> 0x3e480001
+[    0.000000] L2C: DT/platform modifies aux control register: 0x02080000 -> 0x3e480001
+[    0.000000] L2C-310 errata 727915 769419 enabled
+[    0.000000] L2C-310 enabling early BRESP for Cortex-A9
+[    0.000000] L2C-310: enabling full line of zeros but not enabled in Cortex-A9
+[    0.000000] L2C-310 ID prefetch enabled, offset 1 lines
+[    0.000000] L2C-310 cache controller enabled, 8 ways, 1024 kB
+[    0.000000] L2C-310: CACHE_ID 0x410000c4, AUX_CTRL 0x7e480001
+[    0.000010] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 2147483647500ns
+[    0.008267] clocksource: timer_us: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275 ns
+[    0.017796] Switching to timer-based delay loop, resolution 1000ns
+[    0.024651] Console: colour dummy device 80x30
+[    0.029014] Calibrating delay loop (skipped), value calculated using timer frequency.. 2.00 BogoMIPS (lpj=10000)
+[    0.039150] pid_max: default: 32768 minimum: 301
+[    0.044172] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.050702] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.058534] CPU: Testing write buffer coherency: ok
+[    0.063624] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.100010] Setting up static identity map for 0x100000 - 0x1000a0
+[    0.106228] Hierarchical SRCU implementation.
+[    0.130297] Tegra Revision: A03 prime SKU: 8 CPU Process: 1 SoC Process: 2
+[    0.149972] smp: Bringing up secondary CPUs ...
+[    0.200604] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.200693] smp: Brought up 1 node, 2 CPUs
+[    0.210363] SMP: Total of 2 processors activated (4.00 BogoMIPS).
+[    0.216392] CPU: All CPU(s) started in SVC mode.
+[    0.222075] devtmpfs: initialized
+[    0.230905] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 1
+[    0.238776] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.248522] futex hash table entries: 512 (order: 3, 32768 bytes)
+[    0.257385] pinctrl core: initialized pinctrl subsystem
+[    0.263880] NET: Registered protocol family 16
+[    0.269989] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.278043] cpuidle: using governor menu
+[    0.298065] No ATAGs?
+[    0.298142] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.308297] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.333580] usb1_vbus: Failed to request enable GPIO170: -517
+[    0.339233] reg-fixed-voltage regulators:regulator@2: Failed to register regulator: -517
+[    0.350586] vgaarb: loaded
+[    0.354037] SCSI subsystem initialized
+[    0.357970] libata version 3.00 loaded.
+[    0.362134] usbcore: registered new interface driver usbfs
+[    0.367600] usbcore: registered new interface driver hub
+[    0.372927] usbcore: registered new device driver usb
+[    0.379872] Linux video capture interface: v2.00
+[    0.384517] pps_core: LinuxPPS API ver. 1 registered
+[    0.389382] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.398558] PTP clock support registered
+[    0.403086] Advanced Linux Sound Architecture Driver Initialized.
+[    0.409767] Bluetooth: Core ver 2.22
+[    0.413329] NET: Registered protocol family 31
+[    0.417674] Bluetooth: HCI device and connection manager initialized
+[    0.424021] Bluetooth: HCI socket layer initialized
+[    0.428859] Bluetooth: L2CAP socket layer initialized
+[    0.433924] Bluetooth: SCO socket layer initialized
+[    0.439400] clocksource: Switched to clocksource timer_us
+[    0.529930] NET: Registered protocol family 2
+[    0.535237] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.542278] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.548723] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.555723] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.561610] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.568160] NET: Registered protocol family 1
+[    0.573155] RPC: Registered named UNIX socket transport module.
+[    0.578976] RPC: Registered udp transport module.
+[    0.583680] RPC: Registered tcp transport module.
+[    0.588335] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.595496] PCI: CLS 0 bytes, default 64
+[    0.600775] hw perfevents: no interrupt-affinity property for /pmu, guessing.
+[    0.607995] hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
+[    0.617580] Initialise system trusted keyrings
+[    0.622140] workingset: timestamp_bits=30 max_order=18 bucket_order=0
+[    0.629617] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.636066] NFS: Registering the id_resolver key type
+[    0.641065] Key type id_resolver registered
+[    0.645179] Key type id_legacy registered
+[    0.653919] Key type asymmetric registered
+[    0.657921] Asymmetric key parser 'x509' registered
+[    0.663002] bounce: pool size: 64 pages
+[    0.666819] io scheduler noop registered (default)
+[    0.671533] io scheduler mq-deadline registered
+[    0.676018] io scheduler kyber registered
+[    0.684659] tegra-pcie 80003000.pcie: dual-mode configuration
+[    0.691280] tegra-pcie 80003000.pcie: probing port 0, using 2 lanes
+[    0.768042] tegra-pcie 80003000.pcie: PCI host bridge to bus 0000:00
+[    0.774326] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.780466] pci_bus 0000:00: root bus resource [mem 0xa0000000-0xa7ffffff]
+[    0.787298] pci_bus 0000:00: root bus resource [mem 0xa8000000-0xbfffffff pref]
+[    0.794592] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.800094] pci 0000:00:01.0: [10de:0bf0] type 01 class 0x060000
+[    0.806027] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4 may corrupt adjacent RW1C bits
+[    0.815654] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4 may corrupt adjacent RW1C bits
+[    0.825280] pci 0000:00:01.0: enabling Extended Tags
+[    0.830212] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x88 may corrupt adjacent RW1C bits
+[    0.839934] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[    0.849640] pci 0000:00:01.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.856200] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4c may corrupt adjacent RW1C bits
+[    0.866120] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x3e may corrupt adjacent RW1C bits
+[    0.875775] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4 may corrupt adjacent RW1C bits
+[    0.885390] pci_bus 0000:00: 1-byte config write to 0000:00:01.0 offset 0xc may corrupt adjacent RW1C bits
+[    0.895005] PCI: bus0: Fast back to back transfers disabled
+[    0.900559] pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.908517] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x3e may corrupt adjacent RW1C bits
+[    0.918238] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x3e may corrupt adjacent RW1C bits
+[    0.928117] pci 0000:01:00.0: [10ec:8168] type 00 class 0x020000
+[    0.934061] pci 0000:01:00.0: reg 0x10: [io  0x0000-0x00ff]
+[    0.939602] pci 0000:01:00.0: reg 0x18: [mem 0x00000000-0x00000fff 64bit pref]
+[    0.946775] pci 0000:01:00.0: reg 0x20: [mem 0x00000000-0x00003fff 64bit pref]
+[    0.953977] pci 0000:01:00.0: reg 0x30: [mem 0x00000000-0x0001ffff pref]
+[    0.960812] PCI: bus1: Fast back to back transfers disabled
+[    0.966290] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+[    0.972914] pci 0000:00:01.0: BAR 8: assigned [mem 0xa0000000-0xa00fffff]
+[    0.979651] pci 0000:00:01.0: BAR 9: assigned [mem 0xa8000000-0xa80fffff 64bit pref]
+[    0.987348] pci 0000:00:01.0: BAR 7: assigned [io  0x1000-0x1fff]
+[    0.993434] pci 0000:01:00.0: BAR 6: assigned [mem 0xa0000000-0xa001ffff pref]
+[    1.000622] pci 0000:01:00.0: BAR 4: assigned [mem 0xa8000000-0xa8003fff 64bit pref]
+[    1.008330] pci 0000:01:00.0: BAR 2: assigned [mem 0xa8004000-0xa8004fff 64bit pref]
+[    1.016056] pci 0000:01:00.0: BAR 0: assigned [io  0x1000-0x10ff]
+[    1.022118] pci 0000:00:01.0: PCI bridge to [bus 01]
+[    1.027041] pci 0000:00:01.0:   bridge window [io  0x1000-0x1fff]
+[    1.033126] pci 0000:00:01.0:   bridge window [mem 0xa0000000-0xa00fffff]
+[    1.039881] pci 0000:00:01.0:   bridge window [mem 0xa8000000-0xa80fffff 64bit pref]
+[    1.047596] pci 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[    1.054578] Disabling cpuidle LP2 state, since PCIe IRQs are in use
+[    1.060795] pcieport 0000:00:01.0: enabling device (0140 -> 0143)
+[    1.067071] pcieport 0000:00:01.0: Signaling PME with IRQ 295
+[    1.076141] tegra-apbdma 6000a000.dma: Tegra20 APB DMA driver register 16 channels
+[    1.085312] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    1.093524] console [ttyS0] disabled
+[    1.097043] 70006000.serial: ttyS0 at MMIO 0x70006000 (irq = 279, base_baud = 13500000) is a Tegra
+[    1.105981] console [ttyS0] enabled
+[    1.105981] console [ttyS0] enabled
+[    1.112885] bootconsole [earlycon0] disabled
+[    1.112885] bootconsole [earlycon0] disabled
+[    1.123962] tegra-hdmi 54280000.hdmi: 54280000.hdmi supply hdmi not found, using dummy regulator
+[    1.136089] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    1.142708] [drm] No driver support for vblank timestamp query.
+[    1.148744] [drm] Cannot find any crtc or sizes
+[    1.153302] [drm] Cannot find any crtc or sizes
+[    1.157860] [drm] Initialized tegra 0.0.0 20120330 for drm on minor 0
+[    1.175711] loop: module loaded
+[    1.181221] m25p80 spi0.0: found s25fl008k, expected w25q80bl
+[    1.187035] m25p80 spi0.0: s25fl008k (1024 Kbytes)
+[    1.193854] libphy: Fixed MDIO Bus: probed
+[    1.197941] CAN device driver interface
+[    1.201869] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.4.0-k
+[    1.208812] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    1.214572] r8169 Gigabit Ethernet driver 2.3LK-NAPI loaded
+[    1.220209] r8169 0000:01:00.0: enabling device (0140 -> 0143)
+[    1.226059] r8169 0000:01:00.0 (unnamed net_device) (uninitialized): not PCI Express
+[    1.234581] r8169 0000:01:00.0 eth0: RTL8168d/8111d at 0xf0863000, 00:01:c0:13:7d:63, XID 081000c0 IRQ 286
+[    1.244238] r8169 0000:01:00.0 eth0: jumbo features [frames: 9200 bytes, tx checksumming: ko]
+[    1.252913] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    1.260397] usbcore: registered new interface driver pegasus
+[    1.266112] usbcore: registered new interface driver asix
+[    1.271581] usbcore: registered new interface driver ax88179_178a
+[    1.277728] usbcore: registered new interface driver cdc_ether
+[    1.283644] usbcore: registered new interface driver smsc75xx
+[    1.289475] usbcore: registered new interface driver smsc95xx
+[    1.295268] usbcore: registered new interface driver net1080
+[    1.300996] usbcore: registered new interface driver cdc_subset
+[    1.306969] usbcore: registered new interface driver zaurus
+[    1.312622] usbcore: registered new interface driver cdc_ncm
+[    1.318574] tegra-phy c5004000.usb-phy: no vbus regulator
+[    1.325142] tegra-phy c5008000.usb-phy: no vbus regulator
+[    1.330697] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.337208] ehci-pci: EHCI PCI platform driver
+[    1.341725] tegra-ehci: Tegra EHCI driver
+[    1.400383] ulpi_phy_power_on: ulpi write failed
+[    1.404990] tegra-ehci c5004000.usb: Failed to power on the phy
+[    1.410931] tegra-ehci: probe of c5004000.usb failed with error -110
+[    1.419928] tegra-ehci c5008000.usb: EHCI Host Controller
+[    1.425339] tegra-ehci c5008000.usb: new USB bus registered, assigned bus number 1
+[    1.433142] tegra-ehci c5008000.usb: irq 290, io mem 0xc5008000
+[    1.459422] tegra-ehci c5008000.usb: USB 2.0 started, EHCI 1.00
+[    1.466239] hub 1-0:1.0: USB hub found
+[    1.470033] hub 1-0:1.0: 1 port detected
+[    1.473971] hub 1-0:1.0: config failed, can't get hub status (err 2)
+[    1.509426] hub 1-0:1.0: activate --> -22
+[    1.514000] usbcore: registered new interface driver cdc_acm
+[    1.519666] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.527720] usbcore: registered new interface driver cdc_wdm
+[    1.533485] usbcore: registered new interface driver usb-storage
+[    1.542196] rtc-em3027 2-0056: rtc core: registered rtc-em3027 as rtc0
+[    1.549412] tegra_rtc 7000e000.rtc: rtc core: registered 7000e000.rtc as rtc1
+[    1.556583] tegra_rtc 7000e000.rtc: Tegra internal Real Time Clock
+[    1.563064] i2c /dev entries driver
+[    1.567463] usbcore: registered new interface driver uvcvideo
+[    1.573237] hub 1-0:1.0: activate --> -22
+[    1.577256] USB Video Class driver (1.1.1)
+[    1.581358] gspca_main: v2.14.0 registered
+[    1.586815] sdhci: Secure Digital Host Controller Interface driver
+[    1.593026] sdhci: Copyright(c) Pierre Ossman
+[    1.597370] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.611957] mmc0: Invalid maximum block size, assuming 512 bytes
+[    1.629461] hub 1-0:1.0: activate --> -22
+[    1.670639] mmc0: SDHCI controller on c8000000.sdhci [c8000000.sdhci] using ADMA
+[    1.678564] sdhci-tegra c8000600.sdhci: Got CD GPIO
+[    1.684055] sdhci-tegra c8000600.sdhci: Got WP GPIO
+[    1.689421] hub 1-0:1.0: activate --> -22
+[    1.698024] mmc1: Invalid maximum block size, assuming 512 bytes
+[    1.749434] hub 1-0:1.0: activate --> -22
+[    1.760050] mmc1: SDHCI controller on c8000600.sdhci [c8000600.sdhci] using ADMA
+[    1.770527] usbcore: registered new interface driver usbhid
+[    1.776084] usbhid: USB HID core driver
+[    1.786774] tegra-snd-trimslice sound: tlv320aic23-hifi <-> 70002800.i2s mapping ok
+[    1.796967] NET: Registered protocol family 10
+[    1.802930] Segment Routing with IPv6
+[    1.806806] mip6: Mobile IPv6
+[    1.809793] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.817233] NET: Registered protocol family 17
+[    1.819432] hub 1-0:1.0: activate --> -22
+[    1.825704] NET: Registered protocol family 15
+[    1.830174] can: controller area network core (rev 20170425 abi 9)
+[    1.836590] NET: Registered protocol family 29
+[    1.841060] can: raw protocol (rev 20170425)
+[    1.845318] can: broadcast manager protocol (rev 20170425 t)
+[    1.850984] can: netlink gateway (rev 20170425) max_hops=1
+[    1.856627] Bluetooth: RFCOMM socket layer initialized
+[    1.861792] Bluetooth: RFCOMM ver 1.11
+[    1.865541] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    1.870880] Bluetooth: BNEP socket layer initialized
+[    1.875831] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    1.879435] hub 1-0:1.0: activate --> -22
+[    1.885747] Bluetooth: HIDP socket layer initialized
+[    1.888268] mmc1: new high speed SD card at address b368
+[    1.888961] mmcblk1: mmc1:b368 NCard 1.83 GiB (ro)
+[    1.893240]  mmcblk1: p1 p2
+[    1.903989] Key type dns_resolver registered
+[    1.908588] Registering SWP/SWPB emulation handler
+[    1.914184] Loading compiled-in X.509 certificates
+[    1.929478] hub 1-0:1.0: activate --> -22
+[    1.930097] utmi_phy_clk_enable: timeout waiting for phy to stabilize
+[    1.930123] tegra-ehci c5000000.usb: EHCI Host Controller
+[    1.930151] tegra-ehci c5000000.usb: new USB bus registered, assigned bus number 2
+[    1.953196] tegra-ehci c5000000.usb: irq 288, io mem 0xc5000000
+[    1.979418] hub 1-0:1.0: activate --> -22
+[    1.979423] tegra-ehci c5000000.usb: USB 2.0 started, EHCI 1.00
+[    1.985817] hub 2-0:1.0: USB hub found
+[    1.986012] hub 2-0:1.0: 1 port detected
+[    1.986144] hub 2-0:1.0: config failed, can't get hub status (err 2)
+[    1.992349] input: gpio-keys as /devices/soc0/gpio-keys/input/input0
+[    2.002506] rtc-em3027 2-0056: hctosys: unable to read the hardware clock
+[    2.003177] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    2.041451] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    2.048235] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    2.056952] ALSA device list:
+[    2.056955]   #0: tegra-trimslice
+[    2.063572] Waiting for root device PARTUUID=11eb23c1-01...
+[    2.069149] cfg80211: failed to load regulatory.db
+[    2.069428] hub 1-0:1.0: activate --> -22
+[    2.129573] hub 1-0:1.0: activate --> -22
+[    2.189569] hub 1-0:1.0: activate --> -22
+[    2.249548] hub 1-0:1.0: activate --> -22
+[    2.309550] hub 1-0:1.0: activate --> -22
+[    2.369548] hub 1-0:1.0: activate --> -22
+[    2.429550] hub 1-0:1.0: activate --> -22
+[    2.489550] hub 1-0:1.0: activate --> -22
+[    2.549549] hub 1-0:1.0: activate --> -22
+[    2.609550] hub 1-0:1.0: activate --> -22
+[    2.669550] hub 1-0:1.0: activate --> -22
+[    2.729600] hub 1-0:1.0: activate --> -22
+[    2.789562] hub 1-0:1.0: activate --> -22
+[    2.849565] hub 1-0:1.0: activate --> -22
+[    2.909564] hub 1-0:1.0: activate --> -22
+[    2.957478] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.967429] mmc0: new high speed SDHC card at address b368
+[    2.972989] hub 1-0:1.0: activate --> -22
+[    2.978756] mmcblk0: mmc0:b368 NCard 3.70 GiB 
+[    2.985353]  mmcblk0: p1
+[    2.990292] EXT4-fs (mmcblk0p1): mounting ext3 file system using the ext4 subsystem
+[    3.019542] hub 1-0:1.0: activate --> -22
+[    3.034151] EXT4-fs (mmcblk0p1): recovery complete
+[    3.043623] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+[    3.052623] VFS: Mounted root (ext3 filesystem) on device 179:17.
+[    3.067854] devtmpfs: mounted
+[    3.073366] Freeing unused kernel memory: 1024K
+[    3.079517] hub 1-0:1.0: activate --> -22
+[    3.139527] hub 1-0:1.0: activate --> -22
+[    3.199456] hub 1-0:1.0: activate --> -22
+[    3.259472] hub 1-0:1.0: activate --> -22
+[    3.319481] hub 1-0:1.0: activate --> -22
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+[    3.379488] hub 1-0:1.0: activate --> -22
+[    3.439527] hub 1-0:1.0: activate --> -22
+root@(none):/# [    3.509543] hub 1-0:1.0: activate --> -22
+[    3.569561] hub 1-0:1.0: activate --> -22
+[    3.629506] hub 1-0:1.0: activate --> -22
+[    3.689504] hub 1-0:1.0: activate --> -22
+[    3.749505] hub 1-0:1.0: activate --> -22
+[    3.809503] hub 1-0:1.0: activate --> -22
+[    3.869502] hub 1-0:1.0: activate --> -22
+[    3.929503] hub 1-0:1.0: activate --> -22
+[    3.989502] hub 1-0:1.0: activate --> -22
+[    4.049558] hub 1-0:1.0: activate --> -22
+[    4.109572] hub 1-0:1.0: activate --> -22
+[    4.169507] hub 1-0:1.0: activate --> -22
+[    4.229503] hub 1-0:1.0: activate --> -22
+[    4.289500] hub 1-0:1.0: activate --> -22
+[    4.349504] hub 1-0:1.0: activate --> -22
+[    4.409504] hub 1-0:1.0: activate --> -22
+[    4.469501] hub 1-0:1.0: activate --> -22
+[    4.529502] hub 1-0:1.0: activate --> -22
+[    4.589501] hub 1-0:1.0: activate --> -22
+[    4.649501] hub 1-0:1.0: activate --> -22
+[    4.709502] hub 1-0:1.0: activate --> -22
+[    4.769500] hub 1-0:1.0: activate --> -22
+[    4.829503] hub 1-0:1.0: activate --> -22
+[    4.889502] hub 1-0:1.0: activate --> -22
+[    4.949502] hub 1-0:1.0: activate --> -22
+[    5.009502] hub 1-0:1.0: activate --> -22
+[    5.069564] hub 1-0:1.0: activate --> -22
+[    5.129561] hub 1-0:1.0: activate --> -22
+[    5.189556] hub 1-0:1.0: activate --> -22
+[    5.249555] hub 1-0:1.0: activate --> -22
+[    5.309556] hub 1-0:1.0: activate --> -22
+[    5.369567] hub 1-0:1.0: activate --> -22
+[    5.429561] hub 1-0:1.0: activate --> -22
+[    5.489557] hub 1-0:1.0: activate --> -22
+[    5.549557] hub 1-0:1.0: activate --> -22
+[    5.609559] hub 1-0:1.0: activate --> -22
+[    5.669559] hub 1-0:1.0: activate --> -22
+[    5.729559] hub 1-0:1.0: activate --> -22
+[    5.789557] hub 1-0:1.0: activate --> -22
+[    5.849560] hub 1-0:1.0: activate --> -22
+[    5.909556] hub 1-0:1.0: activate --> -22
+[    5.969557] hub 1-0:1.0: activate --> -22
+[    6.029560] hub 1-0:1.0: activate --> -22
+[    6.089625] hub 1-0:1.0: activate --> -22
+[    6.149560] hub 1-0:1.0: activate --> -22
+[    6.209566] hub 1-0:1.0: activate --> -22
+[    6.269509] hub 1-0:1.0: activate --> -22
+[    6.329506] hub 1-0:1.0: activate --> -22
+[    6.389505] hub 1-0:1.0: activate --> -22
+[    6.449505] hub 1-0:1.0: activate --> -22
+[    6.509504] hub 1-0:1.0: activate --> -22
+[    6.569505] hub 1-0:1.0: activate --> -22
+[    6.629504] hub 1-0:1.0: activate --> -22
+[    6.689504] hub 1-0:1.0: activate --> -22
+[    6.749505] hub 1-0:1.0: activate --> -22
+[    6.809504] hub 1-0:1.0: activate --> -22
+[    6.869505] hub 1-0:1.0: activate --> -22
+[    6.929505] hub 1-0:1.0: activate --> -22
+[    6.989504] hub 1-0:1.0: activate --> -22
+[    7.049506] hub 1-0:1.0: activate --> -22
+[    7.109505] hub 1-0:1.0: activate --> -22
+[    7.169562] hub 1-0:1.0: activate --> -22
+[    7.229559] hub 1-0:1.0: activate --> -22
+[    7.289559] hub 1-0:1.0: activate --> -22
+[    7.349559] hub 1-0:1.0: activate --> -22
+[    7.409560] hub 1-0:1.0: activate --> -22
+[    7.469559] hub 1-0:1.0: activate --> -22
+[    7.529557] hub 1-0:1.0: activate --> -22
+[    7.589559] hub 1-0:1.0: activate --> -22
+[    7.649557] hub 1-0:1.0: activate --> -22
+[    7.709558] hub 1-0:1.0: activate --> -22
+[    7.769556] hub 1-0:1.0: activate --> -22
+[    7.829559] hub 1-0:1.0: activate --> -22
+[    7.889556] hub 1-0:1.0: activate --> -22
+[    7.949560] hub 1-0:1.0: activate --> -22
+[    8.009560] hub 1-0:1.0: activate --> -22
+[    8.069558] hub 1-0:1.0: activate --> -22
+[    8.129511] hub 1-0:1.0: activate --> -22
+[    8.189565] hub 1-0:1.0: activate --> -22
+[    8.249562] hub 1-0:1.0: activate --> -22
+[    8.309559] hub 1-0:1.0: activate --> -22
+[    8.369558] hub 1-0:1.0: activate --> -22
+[    8.429559] hub 1-0:1.0: activate --> -22
+[    8.489561] hub 1-0:1.0: activate --> -22
+[    8.549551] hub 1-0:1.0: activate --> -22
+[    8.609468] hub 1-0:1.0: activate --> -22
+[    8.669506] hub 1-0:1.0: activate --> -22
+[    8.729505] hub 1-0:1.0: activate --> -22
+[    8.789505] hub 1-0:1.0: activate --> -22
+[    8.849506] hub 1-0:1.0: activate --> -22
+[    8.909505] hub 1-0:1.0: activate --> -22
+[    8.969506] hub 1-0:1.0: activate --> -22
+[    9.029507] hub 1-0:1.0: activate --> -22
+[    9.089559] hub 1-0:1.0: activate --> -22
+[    9.149564] hub 1-0:1.0: activate --> -22
+[    9.209596] hub 1-0:1.0: activate --> -22
+[    9.269562] hub 1-0:1.0: activate --> -22
+[    9.329557] hub 1-0:1.0: activate --> -22
+[    9.389561] hub 1-0:1.0: activate --> -22
+[    9.450013] hub 1-0:1.0: activate --> -22
+[    9.509517] hub 1-0:1.0: activate --> -22
+[    9.569568] hub 1-0:1.0: activate --> -22
+[    9.629507] hub 1-0:1.0: activate --> -22
+[    9.689505] hub 1-0:1.0: activate --> -22
+[    9.749506] hub 1-0:1.0: activate --> -22
+[    9.809509] hub 1-0:1.0: activate --> -22
+[    9.869505] hub 1-0:1.0: activate --> -22
+[    9.929505] hub 1-0:1.0: activate --> -22
+[    9.989505] hub 1-0:1.0: activate --> -22
+[   10.049506] hub 1-0:1.0: activate --> -22
+[   10.109503] hub 1-0:1.0: activate --> -22
+[   10.169548] hub 1-0:1.0: activate --> -22
+[   10.229468] hub 1-0:1.0: activate --> -22
+[   10.289561] hub 1-0:1.0: activate --> -22
+[   10.349567] hub 1-0:1.0: activate --> -22
+[   10.409558] hub 1-0:1.0: activate --> -22
+[   10.469558] hub 1-0:1.0: activate --> -22
+[   10.529558] hub 1-0:1.0: activate --> -22
+[   10.589559] hub 1-0:1.0: activate --> -22
+[   10.649557] hub 1-0:1.0: activate --> -22
+[   10.709559] hub 1-0:1.0: activate --> -22
+[   10.769557] hub 1-0:1.0: activate --> -22
+[   10.829559] hub 1-0:1.0: activate --> -22
+[   10.889564] hub 1-0:1.0: activate --> -22
+[   10.949558] hub 1-0:1.0: activate --> -22
+[   11.009558] hub 1-0:1.0: activate --> -22
+[   11.069562] hub 1-0:1.0: activate --> -22
+[   11.129509] hub 1-0:1.0: activate --> -22
+ 
+root@(no[   11.190109] hub 1-0:1.0: activate --> -22
+ne):/# [   11.249508] hub 1-0:1.0: activate --> -22
+[   11.309569] hub 1-0:1.0: activate --> -22
+[   11.369596] hub 1-0:1.0: activate --> -22
+[   11.429560] hub 1-0:1.0: activate --> -22
+[   11.489558] hub 1-0:1.0: activate --> -22
+[   11.549557] hub 1-0:1.0: activate --> -22
+[   11.609559] hub 1-0:1.0: activate --> -22
+[   11.669561] hub 1-0:1.0: activate --> -22
+[   11.729566] hub 1-0:1.0: activate --> -22
+[   11.789468] hub 1-0:1.0: activate --> -22
+[   11.849507] hub 1-0:1.0: activate --> -22
+[   11.909507] hub 1-0:1.0: activate --> -22
+[   12.269507] hub 1-0:1.0: activate --> -22
+[   12.329533] hub 1-0:1.0: activate --> -22
+[   12.389505] hub 1-0:1.0: activate --> -22
+mount -t sysfs none /sys
+[   12.451046] hub 1-0:1.0: activate --> -22
+[   12.509515] hub 1-0:1.0: activate --> -22
+[   12.569474] hub 1-0:1.0: activate --> -22
+root@(none):/# 
+root@(none):/# [   12.629561] hub 1-0:1.0: activate --> -22
+[   12.689556] hub 1-0:1.0: activate --> -22
+[   12.749557] hub 1-0:1.0: activate --> -22
+[   12.809555] hub 1-0:1.0: activate --> -22
+[   12.869556] hub 1-0:1.0: activate --> -22
+[   12.929555] hub 1-0:1.0: activate --> -22
+[   12.989556] hub 1-0:1.0: activate --> -22
+[   13.049557] hub 1-0:1.0: activate --> -22
+[   13.109555] hub 1-0:1.0: activate --> -22
+[   13.169556] hub 1-0:1.0: activate --> -22
+[   13.229556] hub 1-0:1.0: activate --> -22
+[   13.289554] hub 1-0:1.0: activate --> -22
+[   13.349554] hub 1-0:1.0: activate --> -22
+[   13.409552] hub 1-0:1.0: activate --> -22
+mount -t debugfs none /sys/kernel/debug
+[   13.469690] hub 1-0:1.0: activate --> -22
+root@(none):/# 
+root@(none):/# [   13.539607] hub 1-0:1.0: activate --> -22
+[   13.599534] hub 1-0:1.0: activate --> -22
+[   13.659467] hub 1-0:1.0: activate --> -22
+[   13.719504] hub 1-0:1.0: activate --> -22
+[   13.779504] hub 1-0:1.0: activate --> -22
+[   13.839502] hub 1-0:1.0: activate --> -22
+[   13.899501] hub 1-0:1.0: activate --> -22
+[   13.959503] hub 1-0:1.0: activate --> -22
+[   14.019504] hub 1-0:1.0: activate --> -22
+[   14.079501] hub 1-0:1.0: activate --> -22
+[   14.139575] hub 1-0:1.0: activate --> -22
+[   14.199505] hub 1-0:1.0: activate --> -22
+[   14.259503] hub 1-0:1.0: activate --> -22
+[   14.319503] hub 1-0:1.0: activate --> -22
+[   14.379501] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+[   14.439560] hub 1-0:1.0: activate --> -22
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Th[   14.499531] hub 1-0:1.0: activate --> -22
+u Jan  1 00:00:32 1970
+[   14.559548] hub 1-0:1.0: activate --> -22
+[   14.619562] hub 1-0:1.0: activate --> -22
+[   14.679569] hub 1-0:1.0: activate --> -22
+[   14.739568] hub 1-0:1.0: activate --> -22
+[   14.799548] hub 1-0:1.0: activate --> -22
+[   14.859447] hub 1-0:1.0: activate --> -22
+[   14.919650] hub 1-0:1.0: activate --> -22
+[   14.979559] hub 1-0:1.0: activate --> -22
+[   15.039560] hub 1-0:1.0: activate --> -22
+[   15.099567] hub 1-0:1.0: activate --> -22
+[   15.149090] PM: suspend entry (deep)
+[   15.152784] PM: Syncing filesystems ... done.
+[   15.159623] hub 1-0:1.0: activate --> -22
+[   15.164090] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   15.172181] OOM killer disabled.
+[   15.175399] Freezing remaining freezable tasks ... 
+[   15.219547] hub 1-0:1.0: activate --> -22
+[   15.232012] (elapsed 0.056 seconds) done.
+[   15.236019] Suspending console(s) (use no_console_suspend to debug)
+[   15.244875] hub 2-0:1.0: activate --> -22
+[   15.273664] pci_generic_config_write32: 20 callbacks suppressed
+[   15.273705] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x9c may corrupt adjacent RW1C bits
+[   15.293169] Disabling non-boot CPUs ...
+[   15.353875] Entering suspend state LP1
+[   15.353980] Enabling non-boot CPUs ...
+[   15.362262] CPU1 is up
+[   15.363627] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4c may corrupt adjacent RW1C bits
+[   15.363677] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x88 may corrupt adjacent RW1C bits
+[   15.363709] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x90 may corrupt adjacent RW1C bits
+[   15.363736] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x98 may corrupt adjacent RW1C bits
+[   15.363763] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x9c may corrupt adjacent RW1C bits
+[   15.363848] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[   15.363880] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[   15.363912] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x5c may corrupt adjacent RW1C bits
+[   15.363943] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[   15.364014] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   15.373587] hub 1-0:1.0: activate --> -22
+[   15.410660] hub 2-0:1.0: activate --> -22
+[   15.548091] OOM killer enabled.
+[   15.551251] Restarting tasks ... done.
+[   15.556072] PM: suspend exit
+root@(none):/# 
+[   15.579381] hub 1-0:1.0: activate --> -22
+root@(none):/# [   15.639491] hub 1-0:1.0: activate --> -22
+[   15.699496] hub 1-0:1.0: activate --> -22
+[   15.759485] hub 1-0:1.0: activate --> -22
+[   15.819483] hub 1-0:1.0: activate --> -22
+[   15.879483] hub 1-0:1.0: activate --> -22
+[   15.939482] hub 1-0:1.0: activate --> -22
+[   15.999482] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem [   16.078915] random: crng init done
+-s 3
+[   16.109361] hub 1-0:1.0: activate --> -22
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:36 1970
+[   16.128239] PM: suspend entry (deep)
+[   16.132371] PM: Syncing filesystems ... done.
+[   16.137171] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   16.145875] OOM killer disabled.
+[   16.149093] Freezing remaining freezable tasks ... 
+[   16.179486] hub 1-0:1.0: activate --> -22
+[   16.189294] (elapsed 0.040 seconds) done.
+[   16.193335] Suspending console(s) (use no_console_suspend to debug)
+[   16.202145] hub 2-0:1.0: activate --> -22
+[   16.252501] Disabling non-boot CPUs ...
+[   16.303222] Entering suspend state LP1
+[   16.303267] Enabling non-boot CPUs ...
+[   16.311365] CPU1 is up
+[   16.312556] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   16.322238] hub 1-0:1.0: activate --> -22
+[   16.350588] hub 2-0:1.0: activate --> -22
+[   16.385089] OOM killer enabled.
+[   16.388217] Restarting tasks ... done.
+[   16.392648] PM: suspend exit
+root@(none):/# 
+[   16.409280] hub 1-0:1.0: activate --> -22
+root@(none):/# [   16.469319] hub 1-0:1.0: activate --> -22
+[   16.529364] hub 1-0:1.0: activate --> -22
+[   16.589424] hub 1-0:1.0: activate --> -22
+[   16.649422] hub 1-0:1.0: activate --> -22
+[   16.709411] hub 1-0:1.0: activate --> -22
+[   16.769414] hub 1-0:1.0: activate --> -22
+[   16.829413] hub 1-0:1.0: activate --> -22
+[   16.889413] hub 1-0:1.0: activate --> -22
+[   16.949413] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+[   17.009512] hub 1-0:1.0: activate --> -22
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:40 1970
+[   17.027091] PM: suspend entry (deep)
+[   17.030763] PM: Syncing filesystems ... done.
+[   17.035556] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   17.044198] OOM killer disabled.
+[   17.047415] Freezing remaining freezable tasks ... 
+[   17.079410] hub 1-0:1.0: activate --> -22
+[   17.092453] (elapsed 0.045 seconds) done.
+[   17.096471] Suspending console(s) (use no_console_suspend to debug)
+[   17.105431] hub 2-0:1.0: activate --> -22
+[   17.153201] Disabling non-boot CPUs ...
+[   17.213305] Entering suspend state LP1
+[   17.213351] Enabling non-boot CPUs ...
+[   17.221456] CPU1 is up
+[   17.222823] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   17.235118] hub 1-0:1.0: activate --> -22
+[   17.270530] hub 2-0:1.0: activate --> -22
+[   17.305558] OOM killer enabled.
+[   17.308687] Restarting tasks ... done.
+[   17.313105] PM: suspend exit
+root@(none):/# 
+[   17.329210] hub 1-0:1.0: activate --> -22
+root@(none):/# [   17.389234] hub 1-0:1.0: activate --> -22
+[   17.449292] hub 1-0:1.0: activate --> -22
+[   17.509345] hub 1-0:1.0: activate --> -22
+[   17.569340] hub 1-0:1.0: activate --> -22
+[   17.629340] hub 1-0:1.0: activate --> -22
+[   17.689340] hub 1-0:1.0: activate --> -22
+[   17.749341] hub 1-0:1.0: activate --> -22
+[   17.809335] hub 1-0:1.0: activate --> -22
+[   17.869337] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:44 1970
+[   17.929215] hub 1-0:1.0: activate --> -22
+[   17.933943] PM: suspend entry (deep)
+[   17.937519] PM: Syncing filesystems ... done.
+[   17.942759] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   17.950839] OOM killer disabled.
+[   17.954056] Freezing remaining freezable tasks ... 
+[   17.999350] hub 1-0:1.0: activate --> -22
+[   18.010044] (elapsed 0.055 seconds) done.
+[   18.014063] Suspending console(s) (use no_console_suspend to debug)
+[   18.022880] hub 2-0:1.0: activate --> -22
+[   18.072512] Disabling non-boot CPUs ...
+[   18.123047] Entering suspend state LP1
+[   18.123093] Enabling non-boot CPUs ...
+[   18.131303] CPU1 is up
+[   18.132860] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   18.143031] hub 1-0:1.0: activate --> -22
+[   18.180493] hub 2-0:1.0: activate --> -22
+[   18.215393] OOM killer enabled.
+[   18.218521] Restarting tasks ... done.
+[   18.223051] PM: suspend exit
+root@(none):/# 
+[   18.239168] hub 1-0:1.0: activate --> -22
+root@(none):/# [   18.299191] hub 1-0:1.0: activate --> -22
+[   18.359250] hub 1-0:1.0: activate --> -22
+[   18.419245] hub 1-0:1.0: activate --> -22
+[   18.479243] hub 1-0:1.0: activate --> -22
+[   18.539244] hub 1-0:1.0: activate --> -22
+[   18.599241] hub 1-0:1.0: activate --> -22
+[   18.659244] hub 1-0:1.0: activate --> -22
+[   18.719245] hub 1-0:1.0: activate --> -22
+[   18.779244] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:48 1970
+[   18.839170] hub 1-0:1.0: activate --> -22
+[   18.843994] PM: suspend entry (deep)
+[   18.847580] PM: Syncing filesystems ... done.
+[   18.852907] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   18.860974] OOM killer disabled.
+[   18.864191] Freezing remaining freezable tasks ... 
+[   18.909311] hub 1-0:1.0: activate --> -22
+[   18.920069] (elapsed 0.055 seconds) done.
+[   18.924088] Suspending console(s) (use no_console_suspend to debug)
+[   18.931589] hub 2-0:1.0: activate --> -22
+[   18.982738] Disabling non-boot CPUs ...
+[   19.033020] Entering suspend state LP1
+[   19.033066] Enabling non-boot CPUs ...
+[   19.041164] CPU1 is up
+[   19.042691] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   19.052742] hub 1-0:1.0: activate --> -22
+[   19.090434] hub 2-0:1.0: activate --> -22
+[   19.125436] OOM killer enabled.
+[   19.128564] Restarting tasks ... done.
+[   19.133332] PM: suspend exit
+root@(none):/# 
+[   19.159322] hub 1-0:1.0: activate --> -22
+root@(none):/# [   19.219349] hub 1-0:1.0: activate --> -22
+[   19.279223] hub 1-0:1.0: activate --> -22
+[   19.339225] hub 1-0:1.0: activate --> -22
+[   19.399220] hub 1-0:1.0: activate --> -22
+[   19.459223] hub 1-0:1.0: activate --> -22
+[   19.519222] hub 1-0:1.0: activate --> -22
+[   19.579220] hub 1-0:1.0: activate --> -22
+[   19.639220] hub 1-0:1.0: activate --> -22
+rtcwake [   19.699263] hub 1-0:1.0: activate --> -22
+-d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:00:52 1970
+[   19.749492] PM: suspend entry (deep)
+[   19.753066] PM: Syncing filesystems ... done.
+[   19.757773] Freezing user space processes ... 
+[   19.759230] hub 1-0:1.0: activate --> -22
+[   19.763735] (elapsed 0.005 seconds) done.
+[   19.763742] OOM killer disabled.
+[   19.763743] Freezing remaining freezable tasks ... (elapsed 0.011 seconds) done.
+[   19.782559] Suspending console(s) (use no_console_suspend to debug)
+[   19.790851] hub 2-0:1.0: activate --> -22
+[   19.841903] Disabling non-boot CPUs ...
+[   19.892947] Entering suspend state LP1
+[   19.892993] Enabling non-boot CPUs ...
+[   19.901151] CPU1 is up
+[   19.903039] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   19.914063] hub 1-0:1.0: activate --> -22
+[   19.950382] hub 2-0:1.0: activate --> -22
+[   19.985332] OOM killer enabled.
+[   19.988461] Restarting tasks ... done.
+[   19.992561] PM: suspend exit
+root@(none):/# 
+[   20.009020] hub 1-0:1.0: activate --> -22
+root@(none):/# [   20.069066] hub 1-0:1.0: activate --> -22
+[   20.129112] hub 1-0:1.0: activate --> -22
+[   20.189159] hub 1-0:1.0: activate --> -22
+[   20.249156] hub 1-0:1.0: activate --> -22
+[   20.309147] hub 1-0:1.0: activate --> -22
+[   20.369151] hub 1-0:1.0: activate --> -22
+[   20.429150] hub 1-0:1.0: activate --> -22
+[   20.489151] hub 1-0:1.0: activate --> -22
+[   20.549150] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:[   20.609037] hub 1-0:1.0: activate --> -22
+00:56 1970
+[   20.614232] PM: suspend entry (deep)
+[   20.618121] PM: Syncing filesystems ... done.
+[   20.623352] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   20.631438] OOM killer disabled.
+[   20.634654] Freezing remaining freezable tasks ... 
+[   20.679164] hub 1-0:1.0: activate --> -22
+[   20.689906] (elapsed 0.055 seconds) done.
+[   20.693925] Suspending console(s) (use no_console_suspend to debug)
+[   20.701478] hub 2-0:1.0: activate --> -22
+[   20.732832] pci_generic_config_write32: 62 callbacks suppressed
+[   20.732871] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x9c may corrupt adjacent RW1C bits
+[   20.752297] Disabling non-boot CPUs ...
+[   20.833447] Entering suspend state LP1
+[   20.833549] Enabling non-boot CPUs ...
+[   20.841911] CPU1 is up
+[   20.843144] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x4c may corrupt adjacent RW1C bits
+[   20.843192] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x88 may corrupt adjacent RW1C bits
+[   20.843224] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x90 may corrupt adjacent RW1C bits
+[   20.843252] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x98 may corrupt adjacent RW1C bits
+[   20.843280] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x9c may corrupt adjacent RW1C bits
+[   20.843365] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[   20.843397] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[   20.843430] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x5c may corrupt adjacent RW1C bits
+[   20.843459] pci_bus 0000:00: 2-byte config write to 0000:00:01.0 offset 0x52 may corrupt adjacent RW1C bits
+[   20.843528] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   20.861035] hub 1-0:1.0: activate --> -22
+[   20.890256] hub 2-0:1.0: activate --> -22
+[   21.028371] OOM killer enabled.
+[   21.031530] Restarting tasks ... done.
+[   21.036330] PM: suspend exit
+root@(none):/# 
+[   21.059066] hub 1-0:1.0: activate --> -22
+root@(none):/# [   21.119004] hub 1-0:1.0: activate --> -22
+[   21.179082] hub 1-0:1.0: activate --> -22
+[   21.239078] hub 1-0:1.0: activate --> -22
+[   21.299101] hub 1-0:1.0: activate --> -22
+[   21.359089] hub 1-0:1.0: activate --> -22
+[   21.419083] hub 1-0:1.0: activate --> -22
+[   21.479081] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+[   21.539170] hub 1-0:1.0: activate --> -22
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:00 1970
+[   21.555948] PM: suspend entry (deep)
+[   21.559672] PM: Syncing filesystems ... done.
+[   21.564647] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   21.573353] OOM killer disabled.
+[   21.576569] Freezing remaining freezable tasks ... 
+[   21.609079] hub 1-0:1.0: activate --> -22
+[   21.618050] (elapsed 0.041 seconds) done.
+[   21.622109] Suspending console(s) (use no_console_suspend to debug)
+[   21.630691] hub 2-0:1.0: activate --> -22
+[   21.682015] Disabling non-boot CPUs ...
+[   21.763267] Entering suspend state LP1
+[   21.763370] Enabling non-boot CPUs ...
+[   21.771734] CPU1 is up
+[   21.772900] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   21.783271] hub 1-0:1.0: activate --> -22
+[   21.830130] hub 2-0:1.0: activate --> -22
+[   21.865166] OOM killer enabled.
+[   21.868295] Restarting tasks ... done.
+[   21.872493] PM: suspend exit
+root@(none):/# 
+[   21.888873] hub 1-0:1.0: activate --> -22
+root@(none):/# [   21.948919] hub 1-0:1.0: activate --> -22
+[   22.008962] hub 1-0:1.0: activate --> -22
+[   22.069011] hub 1-0:1.0: activate --> -22
+[   22.129008] hub 1-0:1.0: activate --> -22
+[   22.189011] hub 1-0:1.0: activate --> -22
+[   22.249002] hub 1-0:1.0: activate --> -22
+[   22.309002] hub 1-0:1.0: activate --> -22
+[   22.369002] hub 1-0:1.0: activate --> -22
+[   22.429001] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:04 1970
+[   22.481315] PM: suspend entry (deep)
+[   22.484903] PM: Syncing filesystems ... done.
+[   22.488998] hub 1-0:1.0: activate --> -22
+[   22.494281] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   22.502357] OOM killer disabled.
+[   22.505573] Freezing remaining freezable tasks ... 
+[   22.548994] hub 1-0:1.0: activate --> -22
+[   22.559631] (elapsed 0.054 seconds) done.
+[   22.563638] Suspending console(s) (use no_console_suspend to debug)
+[   22.572449] hub 2-0:1.0: activate --> -22
+[   22.622039] Disabling non-boot CPUs ...
+[   22.672859] Entering suspend state LP1
+[   22.672905] Enabling non-boot CPUs ...
+[   22.681050] CPU1 is up
+[   22.682319] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   22.692804] hub 1-0:1.0: activate --> -22
+[   22.730140] hub 2-0:1.0: activate --> -22
+[   22.764992] OOM killer enabled.
+[   22.768120] Restarting tasks ... done.
+[   22.772425] PM: suspend exit
+root@(none):/# 
+[   22.788800] hub 1-0:1.0: activate --> -22
+root@(none):/# [   22.848845] hub 1-0:1.0: activate --> -22
+[   22.908889] hub 1-0:1.0: activate --> -22
+[   22.968935] hub 1-0:1.0: activate --> -22
+[   23.028934] hub 1-0:1.0: activate --> -22
+[   23.088929] hub 1-0:1.0: activate --> -22
+[   23.148926] hub 1-0:1.0: activate --> -22
+[   23.208931] hub 1-0:1.0: activate --> -22
+[   23.268928] hub 1-0:1.0: activate --> -22
+[   23.328931] hub 1-0:1.0: activate --> -22
+rtcwake -d rtc1 -m mem -s 3
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc1 at Thu Jan  1 00:01:08 19[   23.388806] hub 1-0:1.0: activate --> -22
+70
+[   23.393904] PM: suspend entry (deep)
+[   23.397480] PM: Syncing filesystems ... done.
+[   23.402317] Freezing user space processes ... (elapsed 0.001 seconds) done.
+[   23.410999] OOM killer disabled.
+[   23.414216] Freezing remaining freezable tasks ... 
+[   23.458947] hub 1-0:1.0: activate --> -22
+[   23.469675] (elapsed 0.055 seconds) done.
+[   23.473693] Suspending console(s) (use no_console_suspend to debug)
+[   23.481241] hub 2-0:1.0: activate --> -22
+[   23.532055] Disabling non-boot CPUs ...
+[   23.592797] Entering suspend state LP1
+[   23.592842] Enabling non-boot CPUs ...
+[   23.601000] CPU1 is up
+[   23.602178] pcieport 0000:00:01.0: nv_msi_ht_cap_quirk didn't locate host bridge
+[   23.612659] hub 1-0:1.0: activate --> -22
+[   23.650031] hub 2-0:1.0: activate --> -22
+[   23.684920] OOM killer enabled.
+[   23.688049] Restarting tasks ... done.
+[   23.692662] PM: suspend exit
+root@(none):/# 
+[   23.718898] hub 1-0:1.0: activate --> -22
+root@(none):/# [   23.779044] hub 1-0:1.0: activate --> -22
+[   23.838867] hub 1-0:1.0: activate --> -22
+[   23.898857] hub 1-0:1.0: activate --> -22
+[   23.958857] hub 1-0:1.0: activate --> -22
+[   24.018855] hub 1-0:1.0: activate --> -22
+NVTB SYSTEM SUSPEND TEST COMPLETE
+[   24.078854] hub 1-0:1.0: activate --> -22
+[   24.138865] hub 1-0:1.0: activate --> -22
+[   24.198857] hub 1-0:1.0: activate --> -22
+[   24.258857] hub 1-0:1.0: activate --> -22
+[   24.318856] hub 1-0:1.0: activate --> -22
+[   24.378856] hub 1-0:1.0: activate --> -22
+[   24.438856] hub 1-0:1.0: activate --> -22
+[   24.498917] hub 1-0:1.0: activate --> -22
+[   24.558860] hub 1-0:1.0: activate --> -22
+[   24.618856] hub 1-0:1.0: activate --> -22
+[   24.678852] hub 1-0:1.0: activate --> -22
+[   24.738855] hub 1-0:1.0: activate --> -22
+[   24.798855] hub 1-0:1.0: activate --> -22
+[   24.858858] hub 1-0:1.0: activate --> -22
+[   24.918805] hub 1-0:1.0: activate --> -22
+[   24.978803] hub 1-0:1.0: activate --> -22
+[   25.038802] hub 1-0:1.0: activate --> -22

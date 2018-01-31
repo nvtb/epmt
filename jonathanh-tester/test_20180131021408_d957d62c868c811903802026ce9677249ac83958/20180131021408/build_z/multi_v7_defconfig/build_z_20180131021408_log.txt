@@ -1,0 +1,8 @@
+test_build: Wed Jan 31 02:16:57 PST 2018: started on multi_v7_defconfig test_20180131021408_d957d62c868c811903802026ce9677249ac83958 (d957d62c868c811903802026ce9677249ac83958)
+test_build: Wed Jan 31 02:16:57 PST 2018: serial is 20180131021408
+arch/arm/crypto/Makefile:26: These CRC Extensions modules need binutils 2.23 or higher
+arch/arm/crypto/Makefile:27:  crc32-arm-ce.o
+   text	   data	    bss	    dec	    hex	filename
+12178209	6327172	 415076	18920457	120b409	vmlinux
+test_build: Wed Jan 31 02:22:31 PST 2018: succeeded on multi_v7_defconfig test_20180131021408_d957d62c868c811903802026ce9677249ac83958
+test_build: Wed Jan 31 02:22:31 PST 2018: ended on multi_v7_defconfig test_20180131021408_d957d62c868c811903802026ce9677249ac83958

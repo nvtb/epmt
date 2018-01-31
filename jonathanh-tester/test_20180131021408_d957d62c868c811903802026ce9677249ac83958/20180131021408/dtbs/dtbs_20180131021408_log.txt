@@ -1,0 +1,5 @@
+test_build: Wed Jan 31 02:20:38 PST 2018: started on tegra124-nyan-big.dtb test_20180131021408_d957d62c868c811903802026ce9677249ac83958 (d957d62c868c811903802026ce9677249ac83958)
+test_build: Wed Jan 31 02:20:41 PST 2018: serial is 20180131021408
+67482 arch/arm/boot/dts/tegra124-nyan-big.dtb
+test_build: Wed Jan 31 02:20:45 PST 2018: succeeded on tegra124-nyan-big.dtb test_20180131021408_d957d62c868c811903802026ce9677249ac83958
+test_build: Wed Jan 31 02:20:45 PST 2018: ended on tegra124-nyan-big.dtb test_20180131021408_d957d62c868c811903802026ce9677249ac83958

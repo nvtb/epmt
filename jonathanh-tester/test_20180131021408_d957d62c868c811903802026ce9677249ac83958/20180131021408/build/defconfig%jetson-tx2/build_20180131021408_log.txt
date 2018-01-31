@@ -1,0 +1,8 @@
+test_build: Wed Jan 31 02:20:58 PST 2018: started on defconfig%jetson-tx2 test_20180131021408_d957d62c868c811903802026ce9677249ac83958 (d957d62c868c811903802026ce9677249ac83958)
+test_build: Wed Jan 31 02:20:58 PST 2018: serial is 20180131021408
+arch/arm64/Makefile:27: ld does not support --fix-cortex-a53-843419; kernel may be susceptible to erratum
+arch/arm64/Makefile:48: Detected assembler with broken .inst; disassembly will be unreliable
+   text	   data	    bss	    dec	    hex	filename
+11192152	6237164	 411080	17840396	110390c	vmlinux
+test_build: Wed Jan 31 02:24:39 PST 2018: succeeded on defconfig%jetson-tx2 test_20180131021408_d957d62c868c811903802026ce9677249ac83958
+test_build: Wed Jan 31 02:24:39 PST 2018: ended on defconfig%jetson-tx2 test_20180131021408_d957d62c868c811903802026ce9677249ac83958
